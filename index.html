@@ -2,35 +2,212 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Super Duper Labs</title>
+    <title>Super Duper Labs — Coming Soon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Super Duper Labs — Something super is coming. Sign up to be the first to know." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
     <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        background: #ffffff;
-        color: #000000;
+        font-family: 'Sora', system-ui, sans-serif;
+        background: #0a0a0a;
+        color: #ffffff;
+        min-height: 100vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
-        margin: 0;
+        padding: 2rem;
+        overflow: hidden;
+        position: relative;
       }
-      .wrap {
+
+      body::before {
+        content: '';
+        position: absolute;
+        top: -40%;
+        left: -20%;
+        width: 60%;
+        height: 80%;
+        background: radial-gradient(ellipse, rgba(255, 31, 143, 0.15) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      body::after {
+        content: '';
+        position: absolute;
+        bottom: -30%;
+        right: -10%;
+        width: 50%;
+        height: 70%;
+        background: radial-gradient(ellipse, rgba(0, 212, 200, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
         text-align: center;
+        max-width: 640px;
+        width: 100%;
       }
-      h1 {
-        font-size: 2.5rem;
+
+      .brand {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        line-height: 1.1;
         margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #FF1F8F 0%, #FFD60A 50%, #00D4C8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
-      p {
-        color: #555;
+
+      .tagline {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: clamp(1.2rem, 4vw, 2rem);
+        color: #ffffff;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .coming-soon {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #FFD60A;
+        border: 1px solid rgba(255, 214, 10, 0.4);
+        border-radius: 100px;
+        padding: 0.4rem 1.2rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .description {
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+      }
+
+      .signup-form {
+        display: flex;
+        gap: 0;
+        max-width: 440px;
+        margin: 0 auto;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(255, 31, 143, 0.15);
+      }
+
+      .signup-form input[type="email"] {
+        flex: 1;
+        padding: 0.9rem 1.2rem;
+        font-family: 'Sora', sans-serif;
+        font-size: 0.95rem;
+        border: none;
+        outline: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+      }
+
+      .signup-form input[type="email"]::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .signup-form input[type="email"]:focus {
+        border-color: #FF1F8F;
+        background: rgba(255, 31, 143, 0.05);
+      }
+
+      .signup-form button {
+        padding: 0.9rem 1.6rem;
+        font-family: 'Sora', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: none;
+        background: #FF1F8F;
+        color: #ffffff;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s ease;
+        border-radius: 0 8px 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .signup-form button:hover {
+        background: #e6007e;
+      }
+
+      .signup-form button svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      .footer {
+        position: relative;
+        z-index: 1;
+        margin-top: 4rem;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      @media (max-width: 480px) {
+        .signup-form {
+          flex-direction: column;
+          border-radius: 8px;
+        }
+
+        .signup-form input[type="email"] {
+          border-right: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 8px 8px 0 0;
+          border-bottom: none;
+        }
+
+        .signup-form button {
+          border-radius: 0 0 8px 8px;
+          justify-content: center;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <h1>Super Duper Labs</h1>
-      <p>Building Super Duper.</p>
+    <div class="container">
+      <h1 class="brand">Super Duper Labs</h1>
+      <p class="tagline">Super Duper! What's Next</p>
+      <span class="coming-soon">Coming Soon</span>
+      <p class="description">
+        Something super is on the way. Sign up to be the first to know when we launch.
+      </p>
+      <form class="signup-form" action="#" method="post">
+        <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
+        <button type="submit">
+          Notify Me
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </button>
+      </form>
     </div>
+    <footer class="footer">
+      Super Duper Labs
+    </footer>
   </body>
 </html>
