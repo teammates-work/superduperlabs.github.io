@@ -66,10 +66,7 @@
         font-size: clamp(2.5rem, 8vw, 4.5rem);
         line-height: 1.1;
         margin-bottom: 0.5rem;
-        background: linear-gradient(135deg, #FF1F8F 0%, #FFD60A 50%, #00D4C8 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #FF1F8F;
       }
 
       .tagline {
@@ -162,11 +159,14 @@
       }
 
       .footer {
-        position: relative;
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        right: 0;
         z-index: 1;
-        margin-top: 4rem;
         font-size: 0.8rem;
         color: rgba(255, 255, 255, 0.3);
+        text-align: center;
       }
 
       @media (max-width: 480px) {
@@ -191,7 +191,7 @@
   <body>
     <div class="container">
       <h1 class="brand">Super Duper Labs</h1>
-      <p class="tagline">Super Duper! What's Next</p>
+      <p class="tagline">Super Duper! What's Next?</p>
       <span class="coming-soon">Coming Soon</span>
       <p class="description">
         Something super is on the way. Sign up to be the first to know when we launch.
@@ -207,7 +207,7 @@
       </form>
     </div>
     <footer class="footer">
-      Super Duper Labs
+      Copyright 2026 Super Duper Labs
     </footer>
   </body>
 </html>
