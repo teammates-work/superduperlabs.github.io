@@ -276,6 +276,73 @@
         flex-shrink: 0;
       }
 
+      .signup-form .btn-loading {
+        display: none;
+      }
+
+      .signup-form .btn-loading svg {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* Form states */
+      .newsletter-form-container {
+        width: 100%;
+        max-width: 440px;
+      }
+
+      .newsletter-success,
+      .newsletter-error {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .newsletter-success {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+
+      .newsletter-success-message {
+        color: #10B981;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      .newsletter-error {
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+      }
+
+      .newsletter-error-message {
+        color: #EF4444;
+        font-size: 0.95rem;
+      }
+
+      .newsletter-back-button {
+        display: none;
+        margin: 1rem auto 0;
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: 'Sora', sans-serif;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+
+      .newsletter-back-button:hover {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: underline;
+      }
+
       /* Section Headers */
       .section-header {
         text-align: center;
@@ -791,15 +858,29 @@
         <div class="hero-content">
           <h1>Your week, figured out.</h1>
           <p class="hero-subheadline">Sign in once. Five minutes later, you have a dashboard with your kids' schedules, upcoming events, and everything you need to know.</p>
-          <form class="signup-form" action="#" method="post">
-            <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
-            <button type="submit">
-              Join Waitlist
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </button>
-          </form>
+          <div class="newsletter-form-container">
+            <form class="signup-form newsletter-form" action="https://app.loops.so/api/newsletter-form/cmkvrcj6o00lc0i1fhymv7jyi" method="POST">
+              <input type="email" name="newsletter-form-input" class="newsletter-form-input" placeholder="you@example.com" required aria-label="Email address" />
+              <button type="submit" class="newsletter-form-button">
+                Join Waitlist
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+              <button type="button" class="btn-loading newsletter-loading-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+              </button>
+            </form>
+            <div class="newsletter-success">
+              <p class="newsletter-success-message">You're on the list! We'll be in touch.</p>
+            </div>
+            <div class="newsletter-error">
+              <p class="newsletter-error-message">Oops! Something went wrong, please try again</p>
+            </div>
+            <button type="button" class="newsletter-back-button">&larr; Try again</button>
+          </div>
         </div>
         <div class="hero-visual">
           <div class="hero-illustration">
@@ -944,15 +1025,29 @@
       <div class="container">
         <h2>Ready to get your week back?</h2>
         <p class="subtext">Join the waitlist and be the first to try Super Duper when we launch.</p>
-        <form class="signup-form" action="#" method="post">
-          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
-          <button type="submit">
-            Join Waitlist
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </button>
-        </form>
+        <div class="newsletter-form-container" style="margin: 0 auto 2rem;">
+          <form class="signup-form newsletter-form" action="https://app.loops.so/api/newsletter-form/cmkvrcj6o00lc0i1fhymv7jyi" method="POST">
+            <input type="email" name="newsletter-form-input" class="newsletter-form-input" placeholder="you@example.com" required aria-label="Email address" />
+            <button type="submit" class="newsletter-form-button">
+              Join Waitlist
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </button>
+            <button type="button" class="btn-loading newsletter-loading-button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+              </svg>
+            </button>
+          </form>
+          <div class="newsletter-success">
+            <p class="newsletter-success-message">You're on the list! We'll be in touch.</p>
+          </div>
+          <div class="newsletter-error">
+            <p class="newsletter-error-message">Oops! Something went wrong, please try again</p>
+          </div>
+          <button type="button" class="newsletter-back-button">&larr; Try again</button>
+        </div>
         <p class="trust-note">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
@@ -974,5 +1069,104 @@
         </div>
       </div>
     </footer>
+
+    <script>
+    function submitHandler(event) {
+      event.preventDefault();
+      var container = event.target.parentNode;
+      var form = container.querySelector(".newsletter-form");
+      var formInput = container.querySelector(".newsletter-form-input");
+      var success = container.querySelector(".newsletter-success");
+      var errorContainer = container.querySelector(".newsletter-error");
+      var errorMessage = container.querySelector(".newsletter-error-message");
+      var backButton = container.querySelector(".newsletter-back-button");
+      var submitButton = container.querySelector(".newsletter-form-button");
+      var loadingButton = container.querySelector(".newsletter-loading-button");
+
+      const rateLimit = () => {
+        errorContainer.style.display = "flex";
+        errorMessage.innerText = "Too many signups, please try again in a little while";
+        submitButton.style.display = "none";
+        formInput.style.display = "none";
+        backButton.style.display = "block";
+      }
+
+      var time = new Date();
+      var timestamp = time.valueOf();
+      var previousTimestamp = localStorage.getItem("loops-form-timestamp");
+
+      if (previousTimestamp && Number(previousTimestamp) + 60000 > timestamp) {
+        rateLimit();
+        return;
+      }
+      localStorage.setItem("loops-form-timestamp", timestamp);
+
+      submitButton.style.display = "none";
+      loadingButton.style.display = "flex";
+
+      var formBody = "userGroup=&mailingLists=&email=" + encodeURIComponent(formInput.value);
+
+      fetch(event.target.action, {
+        method: "POST",
+        body: formBody,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+        .then((res) => [res.ok, res.json(), res])
+        .then(([ok, dataPromise, res]) => {
+          if (ok) {
+            success.style.display = "flex";
+            form.reset();
+          } else {
+            dataPromise.then(data => {
+              errorContainer.style.display = "flex";
+              errorMessage.innerText = data.message ? data.message : res.statusText;
+            });
+          }
+        })
+        .catch(error => {
+          if (error.message === "Failed to fetch") {
+            rateLimit();
+            return;
+          }
+          errorContainer.style.display = "flex";
+          if (error.message) errorMessage.innerText = error.message;
+          localStorage.setItem("loops-form-timestamp", '');
+        })
+        .finally(() => {
+          formInput.style.display = "none";
+          loadingButton.style.display = "none";
+          backButton.style.display = "block";
+        });
+    }
+
+    function resetFormHandler(event) {
+      var container = event.target.parentNode;
+      var formInput = container.querySelector(".newsletter-form-input");
+      var success = container.querySelector(".newsletter-success");
+      var errorContainer = container.querySelector(".newsletter-error");
+      var errorMessage = container.querySelector(".newsletter-error-message");
+      var backButton = container.querySelector(".newsletter-back-button");
+      var submitButton = container.querySelector(".newsletter-form-button");
+
+      success.style.display = "none";
+      errorContainer.style.display = "none";
+      errorMessage.innerText = "Oops! Something went wrong, please try again";
+      backButton.style.display = "none";
+      formInput.style.display = "flex";
+      submitButton.style.display = "flex";
+    }
+
+    var formContainers = document.getElementsByClassName("newsletter-form-container");
+    for (var i = 0; i < formContainers.length; i++) {
+      var formContainer = formContainers[i];
+      var handlersAdded = formContainer.classList.contains('newsletter-handlers-added');
+      if (handlersAdded) continue;
+      formContainer.querySelector(".newsletter-form").addEventListener("submit", submitHandler);
+      formContainer.querySelector(".newsletter-back-button").addEventListener("click", resetFormHandler);
+      formContainer.classList.add("newsletter-handlers-added");
+    }
+    </script>
   </body>
 </html>
