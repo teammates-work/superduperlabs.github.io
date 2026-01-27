@@ -832,6 +832,59 @@
           display: none;
         }
       }
+
+      /* Konami Code Modal */
+      .konami-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+      }
+
+      .konami-modal.active {
+        display: flex;
+      }
+
+      .konami-modal-content {
+        position: relative;
+        width: 90%;
+        max-width: 800px;
+        aspect-ratio: 16/9;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 60px rgba(255, 31, 143, 0.4);
+      }
+
+      .konami-modal-content iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .konami-modal-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+      }
+
+      .konami-modal-close:hover {
+        opacity: 1;
+      }
     </style>
   </head>
   <body>
@@ -1167,6 +1220,61 @@
       formContainer.querySelector(".newsletter-back-button").addEventListener("click", resetFormHandler);
       formContainer.classList.add("newsletter-handlers-added");
     }
+
+    // Konami Code Easter Egg
+    (function() {
+      var konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', 'Enter'];
+      var konamiIndex = 0;
+
+      document.addEventListener('keydown', function(e) {
+        var key = e.key;
+        if (key === konamiCode[konamiIndex]) {
+          konamiIndex++;
+          if (konamiIndex === konamiCode.length) {
+            konamiIndex = 0;
+            showKonamiModal();
+          }
+        } else {
+          konamiIndex = 0;
+        }
+      });
+
+      function showKonamiModal() {
+        var modal = document.getElementById('konami-modal');
+        var iframe = document.getElementById('konami-video');
+        iframe.src = 'https://www.youtube.com/embed/e8X35-Teneg?autoplay=1';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeKonamiModal() {
+        var modal = document.getElementById('konami-modal');
+        var iframe = document.getElementById('konami-video');
+        iframe.src = '';
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('.konami-modal-close') || (e.target.classList.contains('konami-modal') && !e.target.closest('.konami-modal-content'))) {
+          closeKonamiModal();
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeKonamiModal();
+        }
+      });
+    })();
     </script>
+
+    <!-- Konami Code Modal -->
+    <div class="konami-modal" id="konami-modal">
+      <div class="konami-modal-content">
+        <button class="konami-modal-close" aria-label="Close">&times;</button>
+        <iframe id="konami-video" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
   </body>
 </html>
