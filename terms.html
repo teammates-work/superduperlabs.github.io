@@ -76,6 +76,33 @@
         color: #1a1a1a;
         margin-top: 2.5rem;
         margin-bottom: 1rem;
+        position: relative;
+      }
+
+      .heading-anchor {
+        position: absolute;
+        left: -1.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      h2:hover .heading-anchor {
+        opacity: 1;
+      }
+
+      .heading-anchor:hover {
+        color: #FF1F8F;
+      }
+
+      .heading-anchor svg {
+        width: 1rem;
+        height: 1rem;
       }
 
       h3 {
@@ -169,6 +196,10 @@
         .callout {
           padding: 1.25rem;
         }
+
+        .heading-anchor {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -202,7 +233,7 @@
 
       <!-- 1. Overview of the Service -->
       <section>
-        <h2>1. Overview of the Service</h2>
+        <h2 id="section-1"><a class="heading-anchor" href="#section-1" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>1. Overview of the Service</h2>
         <p>
           SuperDuper is an adaptive family logistics platform that uses artificial intelligence to help
           parents and guardians manage schedules, events, and activities. The Service operates by:
@@ -223,7 +254,7 @@
 
       <!-- 2. Eligibility and Account Registration -->
       <section>
-        <h2>2. Eligibility and Account Registration</h2>
+        <h2 id="section-2"><a class="heading-anchor" href="#section-2" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>2. Eligibility and Account Registration</h2>
 
         <h3>2.1 Eligibility</h3>
         <p>
@@ -252,7 +283,7 @@
 
       <!-- 3. AI-Generated Content and Adaptive Features -->
       <section>
-        <h2>3. AI-Generated Content and Adaptive Features</h2>
+        <h2 id="section-3"><a class="heading-anchor" href="#section-3" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>3. AI-Generated Content and Adaptive Features</h2>
 
         <h3>3.1 Nature of AI-Generated Content</h3>
         <p>
@@ -294,7 +325,7 @@
 
       <!-- 4. Data Access and Authorization -->
       <section>
-        <h2>4. Data Access and Authorization</h2>
+        <h2 id="section-4"><a class="heading-anchor" href="#section-4" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>4. Data Access and Authorization</h2>
 
         <h3>4.1 Connected Accounts</h3>
         <p>
@@ -323,7 +354,7 @@
 
       <!-- 5. Subscription and Payment -->
       <section>
-        <h2>5. Subscription and Payment</h2>
+        <h2 id="section-5"><a class="heading-anchor" href="#section-5" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>5. Subscription and Payment</h2>
 
         <h3>5.1 Free Trials</h3>
         <p>
@@ -352,7 +383,7 @@
 
       <!-- 6. User Responsibilities and Acceptable Use -->
       <section>
-        <h2>6. User Responsibilities and Acceptable Use</h2>
+        <h2 id="section-6"><a class="heading-anchor" href="#section-6" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>6. User Responsibilities and Acceptable Use</h2>
         <p>You agree not to:</p>
         <ul>
           <li>Use the Service unlawfully</li>
@@ -369,7 +400,7 @@
 
       <!-- 7. Intellectual Property -->
       <section>
-        <h2>7. Intellectual Property</h2>
+        <h2 id="section-7"><a class="heading-anchor" href="#section-7" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>7. Intellectual Property</h2>
 
         <h3>7.1 Our IP</h3>
         <p>
@@ -398,7 +429,7 @@
 
       <!-- 8. Third-Party Services -->
       <section>
-        <h2>8. Third-Party Services</h2>
+        <h2 id="section-8"><a class="heading-anchor" href="#section-8" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>8. Third-Party Services</h2>
         <p>
           Third-party services are governed by their own terms. We are not responsible for third-party
           availability, content, or outcomes.
@@ -407,7 +438,7 @@
 
       <!-- 9. Disclaimers -->
       <section>
-        <h2>9. Disclaimers</h2>
+        <h2 id="section-9"><a class="heading-anchor" href="#section-9" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>9. Disclaimers</h2>
         <div class="callout">
           <p>
             <strong>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE." WE DISCLAIM ALL WARRANTIES TO
@@ -423,7 +454,7 @@
 
       <!-- 10. Limitation of Liability -->
       <section>
-        <h2>10. Limitation of Liability</h2>
+        <h2 id="section-10"><a class="heading-anchor" href="#section-10" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>10. Limitation of Liability</h2>
         <div class="callout">
           <p>
             <strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, SUPER DUPER SHALL NOT BE LIABLE FOR INDIRECT,
@@ -446,7 +477,7 @@
 
       <!-- 11. Indemnification -->
       <section>
-        <h2>11. Indemnification</h2>
+        <h2 id="section-11"><a class="heading-anchor" href="#section-11" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>11. Indemnification</h2>
         <p>
           You agree to indemnify and hold harmless SuperDuper from claims arising out of your use of
           the Service or violation of these Terms.
@@ -455,7 +486,7 @@
 
       <!-- 12. Modifications -->
       <section>
-        <h2>12. Modifications</h2>
+        <h2 id="section-12"><a class="heading-anchor" href="#section-12" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>12. Modifications</h2>
         <p>
           We may modify the Service or these Terms at any time. Material changes will be communicated
           in advance. Continued use constitutes acceptance.
@@ -464,7 +495,7 @@
 
       <!-- 13. Termination -->
       <section>
-        <h2>13. Termination</h2>
+        <h2 id="section-13"><a class="heading-anchor" href="#section-13" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>13. Termination</h2>
         <p>
           You may terminate at any time. We may suspend or terminate access with or without notice.
           Upon termination, your right to use the Service ceases. Sections 7, 9, 10, 11, and 14–17
@@ -474,13 +505,13 @@
 
       <!-- 14. Governing Law -->
       <section>
-        <h2>14. Governing Law</h2>
+        <h2 id="section-14"><a class="heading-anchor" href="#section-14" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>14. Governing Law</h2>
         <p>California law governs these Terms.</p>
       </section>
 
       <!-- 15. Arbitration and Class Action Waiver -->
       <section>
-        <h2>15. Arbitration and Class Action Waiver</h2>
+        <h2 id="section-15"><a class="heading-anchor" href="#section-15" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>15. Arbitration and Class Action Waiver</h2>
         <div class="callout">
           <p>
             <strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS.</strong>
@@ -520,7 +551,7 @@
 
       <!-- 16. Jurisdiction and Venue -->
       <section>
-        <h2>16. Jurisdiction and Venue</h2>
+        <h2 id="section-16"><a class="heading-anchor" href="#section-16" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>16. Jurisdiction and Venue</h2>
         <p>
           Non-arbitrated disputes shall be resolved exclusively in courts located in San Francisco
           County, California.
@@ -529,7 +560,7 @@
 
       <!-- 17. General Provisions -->
       <section>
-        <h2>17. General Provisions</h2>
+        <h2 id="section-17"><a class="heading-anchor" href="#section-17" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>17. General Provisions</h2>
         <p>
           These Terms constitute the entire agreement. If any provision is unenforceable, the remainder
           remains in effect. We may assign these Terms freely.
@@ -538,7 +569,7 @@
 
       <!-- 18. Contact Information -->
       <section>
-        <h2>18. Contact Information</h2>
+        <h2 id="section-18"><a class="heading-anchor" href="#section-18" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>18. Contact Information</h2>
         <div class="callout">
           <p>
             <strong>Ogdenville, Inc. (dba SuperDuper)</strong><br />

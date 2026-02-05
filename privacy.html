@@ -76,6 +76,33 @@
         color: #1a1a1a;
         margin-top: 2.5rem;
         margin-bottom: 1rem;
+        position: relative;
+      }
+
+      .heading-anchor {
+        position: absolute;
+        left: -1.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      h2:hover .heading-anchor {
+        opacity: 1;
+      }
+
+      .heading-anchor:hover {
+        color: #FF1F8F;
+      }
+
+      .heading-anchor svg {
+        width: 1rem;
+        height: 1rem;
       }
 
       h3 {
@@ -188,6 +215,10 @@
         .callout {
           padding: 1.25rem;
         }
+
+        .heading-anchor {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -222,7 +253,7 @@
 
       <!-- 1. Who This Service Is For -->
       <section>
-        <h2>1. Who This Service Is For</h2>
+        <h2 id="section-1"><a class="heading-anchor" href="#section-1" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>1. Who This Service Is For</h2>
         <p>
           SuperDuper is designed for <strong>adults</strong>—parents, guardians, and caregivers—who
           manage family schedules. While the app processes information about children (names, activities,
@@ -237,7 +268,7 @@
 
       <!-- 2. Information We Collect -->
       <section>
-        <h2>2. Information We Collect</h2>
+        <h2 id="section-2"><a class="heading-anchor" href="#section-2" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>2. Information We Collect</h2>
 
         <h3>Account Information</h3>
         <ul>
@@ -272,7 +303,7 @@
 
       <!-- 3. Email Access and Handling -->
       <section>
-        <h2>3. Email Access and Handling</h2>
+        <h2 id="section-3"><a class="heading-anchor" href="#section-3" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>3. Email Access and Handling</h2>
         <p>
           Email access is core to how SuperDuper works—we extract family logistics information from
           school newsletters, activity schedules, and appointment confirmations. Given the sensitivity
@@ -373,7 +404,7 @@
 
       <!-- 4. Other Connected Accounts -->
       <section>
-        <h2>4. Other Connected Accounts</h2>
+        <h2 id="section-4"><a class="heading-anchor" href="#section-4" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>4. Other Connected Accounts</h2>
         <p>
           Beyond email, SuperDuper may connect to other data sources you authorize, such as calendars,
           to provide a more complete picture of your family's schedule.
@@ -393,7 +424,7 @@
 
       <!-- 5. AI Processing and Model Training -->
       <section>
-        <h2>5. AI Processing and Model Training</h2>
+        <h2 id="section-5"><a class="heading-anchor" href="#section-5" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>5. AI Processing and Model Training</h2>
         <p>
           SuperDuper uses artificial intelligence to understand your family's information and generate
           personalized applications. We want to be completely transparent about how this works.
@@ -465,7 +496,7 @@
 
       <!-- 6. How We Use Your Information -->
       <section>
-        <h2>6. How We Use Your Information</h2>
+        <h2 id="section-6"><a class="heading-anchor" href="#section-6" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>6. How We Use Your Information</h2>
         <p>We use your information for these purposes:</p>
         <ul>
           <li><strong>Providing the Service:</strong> Processing your data to create and maintain your
@@ -482,7 +513,7 @@
 
       <!-- 7. When We Share Your Information -->
       <section>
-        <h2>7. When We Share Your Information</h2>
+        <h2 id="section-7"><a class="heading-anchor" href="#section-7" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>7. When We Share Your Information</h2>
         <p>We share your information only in these limited circumstances:</p>
         <ul>
           <li>
@@ -509,7 +540,7 @@
 
       <!-- 8. How We Protect Your Information -->
       <section>
-        <h2>8. How We Protect Your Information</h2>
+        <h2 id="section-8"><a class="heading-anchor" href="#section-8" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>8. How We Protect Your Information</h2>
         <p>We implement industry-standard security measures to protect your data:</p>
         <ul>
           <li><strong>SOC 2 Compliance:</strong> We maintain SOC 2 Type II certification, demonstrating
@@ -532,7 +563,7 @@
 
       <!-- 9. Your Rights and Choices -->
       <section>
-        <h2>9. Your Rights and Choices</h2>
+        <h2 id="section-9"><a class="heading-anchor" href="#section-9" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>9. Your Rights and Choices</h2>
         <p>You have the right to:</p>
         <ul>
           <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
@@ -579,7 +610,7 @@
 
       <!-- 10. Information About Children -->
       <section>
-        <h2>10. Information About Children</h2>
+        <h2 id="section-10"><a class="heading-anchor" href="#section-10" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>10. Information About Children</h2>
         <p>
           Our service processes information about children as part of family logistics management.
           We want to be clear about our approach:
@@ -619,7 +650,7 @@
 
       <!-- 11. Data Retention -->
       <section>
-        <h2>11. Data Retention</h2>
+        <h2 id="section-11"><a class="heading-anchor" href="#section-11" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>11. Data Retention</h2>
         <p>
           We retain your information for as long as you maintain an active account. After account
           deletion:
@@ -632,7 +663,7 @@
 
       <!-- 12. California Privacy Rights -->
       <section>
-        <h2>12. California Privacy Rights</h2>
+        <h2 id="section-12"><a class="heading-anchor" href="#section-12" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>12. California Privacy Rights</h2>
         <p>
           If you're a California resident, you have additional rights under the California Consumer
           Privacy Act (CCPA) and California Privacy Rights Act (CPRA):
@@ -652,7 +683,7 @@
 
       <!-- 13. International Users -->
       <section>
-        <h2>13. International Users</h2>
+        <h2 id="section-13"><a class="heading-anchor" href="#section-13" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>13. International Users</h2>
         <p>
           SuperDuper is designed for and operated in the United States. We do not specifically target
           or market to users outside the United States.
@@ -667,7 +698,7 @@
 
       <!-- 14. Changes to This Policy -->
       <section>
-        <h2>14. Changes to This Policy</h2>
+        <h2 id="section-14"><a class="heading-anchor" href="#section-14" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>14. Changes to This Policy</h2>
         <p>
           We may update this privacy policy from time to time. When we make significant changes, we will:
         </p>
@@ -680,7 +711,7 @@
 
       <!-- 15. Contact Us -->
       <section>
-        <h2>15. Contact Us</h2>
+        <h2 id="section-15"><a class="heading-anchor" href="#section-15" aria-label="Link to this section"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg></a>15. Contact Us</h2>
         <p>
           If you have questions about this privacy policy or our data practices, please contact us:
         </p>
