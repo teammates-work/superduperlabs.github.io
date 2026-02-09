@@ -7,7 +7,11 @@
     <meta name="description" content="SuperDuper Terms of Service — The terms governing your use of the SuperDuper service." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
     <script>
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init rs ls wi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile setInternalOrTestUser ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug M cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
         posthog.init('phc_4WpCTwFtU1Cq8mqozr1q7M3f3Mxdjz937OrvDhxCaaw', {
@@ -40,10 +44,9 @@
       }
 
       .brand-link {
-        display: inline-block;
-        font-family: 'Archivo Black', sans-serif;
-        font-size: 1.5rem;
-        color: #FF1F8F;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
         text-decoration: none;
         margin-bottom: 3rem;
         transition: opacity 0.2s ease;
@@ -53,12 +56,22 @@
         opacity: 0.8;
       }
 
+      .brand-link img:first-child {
+        height: 32px;
+        width: auto;
+      }
+
+      .brand-link img:last-child {
+        height: 20px;
+        width: auto;
+      }
+
       .page-title {
-        font-family: 'Archivo Black', sans-serif;
+        font-family: 'DM Serif Display', serif;
         font-size: clamp(2rem, 5vw, 3rem);
-        color: #1a1a1a;
+        color: #1B1464;
         margin-bottom: 0.5rem;
-        border-bottom: 3px solid #FF1F8F;
+        border-bottom: 3px solid #E84F9A;
         padding-bottom: 1.5rem;
       }
 
@@ -81,7 +94,7 @@
         font-family: 'Sora', sans-serif;
         font-size: 1.4rem;
         font-weight: 700;
-        color: #1a1a1a;
+        color: #1B1464;
         margin-top: 2.5rem;
         margin-bottom: 1rem;
         position: relative;
@@ -105,7 +118,7 @@
       }
 
       .heading-anchor:hover {
-        color: #FF1F8F;
+        color: #E84F9A;
       }
 
       .heading-anchor svg {
@@ -156,9 +169,9 @@
       }
 
       .callout-accent {
-        border-left: 4px solid #FF1F8F;
+        border-left: 4px solid #E84F9A;
         border-radius: 0 8px 8px 0;
-        background: rgba(255, 31, 143, 0.05);
+        background: rgba(232, 79, 154, 0.05);
       }
 
       .callout h3 {
@@ -213,7 +226,10 @@
   </head>
   <body>
     <div class="page-wrapper">
-      <a href="/" class="brand-link">SuperDuper</a>
+      <a href="/" class="brand-link">
+        <img src="/images/logo-header.png" alt="" />
+        <img src="/images/wordmark-header.png" alt="SuperDuper" />
+      </a>
 
       <h1 class="page-title">Terms of Service</h1>
       <p class="page-meta">Effective Date: January 2, 2026 &middot; Last Updated: January 21, 2026</p>
@@ -589,7 +605,7 @@
 
       <footer class="footer">
         <p>&copy; 2026 SuperDuper Labs &middot; <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="https://trust.superduperlabs.com">Trust & Compliance</a></p>
-        <p class="footer-tagline">Made with 🤖 in the East Bay</p>
+        <p class="footer-tagline">Made with <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:14px;height:14px;vertical-align:middle"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Z" /></svg> in the East Bay</p>
       </footer>
     </div>
   </body>
