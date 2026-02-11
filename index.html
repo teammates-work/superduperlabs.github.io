@@ -530,104 +530,124 @@
       }
 
       /* ============================================
-         The Problem - Persona Cards
+         The Problem - Persona Conversations
          ============================================ */
       .personas {
         background: var(--navy-04);
       }
 
-      .persona-cards {
+      .persona-columns {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
+        gap: 3rem;
         margin-bottom: 4rem;
       }
 
-      .persona-card {
-        background: #ffffff;
-        border: 1px solid var(--navy-08);
-        border-radius: 20px;
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      .persona-col {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
       }
 
-      .persona-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(27, 20, 100, 0.1);
-      }
-
-      .persona-card-image {
-        width: 100%;
-        height: 280px;
-        overflow: hidden;
-      }
-
-      .persona-card-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-      }
-
-      .persona-card:hover .persona-card-image img {
-        transform: scale(1.05);
-      }
-
-      .persona-card-body {
-        padding: 2rem;
-      }
-
-      .persona-card-accent {
-        display: inline-block;
-        width: 40px;
-        height: 4px;
-        border-radius: 2px;
-        margin-bottom: 1rem;
-      }
-
-      .persona-card--pink .persona-card-accent {
-        background: var(--pink);
-      }
-
-      .persona-card--blue .persona-card-accent {
-        background: var(--blue);
-      }
-
-      .persona-card-title {
-        font-family: 'Fraunces', serif;
-        font-size: 1.5rem;
-        color: var(--navy);
-        margin-bottom: 1rem;
-      }
-
-      .persona-card-quotes {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 1.25rem;
-      }
-
-      .persona-card-quotes li {
-        font-style: italic;
-        color: var(--navy-70);
-        font-size: 0.95rem;
-        padding: 0.35rem 0;
-        padding-left: 1rem;
-        border-left: 2px solid var(--navy-08);
+      .persona-col-header {
         margin-bottom: 0.5rem;
       }
 
-      .persona-card--pink .persona-card-quotes li {
-        border-left-color: var(--pink-15);
+      .persona-col-title {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        margin-bottom: 0.5rem;
       }
 
-      .persona-card--blue .persona-card-quotes li {
-        border-left-color: var(--blue-15);
+      .persona-col--pink .persona-col-title {
+        color: var(--pink);
       }
 
-      .persona-card-body > p {
-        color: var(--navy-60);
+      .persona-col--blue .persona-col-title {
+        color: var(--blue);
+      }
+
+      .persona-col-subtitle {
+        font-style: italic;
         font-size: 0.95rem;
-        line-height: 1.6;
+        color: var(--navy-60);
+        line-height: 1.5;
+      }
+
+      .persona-convo-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .persona-convo-item--reverse {
+        flex-direction: row-reverse;
+      }
+
+      .persona-convo-photo {
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(27, 20, 100, 0.12);
+      }
+
+      .persona-convo-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .persona-convo-bubble {
+        position: relative;
+        background: #ffffff;
+        border: 1px solid var(--navy-08);
+        border-radius: 16px;
+        padding: 1rem 1.25rem;
+        box-shadow: 0 2px 8px rgba(27, 20, 100, 0.06);
+        flex: 1;
+        margin-top: 0.5rem;
+      }
+
+      .persona-convo-bubble p {
+        font-style: italic;
+        font-size: 0.95rem;
+        color: var(--navy-70);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      /* Speech bubble tail -- points left (photo on left) */
+      .persona-convo-bubble::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: -7px;
+        width: 14px;
+        height: 14px;
+        background: inherit;
+        transform: rotate(45deg);
+        clip-path: polygon(0 0, 0% 100%, 100% 100%);
+      }
+
+      /* Speech bubble tail -- points right (photo on right) */
+      .persona-convo-item--reverse .persona-convo-bubble::before {
+        left: auto;
+        right: -7px;
+        transform: rotate(-135deg);
+      }
+
+      /* Pink tint (Keeper) */
+      .persona-convo-bubble--pink {
+        background: rgba(232, 79, 154, 0.04);
+        border-color: rgba(232, 79, 154, 0.12);
+      }
+
+      /* Blue tint (Chaser) */
+      .persona-convo-bubble--blue {
+        background: rgba(74, 143, 231, 0.04);
+        border-color: rgba(74, 143, 231, 0.12);
       }
 
       .personas-closer {
@@ -906,7 +926,7 @@
          Responsive
          ============================================ */
       @media (max-width: 1024px) {
-        .persona-cards {
+        .persona-columns {
           grid-template-columns: 1fr;
           max-width: 520px;
           margin: 0 auto 4rem;
@@ -987,8 +1007,17 @@
           display: none;
         }
 
-        .persona-card-image {
-          height: 200px;
+        .persona-convo-photo {
+          width: 64px;
+          height: 64px;
+        }
+
+        .persona-convo-bubble {
+          padding: 0.75rem 1rem;
+        }
+
+        .persona-convo-bubble p {
+          font-size: 0.875rem;
         }
       }
 
@@ -1137,35 +1166,67 @@
           <h2>Two Types of Parents. One Big Problem. Zero Winners.</h2>
           <p>Sound familiar? Which one are you?</p>
         </div>
-        <div class="persona-cards">
-          <div class="persona-card persona-card--pink fade-in">
-            <div class="persona-card-image">
-              <img src="images/persona-keeper.jpg" alt="The Keeper - a parent organizing family schedules late at night" onerror="this.parentElement.style.background='linear-gradient(135deg, rgba(232,79,154,0.1), rgba(232,79,154,0.02))';this.style.display='none'" />
+        <div class="persona-columns">
+          <!-- The Keeper -->
+          <div class="persona-col persona-col--pink fade-in">
+            <div class="persona-col-header">
+              <h3 class="persona-col-title">The Keeper</h3>
+              <p class="persona-col-subtitle">Every email, every text thread, every PDF. It all lands on you.</p>
             </div>
-            <div class="persona-card-body">
-              <div class="persona-card-accent"></div>
-              <h3 class="persona-card-title">The Keeper</h3>
-              <ul class="persona-card-quotes">
-                <li>"I read the emails. All the emails."</li>
-                <li>"Soccer practice moved to Thursday but that conflicts with dance."</li>
-                <li>"Brush your hair, it's class photo day."</li>
-              </ul>
-              <p>You know all this because you spent Saturday night thinking about family logistics.</p>
+            <div class="persona-convo-item">
+              <div class="persona-convo-photo">
+                <img src="images/persona-keeper-1.jpg" alt="Parent who tracks every detail" />
+              </div>
+              <div class="persona-convo-bubble persona-convo-bubble--pink">
+                <p>"Yes, I saw the email about pajama day. I saw all 47 emails about pajama day."</p>
+              </div>
+            </div>
+            <div class="persona-convo-item persona-convo-item--reverse">
+              <div class="persona-convo-photo">
+                <img src="images/persona-keeper-2.jpg" alt="Parent juggling schedule conflicts" />
+              </div>
+              <div class="persona-convo-bubble persona-convo-bubble--pink">
+                <p>"I know practice moved to Thursday. Picture day is next week and Friday is an early dismissal."</p>
+              </div>
+            </div>
+            <div class="persona-convo-item">
+              <div class="persona-convo-photo">
+                <img src="images/persona-keeper-3.jpg" alt="Parent on top of every school event" />
+              </div>
+              <div class="persona-convo-bubble persona-convo-bubble--pink">
+                <p>"Brush your hair, it's class photo day."</p>
+              </div>
             </div>
           </div>
-          <div class="persona-card persona-card--blue fade-in">
-            <div class="persona-card-image">
-              <img src="images/persona-chaser.jpg" alt="The Chaser - a confused parent at the wrong soccer field" onerror="this.parentElement.style.background='linear-gradient(135deg, rgba(74,143,231,0.1), rgba(74,143,231,0.02))';this.style.display='none'" />
+          <!-- The Chaser -->
+          <div class="persona-col persona-col--blue fade-in">
+            <div class="persona-col-header">
+              <h3 class="persona-col-title">The Chaser</h3>
+              <p class="persona-col-subtitle">Missed emails, unread texts, you're always falling behind.</p>
             </div>
-            <div class="persona-card-body">
-              <div class="persona-card-accent"></div>
-              <h3 class="persona-card-title">The Chaser</h3>
-              <ul class="persona-card-quotes">
-                <li>"Uh... I think I'm at the wrong soccer field."</li>
-                <li>"When's picture day again?"</li>
-                <li>"I was supposed to pick them up TODAY???"</li>
-              </ul>
-              <p>You want to know. You just can't keep up.</p>
+            <div class="persona-convo-item">
+              <div class="persona-convo-photo">
+                <img src="images/persona-chaser-1.jpg" alt="Parent at the wrong location" />
+              </div>
+              <div class="persona-convo-bubble persona-convo-bubble--blue">
+                <p>"Uh... I think I'm at the wrong soccer field."</p>
+              </div>
+            </div>
+            <div class="persona-convo-item persona-convo-item--reverse">
+              <div class="persona-convo-photo">
+                <img src="images/persona-chaser-2.jpg" alt="Parent who forgot an important date" />
+              </div>
+              <div class="persona-convo-bubble persona-convo-bubble--blue">
+                <p>"Wait... when is spring break again?"</p>
+              </div>
+            </div>
+            <div class="persona-convo-item">
+              <div class="persona-convo-photo">
+                <img src="images/persona-chaser-3.jpg" alt="Panicked parent about pickup" />
+              </div>
+              <div class="persona-convo-bubble persona-convo-bubble--blue">
+                <p>"I was supposed to pick them up TODAY???"</p>
+              </div>
             </div>
           </div>
         </div>
