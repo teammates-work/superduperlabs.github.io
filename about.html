@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>About SuperDuper — Adaptive Applications Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="SuperDuper builds adaptive applications — software that figures out what you need. No prompts. No configuration. Just connect your data and let the app build itself around your life." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About SuperDuper — Adaptive Applications Platform" />
+    <meta property="og:description" content="Software that figures out what you need. No prompts. No configuration." />
+    <meta property="og:image" content="https://superduperlabs.com/images/og-image.png" />
+    <meta property="og:url" content="https://superduperlabs.com/about" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Onest:wght@300;400;500;600&family=Figtree:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- PostHog -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init rs ls wi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile setInternalOrTestUser ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug M cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_4WpCTwFtU1Cq8mqozr1q7M3f3Mxdjz937OrvDhxCaaw', {
+            api_host: 'https://us.i.posthog.com',
+            defaults: '2025-11-30',
+            person_profiles: 'identified_only',
+        })
+    </script>
+
+    <style>
+      /* ============================================
+         CSS Custom Properties
+         ============================================ */
+      :root {
+        --navy: #1B1464;
+        --pink: #E84F9A;
+        --blue: #4A8FE7;
+        --gradient: linear-gradient(135deg, #E84F9A, #4A8FE7);
+        --navy-90: rgba(27, 20, 100, 0.9);
+        --navy-70: rgba(27, 20, 100, 0.7);
+        --navy-60: rgba(27, 20, 100, 0.6);
+        --navy-50: rgba(27, 20, 100, 0.5);
+        --navy-40: rgba(27, 20, 100, 0.4);
+        --navy-15: rgba(27, 20, 100, 0.15);
+        --navy-08: rgba(27, 20, 100, 0.08);
+        --navy-04: rgba(27, 20, 100, 0.04);
+        --pink-15: rgba(232, 79, 154, 0.15);
+        --pink-08: rgba(232, 79, 154, 0.08);
+        --blue-15: rgba(74, 143, 231, 0.15);
+        --blue-08: rgba(74, 143, 231, 0.08);
+      }
+
+      /* ============================================
+         Reset & Base
+         ============================================ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Onest', system-ui, sans-serif;
+        background: #ffffff;
+        color: var(--navy);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: -40%;
+        left: -20%;
+        width: 60%;
+        height: 80%;
+        background: radial-gradient(ellipse, var(--pink-08) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      body::after {
+        content: '';
+        position: fixed;
+        bottom: -30%;
+        right: -10%;
+        width: 50%;
+        height: 70%;
+        background: radial-gradient(ellipse, var(--blue-08) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ============================================
+         Typography
+         ============================================ */
+      h1, h2, h3 {
+        font-family: 'Fraunces', serif;
+        line-height: 1.1;
+      }
+
+      /* ============================================
+         Layout
+         ============================================ */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      section {
+        padding: 6rem 0;
+      }
+
+      /* ============================================
+         Scroll Animations
+         ============================================ */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ============================================
+         Header
+         ============================================ */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1rem 0;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--navy-08);
+      }
+
+      .header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+      }
+
+      .logo-mark {
+        height: 36px;
+        width: auto;
+      }
+
+      .logo-wordmark {
+        height: 22px;
+        width: auto;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        color: var(--navy-60);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link--active {
+        color: var(--navy);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.4rem;
+        font-family: 'Onest', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--pink);
+        color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        background: #d63e87;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(232, 79, 154, 0.3);
+      }
+
+      /* ============================================
+         Mobile Nav Drawer
+         ============================================ */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--navy);
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 110;
+      }
+
+      .mobile-menu-btn svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(27, 20, 100, 0.4);
+        z-index: 105;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-nav-overlay.active {
+        opacity: 1;
+      }
+
+      .mobile-nav-drawer {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100%;
+        background: #fff;
+        z-index: 110;
+        padding: 5rem 2rem 2rem;
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 24px rgba(27, 20, 100, 0.1);
+      }
+
+      .mobile-nav-drawer.active {
+        right: 0;
+      }
+
+      .mobile-nav-drawer a {
+        display: block;
+        padding: 1rem 0;
+        color: var(--navy);
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        border-bottom: 1px solid var(--navy-08);
+      }
+
+      .mobile-nav-drawer a:last-child {
+        border-bottom: none;
+      }
+
+      .mobile-nav-drawer .btn-primary {
+        display: block;
+        text-align: center;
+        margin-top: 1.5rem;
+        color: #fff;
+      }
+
+      .mobile-nav-close {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        background: none;
+        border: none;
+        color: var(--navy);
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .mobile-nav-close svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* ============================================
+         Hero Section
+         ============================================ */
+      .hero {
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        padding-top: 10rem;
+        padding-bottom: 4rem;
+        text-align: center;
+      }
+
+      .hero .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-content {
+        max-width: 680px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        margin-bottom: 1.5rem;
+        color: var(--navy);
+      }
+
+      .hero h1 .underline-gradient {
+        position: relative;
+        display: inline;
+      }
+
+      .hero h1 .underline-gradient::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        width: 100%;
+        height: 6px;
+        background: var(--gradient);
+        border-radius: 3px;
+        opacity: 0.5;
+      }
+
+      .hero-subheadline {
+        font-size: 1.2rem;
+        color: var(--navy-60);
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ============================================
+         Section Headers
+         ============================================ */
+      .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+      }
+
+      .section-label {
+        display: inline-block;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 1rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+        color: var(--navy);
+      }
+
+      .section-header p {
+        color: var(--navy-60);
+        font-size: 1.1rem;
+      }
+
+      /* ============================================
+         About Cards (3-column)
+         ============================================ */
+      .about-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .about-card {
+        background: #ffffff;
+        border: 1px solid var(--navy-08);
+        border-radius: 16px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient);
+      }
+
+      .about-card h3 {
+        font-family: 'Onest', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--navy);
+      }
+
+      .about-card p {
+        color: var(--navy-60);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* ============================================
+         Platform Section (centered text)
+         ============================================ */
+      .platform-section {
+        background: var(--navy-04);
+      }
+
+      .platform-text {
+        text-align: center;
+        max-width: 660px;
+        margin: 0 auto;
+      }
+
+      .platform-text h2 {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        margin-bottom: 1.5rem;
+        color: var(--navy);
+      }
+
+      .platform-text p {
+        color: var(--navy-60);
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+
+      /* ============================================
+         App Store Grid
+         ============================================ */
+      .app-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .app-card {
+        border-radius: 16px;
+        padding: 2rem;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .app-card--family {
+        background: var(--pink);
+        color: #ffffff;
+        grid-column: span 2;
+      }
+
+      .app-card--family a {
+        color: #ffffff;
+      }
+
+      .app-card--coming {
+        background: var(--navy-04);
+        border: 1px solid var(--navy-08);
+      }
+
+      .app-card-name {
+        font-family: 'Fraunces', serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .app-card-desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        opacity: 0.9;
+        margin-bottom: 1.5rem;
+      }
+
+      .app-card--coming .app-card-name {
+        color: var(--navy);
+      }
+
+      .app-card--coming .app-card-desc {
+        color: var(--navy-60);
+      }
+
+      .app-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: gap 0.2s ease;
+      }
+
+      .app-card-link:hover {
+        gap: 0.7rem;
+      }
+
+      .app-card-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .app-card-badge {
+        display: inline-flex;
+        align-items: center;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--navy-40);
+        background: var(--navy-08);
+        padding: 0.3rem 0.7rem;
+        border-radius: 20px;
+        width: fit-content;
+      }
+
+      /* ============================================
+         Team Section
+         ============================================ */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+      }
+
+      .team-member {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .team-photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 20px rgba(27, 20, 100, 0.12);
+      }
+
+      .team-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .team-name {
+        font-family: 'Fraunces', serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.25rem;
+      }
+
+      .team-role {
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 1rem;
+      }
+
+      .team-bio {
+        color: var(--navy-60);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 400px;
+        margin-bottom: 1rem;
+      }
+
+      .team-linkedin {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--navy-50);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .team-linkedin:hover {
+        color: var(--navy);
+      }
+
+      .team-linkedin svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* ============================================
+         Backed By Section
+         ============================================ */
+      .backed-section {
+        background: var(--navy-04);
+      }
+
+      .backed-logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        flex-wrap: wrap;
+      }
+
+      .backed-logo {
+        height: 36px;
+        width: auto;
+        filter: grayscale(100%);
+        opacity: 0.6;
+        transition: all 0.3s ease;
+      }
+
+      .backed-logo:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+
+      /* ============================================
+         Footer
+         ============================================ */
+      .footer {
+        padding: 3rem 0;
+        border-top: 1px solid var(--navy-08);
+        text-align: center;
+      }
+
+      .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+        color: var(--navy-50);
+      }
+
+      .footer a {
+        color: var(--navy-50);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer a:hover {
+        color: var(--navy);
+      }
+
+      .footer-divider {
+        width: 4px;
+        height: 4px;
+        background: var(--navy-15);
+        border-radius: 50%;
+      }
+
+      .footer-tagline {
+        margin-top: 1.5rem;
+        font-size: 0.8rem;
+        font-style: italic;
+        color: var(--navy-40);
+        text-align: center;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+      }
+
+      /* ============================================
+         Responsive
+         ============================================ */
+      @media (max-width: 1024px) {
+        .app-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .app-card--family {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 4rem 0;
+        }
+
+        .nav-link {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .header .btn {
+          display: none;
+        }
+
+        .mobile-nav-overlay {
+          display: block;
+          pointer-events: none;
+        }
+
+        .mobile-nav-overlay.active {
+          pointer-events: auto;
+        }
+
+        .about-cards {
+          grid-template-columns: 1fr;
+          max-width: 480px;
+          margin: 0 auto;
+        }
+
+        .app-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .app-card--family {
+          grid-column: span 1;
+        }
+
+        .team-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .backed-logos {
+          gap: 2.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 1.25rem;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .footer-divider {
+          display: none;
+        }
+
+        .team-photo {
+          width: 110px;
+          height: 110px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <a href="/" class="logo">
+          <img src="images/logo-header.png" alt="" class="logo-mark" />
+          <img src="images/wordmark-header.png" alt="SuperDuper" class="logo-wordmark" />
+        </a>
+        <nav class="nav">
+          <a href="/about.html" class="nav-link nav-link--active">About</a>
+          <a href="/" class="nav-link">SuperDuper Family</a>
+          <a href="/#signup" class="btn btn-primary">Join Waitlist</a>
+          <button class="mobile-menu-btn" aria-label="Open menu" id="mobile-menu-open">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <button class="mobile-nav-close" aria-label="Close menu" id="mobile-menu-close">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <a href="/about.html" class="mobile-nav-link">About</a>
+      <a href="/" class="mobile-nav-link">SuperDuper Family</a>
+      <a href="/#signup" class="btn btn-primary mobile-nav-link">Join Waitlist</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="section-label">Our Vision</span>
+          <h1>Software that <span class="underline-gradient">figures out</span> what you need.</h1>
+          <p class="hero-subheadline">No prompts. No configuration. Just connect your data and let the app build itself around your life.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Adaptive Applications -->
+    <section style="background: var(--navy-04);">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">What We're Building</span>
+          <h2>We call them adaptive applications.</h2>
+        </div>
+        <div class="about-cards fade-in">
+          <div class="about-card">
+            <h3>Not vibe coding.</h3>
+            <p>We don't ask users to describe what they want. The app observes your data and assembles the right experience automatically.</p>
+          </div>
+          <div class="about-card">
+            <h3>Not just agents.</h3>
+            <p>Agents act on your behalf. Adaptive applications understand what matters, organize it, and stay current without being told.</p>
+          </div>
+          <div class="about-card">
+            <h3>Not one-size-fits-all.</h3>
+            <p>Every user gets a different app. Same infrastructure, same codebase, but a completely personal experience shaped by their data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works (Platform) -->
+    <section class="platform-section">
+      <div class="container">
+        <div class="platform-text fade-in">
+          <h2>Shared infrastructure. Personal everything else.</h2>
+          <p>SuperDuper is a platform for building applications that adapt to each user. We handle the hard parts — data ingestion, entity resolution, real-time updates — so every app on the platform can deliver a deeply personalized experience from the moment you connect.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Store Grid -->
+    <section>
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">SuperDuper Apps</span>
+          <h2>One platform. Many lives.</h2>
+        </div>
+        <div class="app-grid fade-in">
+          <!-- Family - featured -->
+          <div class="app-card app-card--family">
+            <div>
+              <div class="app-card-name">SuperDuper Family</div>
+              <p class="app-card-desc">Every school newsletter, every coach update, every PDF attachment. SuperDuper reads it all and shows you what's next.</p>
+            </div>
+            <a href="/" class="app-card-link">
+              Available now
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+          <!-- Coming soon cards -->
+          <div class="app-card app-card--coming">
+            <div>
+              <div class="app-card-name">SuperDuper Finance</div>
+              <p class="app-card-desc">Bills, subscriptions, and spending patterns — organized and surfaced before you have to think about them.</p>
+            </div>
+            <span class="app-card-badge">Coming soon</span>
+          </div>
+          <div class="app-card app-card--coming">
+            <div>
+              <div class="app-card-name">SuperDuper Events</div>
+              <p class="app-card-desc">Invitations, RSVPs, and logistics pulled together from every thread and calendar you use.</p>
+            </div>
+            <span class="app-card-badge">Coming soon</span>
+          </div>
+          <div class="app-card app-card--coming">
+            <div>
+              <div class="app-card-name">SuperDuper Clients</div>
+              <p class="app-card-desc">Client communications, follow-ups, and project timelines — always current, never manual.</p>
+            </div>
+            <span class="app-card-badge">Coming soon</span>
+          </div>
+          <div class="app-card app-card--coming">
+            <div>
+              <div class="app-card-name">SuperDuper Home</div>
+              <p class="app-card-desc">Maintenance schedules, warranties, and service providers — the operating system for your home.</p>
+            </div>
+            <span class="app-card-badge">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section style="background: var(--navy-04);">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Who We Are</span>
+          <h2>Built by people who've done this before.</h2>
+        </div>
+        <div class="team-grid fade-in">
+          <div class="team-member">
+            <div class="team-photo">
+              <img src="images/team-ben.avif" alt="Benjamin Stein" />
+            </div>
+            <div class="team-name">Benjamin Stein</div>
+            <div class="team-role">CEO & Co-Founder</div>
+            <p class="team-bio">Previously founded Mobile Commons (acquired by Upland Software) and ran product and engineering at Gilt Groupe through its peak growth years. Built platforms that reached tens of millions of users.</p>
+            <a href="https://www.linkedin.com/in/benjaminstein/" target="_blank" rel="noopener noreferrer" class="team-linkedin">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+          <div class="team-member">
+            <div class="team-photo">
+              <img src="images/team-kenny.avif" alt="Kenny Hoxworth" />
+            </div>
+            <div class="team-name">Kenny Hoxworth</div>
+            <div class="team-role">CTO & Co-Founder</div>
+            <p class="team-bio">Former VP Engineering at Upland Software and lead architect at Mobile Commons. Has spent his career building high-scale data platforms and real-time messaging systems.</p>
+            <a href="https://www.linkedin.com/in/kenny-hoxworth-71461a46/" target="_blank" rel="noopener noreferrer" class="team-linkedin">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Backed By -->
+    <section class="backed-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Backed By</span>
+        </div>
+        <div class="backed-logos fade-in">
+          <img src="images/logo-matrix.svg" alt="Matrix Partners" class="backed-logo" />
+          <img src="images/logo-outset.png" alt="Outset Capital" class="backed-logo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <span>&copy; 2026 SuperDuper Labs</span>
+          <span class="footer-divider"></span>
+          <a href="/privacy.html">Privacy Policy</a>
+          <span class="footer-divider"></span>
+          <a href="/terms.html">Terms of Service</a>
+          <span class="footer-divider"></span>
+          <a href="https://trust.superduperlabs.com">Trust & Compliance</a>
+        </div>
+        <p class="footer-tagline">Building software that adapts to you.</p>
+      </div>
+    </footer>
+
+    <script>
+    // Mobile nav drawer
+    (function() {
+      var openBtn = document.getElementById('mobile-menu-open');
+      var closeBtn = document.getElementById('mobile-menu-close');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var drawer = document.getElementById('mobile-nav-drawer');
+
+      function openNav() {
+        overlay.classList.add('active');
+        drawer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeNav() {
+        overlay.classList.remove('active');
+        drawer.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      overlay.addEventListener('click', closeNav);
+
+      var drawerLinks = drawer.querySelectorAll('a');
+      for (var i = 0; i < drawerLinks.length; i++) {
+        drawerLinks[i].addEventListener('click', closeNav);
+      }
+    })();
+
+    // Scroll-triggered fade-in animations
+    (function() {
+      var fadeEls = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        for (var i = 0; i < fadeEls.length; i++) {
+          fadeEls[i].classList.add('visible');
+        }
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      fadeEls.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+    </script>
+  </body>
+</html>
