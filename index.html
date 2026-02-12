@@ -1813,7 +1813,7 @@
       submitButton.style.display = "none";
       loadingButton.style.display = "flex";
 
-      var formBody = "userGroup=&mailingLists=&email=" + encodeURIComponent(formInput.value);
+      var formBody = "userGroup=&mailingLists=&email=" + encodeURIComponent(formInput.value) + "&joinedWaitlist=" + encodeURIComponent(new Date().toISOString());
 
       fetch(event.target.action, {
         method: "POST",
