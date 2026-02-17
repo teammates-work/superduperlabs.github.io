@@ -320,7 +320,7 @@
         min-height: auto;
         display: flex;
         align-items: center;
-        padding-top: 10rem;
+        padding-top: 4rem;
         padding-bottom: 4rem;
         text-align: center;
       }
@@ -341,12 +341,12 @@
         color: var(--navy);
       }
 
-      .hero h1 .underline-gradient {
+      .underline-gradient {
         position: relative;
         display: inline;
       }
 
-      .hero h1 .underline-gradient::after {
+      .underline-gradient::after {
         content: '';
         position: absolute;
         left: 0;
@@ -366,6 +366,122 @@
         max-width: 540px;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      /* ============================================
+         Our Story Section
+         ============================================ */
+      .story {
+        padding-top: 10rem;
+        padding-bottom: 2rem;
+      }
+
+      .story-header {
+        max-width: 720px;
+        margin: 0 auto 4rem;
+        text-align: center;
+      }
+
+      .story-headline {
+        font-size: clamp(2rem, 4.5vw, 3.25rem);
+        color: var(--navy);
+        margin-bottom: 1rem;
+        line-height: 1.15;
+      }
+
+      /* Story Rows - alternating text + image */
+      .story-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        align-items: center;
+        padding: 2.5rem 0;
+      }
+
+      .story-row.reverse {
+        direction: rtl;
+      }
+
+      .story-row.reverse > * {
+        direction: ltr;
+      }
+
+      .story-row.text-only {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+        text-align: center;
+        padding: 3rem 0;
+      }
+
+      .story-text p {
+        font-size: 1.15rem;
+        line-height: 1.75;
+        color: var(--navy-70);
+      }
+
+      .story-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .story-visual img {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        border-radius: 16px;
+      }
+
+      .story-visual--logo {
+        background: linear-gradient(135deg, var(--pink-08), var(--blue-08));
+        border-radius: 24px;
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1;
+        max-width: 360px;
+        width: 100%;
+      }
+
+      .story-visual--logo img {
+        width: 60%;
+        height: auto;
+        border-radius: 0;
+      }
+
+      .story-pullquote {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        line-height: 1.4;
+        color: var(--navy);
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 2.5rem 0;
+        position: relative;
+      }
+
+      .story-pullquote::before,
+      .story-pullquote::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--gradient);
+        border-radius: 2px;
+      }
+
+      .story-pullquote::before {
+        top: 0;
+      }
+
+      .story-pullquote::after {
+        bottom: 0;
       }
 
       /* ============================================
@@ -651,6 +767,32 @@
           padding: 4rem 0;
         }
 
+        .story {
+          padding-top: 8rem;
+        }
+
+        .story-row {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .story-row.reverse {
+          direction: ltr;
+        }
+
+        .story-text p {
+          text-align: left;
+        }
+
+        .story-pullquote {
+          font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+        }
+
+        .story-visual--logo {
+          max-width: 280px;
+          margin: 0 auto;
+        }
+
         .nav-link {
           display: none;
         }
@@ -694,6 +836,29 @@
       @media (max-width: 480px) {
         .container {
           padding: 0 1.25rem;
+        }
+
+        .story {
+          padding-top: 7rem;
+        }
+
+        .story-headline {
+          text-align: left;
+        }
+
+        .story-header {
+          text-align: left;
+        }
+
+        .story-pullquote {
+          text-align: left;
+          padding: 2rem 0;
+        }
+
+        .story-pullquote::before,
+        .story-pullquote::after {
+          left: 0;
+          transform: none;
         }
 
         .footer-content {
@@ -743,6 +908,75 @@
       <a href="/#signup" class="btn btn-primary mobile-nav-link">Join Waitlist</a>
     </div>
 
+    <!-- Our Story -->
+    <section class="story">
+      <div class="container">
+        <div class="story-header">
+          <span class="section-label fade-in">Who We Are</span>
+          <h1 class="story-headline fade-in">We Built SuperDuper Because We <span class="underline-gradient">Needed It.</span></h1>
+        </div>
+
+        <!-- Row 1: Activities + illustration -->
+        <div class="story-row fade-in">
+          <div class="story-text">
+            <p>The SuperDuper team has kids. They play 6 instruments across 4 bands. They are on more softball teams than we can count. They do basketball, soccer, volleyball, ultimate frisbee, capoeira, curling, gymnastics, dance, theater, robotics. One has a paper route. They're in French Club and Drone Flying Club. One is learning to drive. Two are preparing for Bar Mitzvahs.</p>
+          </div>
+          <div class="story-visual">
+            <img src="images/about-activities.png" alt="A colorful jumble of activity icons — instruments, sports gear, theater masks, robots" />
+          </div>
+        </div>
+
+        <!-- Row 2: Failures + inbox illustration (reversed) -->
+        <div class="story-row reverse fade-in">
+          <div class="story-text">
+            <p>We've sent them in home jerseys to away games. We've waited in the carpool line when we forgot it was a late start at school. We've searched through 14 different email threads from five different senders about a single Scout trip and still got the drop off wrong.</p>
+          </div>
+          <div class="story-visual">
+            <img src="images/about-inbox.png" alt="An overflowing inbox — envelopes and notifications piling up" />
+          </div>
+        </div>
+
+        <!-- Row 3: Pullquote (centered, text only) -->
+        <div class="story-row text-only fade-in">
+          <div>
+            <blockquote class="story-pullquote">We built SuperDuper because we were tired of all the work on top of the work of actually raising kids.</blockquote>
+          </div>
+        </div>
+
+        <!-- Row 4: Give back the hours + logo -->
+        <div class="story-row fade-in">
+          <div class="story-text">
+            <p>We're not trying to automate parenting. We're trying to give back the hours that logistics steal. The ones spent scrolling, forwarding, and mentally rehearsing tomorrow at 11pm when we just want to parent, to teach, to play.</p>
+          </div>
+          <div class="story-visual">
+            <div class="story-visual--logo">
+              <img src="images/superduper-logo-full-color.svg" alt="SuperDuper" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 5: All families + illustration (reversed) -->
+        <div class="story-row reverse fade-in">
+          <div class="story-text">
+            <p>We built SuperDuper to work for all families. Same-sex, single parents, grandparents who do pickups, and nannies who need the whole picture. We built it for co-parents splitting weeks and couples splitting sanity. We built it for us. Because in almost every household, someone is carrying a weight the other person can't fully see. And that person deserves more than a "have you tried a shared Google Calendar?"</p>
+          </div>
+          <div class="story-visual">
+            <img src="images/about-families.png" alt="Diverse families — different ages, races, and family types together" />
+          </div>
+        </div>
+
+        <!-- Row 6: Close the app + presence illustration -->
+        <div class="story-row fade-in">
+          <div class="story-text">
+            <p>A lot of people think about the feeling that a user gets when they open an app that they rely on. We love that. But, we're not building SuperDuper for that moment. We're building it for the feeling you get when you close the app. We're building for the moment when you already know what's next. And you can go be with your kids.</p>
+          </div>
+          <div class="story-visual">
+            <img src="images/about-presence.png" alt="A phone face-down on a table, a parent and child playing outside through the window" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Hero -->
     <section class="hero">
       <div class="container">
@@ -764,11 +998,11 @@
         <div class="about-cards fade-in">
           <div class="about-card">
             <h3>Not vibe coding.</h3>
-            <p>We don't ask users to describe what they want. The app observes your data and assembles the right experience automatically.</p>
+            <p>We don't ask users to describe what they want. The app observes your existing data and assembles the right experience automatically.</p>
           </div>
           <div class="about-card">
             <h3>Not just agents.</h3>
-            <p>Agents act on your behalf. Adaptive applications understand what matters, organize it, and stay current without being told.</p>
+            <p>Agents act on your behalf. Adaptive applications understand what matters, organize it, and stay current without being told. Then they can act.</p>
           </div>
           <div class="about-card">
             <h3>Not one-size-fits-all.</h3>
