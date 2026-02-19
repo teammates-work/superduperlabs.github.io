@@ -321,21 +321,21 @@
         align-items: center;
         padding-top: 10rem;
         padding-bottom: 4rem;
-        text-align: center;
       }
 
       .hero .container {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
         align-items: center;
       }
 
       .hero-content {
-        max-width: 680px;
+        max-width: 540px;
       }
 
       .hero h1 {
-        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
         margin-bottom: 1.5rem;
         color: var(--navy);
       }
@@ -358,13 +358,23 @@
       }
 
       .hero-subheadline {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: var(--navy-60);
         margin-bottom: 2.5rem;
         font-weight: 300;
-        max-width: 540px;
-        margin-left: auto;
-        margin-right: auto;
+      }
+
+      .hero-media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-media img {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+        border-radius: 16px;
       }
 
       /* ============================================
@@ -1054,6 +1064,28 @@
           padding: 4rem 0;
         }
 
+        .hero {
+          padding-top: 7rem;
+          text-align: center;
+        }
+
+        .hero .container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .hero-content {
+          max-width: 100%;
+        }
+
+        .hero-media {
+          order: -1;
+        }
+
+        .hero-media img {
+          max-width: 280px;
+        }
+
         .nav-link {
           display: none;
         }
@@ -1303,6 +1335,9 @@
             </div>
             <button type="button" class="newsletter-back-button">&larr; Try again</button>
           </div>
+        </div>
+        <div class="hero-media">
+          <img src="images/hero-video-placeholder.png" alt="A phone showing a Gmail inbox overwhelmed with thousands of unread kid-related emails" />
         </div>
       </div>
     </section>
