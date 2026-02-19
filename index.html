@@ -747,137 +747,89 @@
       }
 
       /* ============================================
-         Why SuperDuper - Alternating Feature Rows
+         The Feature List - 7-Card Grid (3+4)
          ============================================ */
-      .why-section {
+      .features-section {
         background: var(--navy-04);
       }
 
-      .why-features {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        margin-bottom: 3rem;
-      }
-
-      .why-feature {
+      .features-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-      }
-
-      .why-feature--reverse {
-        direction: rtl;
-      }
-
-      .why-feature--reverse > * {
-        direction: ltr;
-      }
-
-      .why-feature-illustration {
+        grid-template-columns: repeat(12, 1fr);
         background: #ffffff;
         border: 1px solid var(--navy-08);
-        border-radius: 20px;
-        padding: 2.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 280px;
+        border-radius: 16px;
         overflow: hidden;
-      }
-
-      .why-feature-illustration img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-      }
-
-      .why-feature-text h3 {
-        font-family: 'Fraunces', serif;
-        font-size: clamp(1.4rem, 2.5vw, 1.75rem);
-        color: var(--navy);
-        margin-bottom: 1rem;
-        line-height: 1.2;
-      }
-
-      .why-feature-text p {
-        color: var(--navy-60);
-        font-size: 1rem;
-        line-height: 1.7;
-      }
-
-      /* Schedule card mockup (card 2 illustration) */
-      .why-mockup-schedule {
-        width: 100%;
-        max-width: 320px;
-      }
-
-      .why-mockup-card {
-        background: #ffffff;
-        border: 1px solid var(--navy-08);
-        border-radius: 12px;
-        padding: 1.25rem;
-        box-shadow: 0 4px 16px rgba(27, 20, 100, 0.08);
         position: relative;
       }
 
-      .why-mockup-badge {
+      .features-grid::before {
+        content: '';
         position: absolute;
-        top: -10px;
-        right: -10px;
-        background: var(--pink);
-        color: #fff;
-        font-family: 'Figtree', sans-serif;
-        font-size: 0.7rem;
-        font-weight: 600;
-        padding: 0.25rem 0.6rem;
-        border-radius: 20px;
-        white-space: nowrap;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient);
+        z-index: 1;
       }
 
-      .why-mockup-header {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
+      /* Top row: 3 cards spanning 4 cols each */
+      .feature-card:nth-child(1),
+      .feature-card:nth-child(2),
+      .feature-card:nth-child(3) {
+        grid-column: span 4;
+        border-bottom: 1px solid var(--navy-08);
       }
 
-      .why-mockup-icon {
-        width: 28px;
-        height: 28px;
-        flex-shrink: 0;
+      /* Bottom row: 4 cards spanning 3 cols each */
+      .feature-card:nth-child(4),
+      .feature-card:nth-child(5),
+      .feature-card:nth-child(6),
+      .feature-card:nth-child(7) {
+        grid-column: span 3;
       }
 
-      .why-mockup-title {
+      /* Right borders between cards in top row */
+      .feature-card:nth-child(1),
+      .feature-card:nth-child(2) {
+        border-right: 1px solid var(--navy-08);
+      }
+
+      /* Right borders between cards in bottom row */
+      .feature-card:nth-child(4),
+      .feature-card:nth-child(5),
+      .feature-card:nth-child(6) {
+        border-right: 1px solid var(--navy-08);
+      }
+
+      .feature-card {
+        padding: 1.75rem 1.5rem;
+      }
+
+      .feature-card-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 0.75rem;
+      }
+
+      .feature-card-icon svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      .feature-card h3 {
         font-family: 'Onest', sans-serif;
+        font-size: 1rem;
         font-weight: 600;
-        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
         color: var(--navy);
       }
 
-      .why-mockup-time-old {
-        font-size: 0.85rem;
-        color: var(--navy-40);
-        text-decoration: line-through;
-        margin-bottom: 0.15rem;
-      }
-
-      .why-mockup-time-new {
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: var(--pink);
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
-      .why-mockup-footer {
-        margin-top: 0.75rem;
-        padding-top: 0.75rem;
-        border-top: 1px solid var(--navy-08);
-        font-size: 0.75rem;
-        color: var(--navy-40);
+      .feature-card p {
+        color: var(--navy-60);
+        font-size: 0.9rem;
+        line-height: 1.5;
       }
 
 
@@ -1142,17 +1094,24 @@
           border-bottom: none;
         }
 
-        .why-feature {
+        .features-grid {
           grid-template-columns: 1fr;
-          gap: 1.5rem;
         }
 
-        .why-feature--reverse {
-          direction: ltr;
+        .feature-card:nth-child(1),
+        .feature-card:nth-child(2),
+        .feature-card:nth-child(3),
+        .feature-card:nth-child(4),
+        .feature-card:nth-child(5),
+        .feature-card:nth-child(6),
+        .feature-card:nth-child(7) {
+          grid-column: span 1;
+          border-right: none;
+          border-bottom: 1px solid var(--navy-08);
         }
 
-        .why-feature-illustration {
-          min-height: 200px;
+        .feature-card:last-child {
+          border-bottom: none;
         }
 
         .privacy-card {
@@ -1290,7 +1249,7 @@
         </a>
         <nav class="nav">
           <a href="#how-it-works" class="nav-link">How it Works</a>
-          <a href="#why" class="nav-link">Why SuperDuper</a>
+          <a href="#features" class="nav-link">Features</a>
           <a href="/about.html" class="nav-link">About</a>
           <a href="#signup" class="btn btn-primary">Join Waitlist</a>
           <button class="mobile-menu-btn" aria-label="Open menu" id="mobile-menu-open">
@@ -1311,7 +1270,7 @@
         </svg>
       </button>
       <a href="#how-it-works" class="mobile-nav-link">How it Works</a>
-      <a href="#why" class="mobile-nav-link">Why SuperDuper</a>
+      <a href="#features" class="mobile-nav-link">Features</a>
       <a href="/about.html" class="mobile-nav-link">About</a>
       <a href="#signup" class="btn btn-primary mobile-nav-link">Join Waitlist</a>
     </div>
@@ -1484,68 +1443,80 @@
             </div>
           </div>
         </div>
-        <p class="how-closer fade-in">It all shows up in one place. Just for your family. Always up to date.</p>
+        <p class="how-closer fade-in">Your family isn't a template. Your dashboard shouldn't be either.</p>
       </div>
     </section>
 
-    <!-- Why SuperDuper -->
-    <section class="why-section" id="why">
+    <!-- The Feature List -->
+    <section class="features-section" id="features">
       <div class="container">
         <div class="section-header fade-in">
-          <span class="section-label">Why SuperDuper</span>
-          <h2>Your family isn't a template.</h2>
-          <p>SuperDuper builds a dashboard around your actual life.</p>
+          <span class="section-label">The Feature List</span>
+          <h2>The stuff that matters.</h2>
         </div>
-        <div class="why-features">
-          <!-- Row 1: illustration left, text right -->
-          <div class="why-feature fade-in">
-            <div class="why-feature-illustration">
-              <img src="images/why-family.jpg" alt="Two kids surrounded by floating activity icons" />
+        <div class="features-grid fade-in">
+          <div class="feature-card">
+            <div class="feature-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#brand-gradient)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
             </div>
-            <div class="why-feature-text">
-              <h3>Your family, understood.</h3>
-              <p>From day one, SuperDuper knows that Carlo has tap on Tuesdays, Maya has soccer with Coach Mike, and Mrs. Patterson's class has early dismissal on Fridays. It knows deadline emails matter and fundraiser updates can wait.</p>
-            </div>
+            <h3>Emails, PDFs, Even Links</h3>
+            <p>SuperDuper finds the gold, regardless of the format.</p>
           </div>
-          <!-- Row 2: text left, illustration right -->
-          <div class="why-feature why-feature--reverse fade-in">
-            <div class="why-feature-illustration">
-              <div class="why-mockup-schedule">
-                <div class="why-mockup-card">
-                  <span class="why-mockup-badge">New update!</span>
-                  <div class="why-mockup-header">
-                    <div class="why-mockup-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#brand-gradient)">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                      </svg>
-                    </div>
-                    <span class="why-mockup-title">Soccer Practice</span>
-                  </div>
-                  <div class="why-mockup-time-old">Tuesday 4:00 PM</div>
-                  <div class="why-mockup-time-new">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" stroke-width="2" stroke="currentColor" width="14" height="14">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 8h12m0 0L10 4m4 4-4 4" />
-                    </svg>
-                    Thursday 4:30 PM
-                  </div>
-                  <div class="why-mockup-footer">Updated 2 min ago from Coach Mike's email</div>
-                </div>
-              </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#brand-gradient)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6a2.25 2.25 0 0 1 1.5-2.122" />
+              </svg>
             </div>
-            <div class="why-feature-text">
-              <h3>Your schedule is always current.</h3>
-              <p>RSVPs come in. The coach sends a last-minute update. Picture day gets pushed to next week. SuperDuper is already updated before you even knew something changed.</p>
-            </div>
+            <h3>Smart Grouping</h3>
+            <p>No one needs 14 different email threads for one field trip. SuperDuper agrees.</p>
           </div>
-          <!-- Row 3: illustration left, text right -->
-          <div class="why-feature fade-in">
-            <div class="why-feature-illustration">
-              <img src="images/why-loop.jpg" alt="Two parents in different rooms both seeing the same schedule update notification" />
+          <div class="feature-card">
+            <div class="feature-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#brand-gradient)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+              </svg>
             </div>
-            <div class="why-feature-text">
-              <h3>Everyone's in the loop.</h3>
-              <p>When the whole family signs up, everyone's SuperDuper stays in sync. The violin teacher emailed your partner about the schedule change? You already know. No forwarding. No "did you see that?"</p>
+            <h3>Knows What Matters</h3>
+            <p>SuperDuper knows if your family doesn't care about fundraising updates, or if your son quit gymnastics last month.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#brand-gradient)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+              </svg>
             </div>
+            <h3>Conflict Detection</h3>
+            <p>Soccer and piano at the same time on Thursday? You'll know before it's a problem.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#brand-gradient)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182M4.031 9.865H9.025" />
+              </svg>
+            </div>
+            <h3>Always Current</h3>
+            <p>Coach sent an update 10 minutes ago. Your dashboard already knows.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#brand-gradient)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21l3.75-3.75" />
+              </svg>
+            </div>
+            <h3>Sorted by Priority</h3>
+            <p>Waiver due in two hours. Permission slip due next week. You'll see it when you need to know.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#brand-gradient)">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
+            </div>
+            <h3>The Whole Family In Sync</h3>
+            <p>One dashboard. Everyone sees the same week. No forwarding required.</p>
           </div>
         </div>
       </div>
