@@ -1522,7 +1522,7 @@
         </div>
         <div class="hero-media">
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/tZt2i5PTz8A?rel=0" title="SuperDuper demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="hero-video" src="https://www.youtube.com/embed/tZt2i5PTz8A?rel=0&enablejsapi=1" title="SuperDuper demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -2144,6 +2144,25 @@
         }
       });
     })();
+    </script>
+
+    <script>
+      // Reset hero video when it ends to prevent YouTube recommendations
+      var tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(tag);
+
+      function onYouTubeIframeAPIReady() {
+        new YT.Player('hero-video', {
+          events: {
+            onStateChange: function(e) {
+              if (e.data === YT.PlayerState.ENDED) {
+                e.target.stopVideo();
+              }
+            }
+          }
+        });
+      }
     </script>
 
     <!-- Konami Code Modal -->
