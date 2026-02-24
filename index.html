@@ -371,11 +371,23 @@
         justify-content: center;
       }
 
-      .hero-media img {
+      .hero-media .video-wrapper {
+        position: relative;
         width: 100%;
         max-width: 480px;
-        height: auto;
+        padding-bottom: 56.25%; /* 16:9 */
         border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(10, 25, 48, 0.18);
+      }
+
+      .hero-media .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
       }
 
       /* ============================================
@@ -1229,8 +1241,8 @@
           order: -1;
         }
 
-        .hero-media img {
-          max-width: 280px;
+        .hero-media .video-wrapper {
+          max-width: 340px;
         }
 
         .nav-link {
@@ -1489,7 +1501,9 @@
           </div>
         </div>
         <div class="hero-media">
-          <img src="images/hero-video-placeholder.png" alt="A phone showing a Gmail inbox overwhelmed with thousands of unread kid-related emails" />
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/tZt2i5PTz8A" title="SuperDuper demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
