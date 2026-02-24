@@ -43,7 +43,8 @@
         --navy: #1B1464;
         --pink: #E84F9A;
         --blue: #4A8FE7;
-        --gradient: linear-gradient(135deg, #E84F9A, #4A8FE7);
+        --gradient-pink: linear-gradient(135deg, #F472B6, #DB2777);
+        --gradient-blue: linear-gradient(135deg, #60A5FA, #2563EB);
         --navy-90: rgba(27, 20, 100, 0.9);
         --navy-70: rgba(27, 20, 100, 0.7);
         --navy-60: rgba(27, 20, 100, 0.6);
@@ -353,7 +354,7 @@
         bottom: 2px;
         width: 100%;
         height: 6px;
-        background: var(--gradient);
+        background: var(--gradient-pink);
         border-radius: 3px;
         opacity: 0.5;
       }
@@ -472,7 +473,7 @@
         transform: translateX(-50%);
         width: 80px;
         height: 3px;
-        background: var(--gradient);
+        background: var(--gradient-pink);
         border-radius: 2px;
       }
 
@@ -540,7 +541,7 @@
         left: 0;
         right: 0;
         height: 3px;
-        background: var(--gradient);
+        background: var(--gradient-pink);
       }
 
       .about-card h3 {
@@ -603,13 +604,34 @@
       }
 
       .app-card--family {
-        background: var(--pink);
-        color: #ffffff;
+        background: linear-gradient(135deg, rgba(232, 79, 154, 0.06) 0%, rgba(232, 79, 154, 0.12) 100%);
+        border: 1px solid rgba(232, 79, 154, 0.2);
+        box-shadow: 0 2px 12px rgba(232, 79, 154, 0.08);
         grid-column: span 2;
+        cursor: pointer;
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
-      .app-card--family a {
-        color: #ffffff;
+      .app-card--family:hover {
+        box-shadow: 0 4px 20px rgba(232, 79, 154, 0.15);
+        border-color: rgba(232, 79, 154, 0.35);
+      }
+
+      .app-card--family .app-card-name {
+        color: var(--navy);
+      }
+
+      .app-card--family .app-card-desc {
+        color: var(--navy-70);
+        opacity: 1;
+      }
+
+      .app-card--family .app-card-link {
+        color: var(--pink);
       }
 
       .app-card--coming {
@@ -896,9 +918,7 @@
           <img src="images/wordmark-header.png" alt="SuperDuper" class="logo-wordmark" />
         </a>
         <nav class="nav">
-          <a href="/about.html" class="nav-link nav-link--active">About</a>
-          <a href="/" class="nav-link">SuperDuper Family</a>
-          <a href="/#signup" class="btn btn-primary">Join Waitlist</a>
+          <a href="/" class="nav-link">SuperDuper Family &rarr;</a>
           <button class="mobile-menu-btn" aria-label="Open menu" id="mobile-menu-open">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -916,9 +936,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </button>
-      <a href="/about.html" class="mobile-nav-link">About</a>
-      <a href="/" class="mobile-nav-link">SuperDuper Family</a>
-      <a href="/#signup" class="btn btn-primary mobile-nav-link">Join Waitlist</a>
+      <a href="/" class="mobile-nav-link">SuperDuper Family &rarr;</a>
     </div>
 
     <!-- Our Story -->
@@ -1045,18 +1063,18 @@
         </div>
         <div class="app-grid fade-in">
           <!-- Family - featured -->
-          <div class="app-card app-card--family">
+          <a href="/" class="app-card app-card--family">
             <div>
               <div class="app-card-name">SuperDuper Family</div>
               <p class="app-card-desc">Every school newsletter, every coach update, every PDF attachment. SuperDuper reads it all and shows you what's next.</p>
             </div>
-            <a href="/" class="app-card-link">
+            <span class="app-card-link">
               Available now
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
               </svg>
-            </a>
-          </div>
+            </span>
+          </a>
           <!-- Coming soon cards -->
           <div class="app-card app-card--coming">
             <div>
