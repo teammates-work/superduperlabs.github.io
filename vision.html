@@ -613,27 +613,80 @@
         text-align: center;
       }
 
-      .contact-text {
-        max-width: 480px;
+      .contact-inner {
+        max-width: 520px;
         margin: 0 auto;
       }
 
-      .contact-text p {
-        color: var(--navy-60);
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 0.25rem;
+      .contact-inner h2 {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        margin-bottom: 1rem;
+        color: var(--navy);
       }
 
-      .contact-text a {
+      .contact-intro {
+        color: var(--navy-60);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .contact-email {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.15rem;
+        font-weight: 600;
         color: var(--pink);
         text-decoration: none;
-        font-weight: 500;
         transition: color 0.2s ease;
+        margin-bottom: 1.5rem;
       }
 
-      .contact-text a:hover {
+      .contact-email:hover {
         color: #d63e87;
+      }
+
+      .contact-email svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+
+      .contact-address {
+        color: var(--navy-40);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .contact-socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .contact-social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--navy-08);
+        color: var(--navy-50);
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .contact-social-link:hover {
+        background: var(--navy-15);
+        color: var(--navy);
+      }
+
+      .contact-social-link svg {
+        width: 22px;
+        height: 22px;
       }
 
       /* ============================================
@@ -923,12 +976,23 @@
     <!-- Contact -->
     <section class="contact-section">
       <div class="container">
-        <div class="section-header fade-in">
-          <span class="section-label">Contact Us</span>
-        </div>
-        <div class="contact-text fade-in">
-          <p><a href="mailto:hello@superduperlabs.com">hello@superduperlabs.com</a></p>
-          <p>2261 Market Street, Suite 10285<br>San Francisco CA 94114</p>
+        <div class="contact-inner fade-in">
+          <span class="section-label">Say Hello</span>
+          <h2>We'd love to hear from you.</h2>
+          <p class="contact-intro">Whether you have a question, feedback, or just want to say hi — we're a friendly bunch and we read every message.</p>
+          <a href="mailto:hello@superduperlabs.com" class="contact-email">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+            hello@superduperlabs.com
+          </a>
+          <p class="contact-address">2261 Market Street, Suite 10285<br>San Francisco, CA 94114</p>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/company/superduperlabs" class="contact-social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M33.6363 3.33417H6.36355C4.68931 3.33417 3.33325 4.69023 3.33325 6.36447V33.6372C3.33325 35.3114 4.68931 36.6675 6.36355 36.6675H33.6363C35.3105 36.6675 36.6666 35.3114 36.6666 33.6372V6.36447C36.6666 4.69023 35.3105 3.33417 33.6363 3.33417ZM13.8696 30.6069H9.39992V16.2251H13.8696V30.6069ZM11.5893 14.169C10.1484 14.169 8.98325 13.0008 8.98325 11.563C8.98325 10.1251 10.1499 8.95841 11.5893 8.95841C13.0257 8.95841 14.1939 10.1266 14.1939 11.563C14.1939 13.0008 13.0257 14.169 11.5893 14.169ZM30.612 30.6069H26.1454V23.613C26.1454 21.9448 26.1151 19.7993 23.8226 19.7993C21.4969 19.7993 21.1393 21.616 21.1393 23.4917V30.6069H16.6726V16.2251H20.9605V18.1902H21.0211C21.6181 17.0599 23.0757 15.8675 25.2499 15.8675C29.7757 15.8675 30.612 18.8463 30.612 22.719V30.6069V30.6069Z" fill="currentColor" /></svg>
+            </a>
+            <a href="https://x.com/superduper_labs" class="contact-social-link" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M32.8 32.0009L22.7887 18.0132L22.8058 18.0263L31.8324 8.00085H28.816L21.4626 16.1609L15.6232 8.00085H7.71218L17.0586 21.0601L17.0575 21.059L7.19995 32.0009H10.2164L18.3916 22.9223L24.8889 32.0009H32.8ZM14.4281 10.1827L28.4745 29.819H26.0841L12.0263 10.1827H14.4281Z" fill="currentColor" /></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
