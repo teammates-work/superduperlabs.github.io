@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>About SuperDuper — Our Story</title>
+    <title>Our Vision — SuperDuper Adaptive Applications Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="We built SuperDuper because we were tired of all the work on top of the work of actually raising kids. Meet the team behind the app." />
+    <meta name="description" content="SuperDuper builds adaptive applications — software that figures out what you need. No prompts. No configuration. Just connect your data and let the app build itself around your life." />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="About SuperDuper — Our Story" />
-    <meta property="og:description" content="We built SuperDuper because we were tired of all the work on top of the work of actually raising kids." />
+    <meta property="og:title" content="Our Vision — SuperDuper Adaptive Applications Platform" />
+    <meta property="og:description" content="Software that figures out what you need. No prompts. No configuration." />
     <meta property="og:image" content="https://superduperlabs.com/images/og-image.png" />
-    <meta property="og:url" content="https://superduperlabs.com/about" />
+    <meta property="og:url" content="https://superduperlabs.com/vision" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Favicons -->
@@ -197,8 +197,7 @@
         transition: color 0.2s ease;
       }
 
-      .nav-link:hover,
-      .nav-link--active {
+      .nav-link:hover {
         color: var(--navy);
       }
 
@@ -314,6 +313,34 @@
         height: 24px;
       }
 
+      /* ============================================
+         Hero Section
+         ============================================ */
+      .hero {
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        padding-top: 10rem;
+        padding-bottom: 4rem;
+        text-align: center;
+      }
+
+      .hero .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-content {
+        max-width: 680px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        margin-bottom: 1.5rem;
+        color: var(--navy);
+      }
+
       .underline-gradient {
         position: relative;
         display: inline;
@@ -331,120 +358,14 @@
         opacity: 0.5;
       }
 
-      /* ============================================
-         Our Story Section
-         ============================================ */
-      .story {
-        padding-top: 10rem;
-        padding-bottom: 2rem;
-      }
-
-      .story-header {
-        max-width: 720px;
-        margin: 0 auto 4rem;
-        text-align: center;
-      }
-
-      .story-headline {
-        font-size: clamp(2rem, 4.5vw, 3.25rem);
-        color: var(--navy);
-        margin-bottom: 1rem;
-        line-height: 1.15;
-      }
-
-      /* Story Rows - alternating text + image */
-      .story-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        max-width: 1000px;
-        margin: 0 auto;
-        align-items: center;
-        padding: 2.5rem 0;
-      }
-
-      .story-row.reverse {
-        direction: rtl;
-      }
-
-      .story-row.reverse > * {
-        direction: ltr;
-      }
-
-      .story-row.text-only {
-        grid-template-columns: 1fr;
-        max-width: 720px;
-        text-align: center;
-        padding: 3rem 0;
-      }
-
-      .story-text p {
-        font-size: 1.15rem;
-        line-height: 1.75;
-        color: var(--navy-70);
-      }
-
-      .story-visual {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .story-visual img {
-        width: 100%;
-        max-width: 420px;
-        height: auto;
-        border-radius: 16px;
-      }
-
-      .story-visual--logo {
-        background: linear-gradient(135deg, var(--pink-08), var(--blue-08));
-        border-radius: 24px;
-        padding: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        aspect-ratio: 1;
-        max-width: 360px;
-        width: 100%;
-      }
-
-      .story-visual--logo img {
-        width: 60%;
-        height: auto;
-        border-radius: 0;
-      }
-
-      .story-pullquote {
-        font-family: 'Fraunces', serif;
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        line-height: 1.4;
-        color: var(--navy);
-        text-align: center;
-        max-width: 640px;
-        margin: 0 auto;
-        padding: 2.5rem 0;
-        position: relative;
-      }
-
-      .story-pullquote::before,
-      .story-pullquote::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: var(--gradient-pink);
-        border-radius: 2px;
-      }
-
-      .story-pullquote::before {
-        top: 0;
-      }
-
-      .story-pullquote::after {
-        bottom: 0;
+      .hero-subheadline {
+        font-size: 1.2rem;
+        color: var(--navy-60);
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       /* ============================================
@@ -479,39 +400,182 @@
       }
 
       /* ============================================
-         Vision Teaser
+         About Cards (3-column)
          ============================================ */
-      .vision-teaser {
+      .about-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .about-card {
+        background: #ffffff;
+        border: 1px solid var(--navy-08);
+        border-radius: 16px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient-pink);
+      }
+
+      .about-card h3 {
+        font-family: 'Onest', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--navy);
+      }
+
+      .about-card p {
+        color: var(--navy-60);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* ============================================
+         Platform Section (centered text)
+         ============================================ */
+      .platform-section {
+        background: var(--navy-04);
+      }
+
+      .platform-text {
         text-align: center;
-        max-width: 600px;
+        max-width: 660px;
         margin: 0 auto;
       }
 
-      .vision-teaser p {
-        font-size: 1.1rem;
+      .platform-text h2 {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        margin-bottom: 1.5rem;
+        color: var(--navy);
+      }
+
+      .platform-text p {
         color: var(--navy-60);
+        font-size: 1.1rem;
         line-height: 1.7;
+      }
+
+      /* ============================================
+         App Store Grid
+         ============================================ */
+      .app-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .app-card {
+        border-radius: 16px;
+        padding: 2rem;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .app-card--family {
+        background: linear-gradient(135deg, rgba(232, 79, 154, 0.06) 0%, rgba(232, 79, 154, 0.12) 100%);
+        border: 1px solid rgba(232, 79, 154, 0.2);
+        box-shadow: 0 2px 12px rgba(232, 79, 154, 0.08);
+        grid-column: span 2;
+        cursor: pointer;
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .app-card--family:hover {
+        box-shadow: 0 4px 20px rgba(232, 79, 154, 0.15);
+        border-color: rgba(232, 79, 154, 0.35);
+      }
+
+      .app-card--family .app-card-name {
+        color: var(--navy);
+      }
+
+      .app-card--family .app-card-desc {
+        color: var(--navy-70);
+        opacity: 1;
+      }
+
+      .app-card--family .app-card-link {
+        color: var(--pink);
+      }
+
+      .app-card--coming {
+        background: var(--navy-04);
+        border: 1px solid var(--navy-08);
+      }
+
+      .app-card-name {
+        font-family: 'Fraunces', serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .app-card-desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        opacity: 0.9;
         margin-bottom: 1.5rem;
       }
 
-      .vision-teaser-link {
+      .app-card--coming .app-card-name {
+        color: var(--navy);
+      }
+
+      .app-card--coming .app-card-desc {
+        color: var(--navy-60);
+      }
+
+      .app-card-link {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.4rem;
         font-weight: 600;
-        font-size: 1rem;
-        color: var(--pink);
+        font-size: 0.9rem;
         text-decoration: none;
         transition: gap 0.2s ease;
       }
 
-      .vision-teaser-link:hover {
-        gap: 0.8rem;
+      .app-card-link:hover {
+        gap: 0.7rem;
       }
 
-      .vision-teaser-link svg {
-        width: 18px;
-        height: 18px;
+      .app-card-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .app-card-badge {
+        display: inline-flex;
+        align-items: center;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--navy-40);
+        background: var(--navy-08);
+        padding: 0.3rem 0.7rem;
+        border-radius: 20px;
+        width: fit-content;
       }
 
       /* ============================================
@@ -607,35 +671,23 @@
       /* ============================================
          Responsive
          ============================================ */
+      @media (max-width: 1024px) {
+        .app-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .app-card--family {
+          grid-column: span 2;
+        }
+      }
+
       @media (max-width: 768px) {
         section {
           padding: 4rem 0;
         }
 
-        .story {
+        .hero {
           padding-top: 8rem;
-        }
-
-        .story-row {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-
-        .story-row.reverse {
-          direction: ltr;
-        }
-
-        .story-text p {
-          text-align: left;
-        }
-
-        .story-pullquote {
-          font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-        }
-
-        .story-visual--logo {
-          max-width: 280px;
-          margin: 0 auto;
         }
 
         .nav-link {
@@ -659,6 +711,20 @@
           pointer-events: auto;
         }
 
+        .about-cards {
+          grid-template-columns: 1fr;
+          max-width: 480px;
+          margin: 0 auto;
+        }
+
+        .app-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .app-card--family {
+          grid-column: span 1;
+        }
+
         .backed-logos {
           gap: 2.5rem;
         }
@@ -667,29 +733,6 @@
       @media (max-width: 480px) {
         .container {
           padding: 0 1.25rem;
-        }
-
-        .story {
-          padding-top: 7rem;
-        }
-
-        .story-headline {
-          text-align: left;
-        }
-
-        .story-header {
-          text-align: left;
-        }
-
-        .story-pullquote {
-          text-align: left;
-          padding: 2rem 0;
-        }
-
-        .story-pullquote::before,
-        .story-pullquote::after {
-          left: 0;
-          transform: none;
         }
 
         .footer-content {
@@ -713,10 +756,7 @@
           <img src="images/wordmark-header.png" alt="SuperDuper" class="logo-wordmark" />
         </a>
         <nav class="nav">
-          <a href="/#how-it-works" class="nav-link">How it Works</a>
-          <a href="/#features" class="nav-link">Features</a>
-          <a href="/about.html" class="nav-link nav-link--active">About</a>
-          <a href="/#signup" class="btn btn-primary">Join Waitlist</a>
+          <a href="/" class="nav-link">SuperDuper Family &rarr;</a>
           <button class="mobile-menu-btn" aria-label="Open menu" id="mobile-menu-open">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -734,92 +774,105 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </button>
-      <a href="/#how-it-works" class="mobile-nav-link">How it Works</a>
-      <a href="/#features" class="mobile-nav-link">Features</a>
-      <a href="/about.html" class="mobile-nav-link">About</a>
-      <a href="/#signup" class="btn btn-primary mobile-nav-link">Join Waitlist</a>
+      <a href="/" class="mobile-nav-link">SuperDuper Family &rarr;</a>
     </div>
 
-    <!-- Our Story -->
-    <section class="story">
+    <!-- Hero -->
+    <section class="hero">
       <div class="container">
-        <div class="story-header">
-          <span class="section-label fade-in">Who We Are</span>
-          <h1 class="story-headline fade-in">We Built SuperDuper Because We <span class="underline-gradient">Needed It.</span></h1>
+        <div class="hero-content fade-in">
+          <span class="section-label">Our Vision</span>
+          <h1>Software that <span class="underline-gradient">figures out</span> what you need.</h1>
+          <p class="hero-subheadline">No prompts. No configuration. Just connect your data and let the app build itself around your life.</p>
         </div>
+      </div>
+    </section>
 
-        <!-- Row 1: Activities + illustration -->
-        <div class="story-row fade-in">
-          <div class="story-text">
-            <p>The SuperDuper team has kids. They play 6 instruments across 4 bands. They are on more softball teams than we can count. They do basketball, soccer, volleyball, ultimate frisbee, capoeira, curling, gymnastics, dance, theater, robotics. One has a paper route. They're in French Club and Drone Flying Club. One is learning to drive. Two are preparing for Bar Mitzvahs.</p>
-          </div>
-          <div class="story-visual">
-            <img src="images/about-activities.png" alt="A colorful jumble of activity icons — instruments, sports gear, theater masks, robots" />
-          </div>
+    <!-- Adaptive Applications -->
+    <section style="background: var(--navy-04);">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">What We're Building</span>
+          <h2>We call them adaptive applications.</h2>
         </div>
-
-        <!-- Row 2: Failures + inbox illustration (reversed) -->
-        <div class="story-row reverse fade-in">
-          <div class="story-text">
-            <p>We've sent them to away games wearing home jerseys.<br />We've made them wait on the steps because we forgot it was early pickup at school.<br />We've read four different email threads from five different senders and <em>still</em> got the drop off wrong.</p>
+        <div class="about-cards fade-in">
+          <div class="about-card">
+            <h3>Not vibe coding.</h3>
+            <p>We don't ask users to describe what they want. The app observes your existing data and assembles the right experience automatically.</p>
           </div>
-          <div class="story-visual">
-            <img src="images/about-inbox.png" alt="An overflowing inbox — envelopes and notifications piling up" />
+          <div class="about-card">
+            <h3>Not just agents.</h3>
+            <p>Agents act on your behalf. Adaptive applications understand what matters, organize it, and stay current without being told.</p>
           </div>
-        </div>
-
-        <!-- Row 3: Pullquote (centered, text only) -->
-        <div class="story-row text-only fade-in">
-          <div>
-            <blockquote class="story-pullquote">We built SuperDuper because we were tired of all the work on top of the work of actually raising kids.</blockquote>
-          </div>
-        </div>
-
-        <!-- Row 4: Give back the hours + logo -->
-        <div class="story-row fade-in">
-          <div class="story-text">
-            <p>We're not trying to automate parenting. We're trying to give back the hours that logistics steal. The ones spent scrolling, forwarding, and mentally rehearsing tomorrow at 11pm when we just want to parent, to teach, to play.</p>
-          </div>
-          <div class="story-visual">
-            <div class="story-visual--logo">
-              <img src="images/superduper-logo-full-color.svg" alt="SuperDuper" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 5: All families + illustration (reversed) -->
-        <div class="story-row reverse fade-in">
-          <div class="story-text">
-            <p>We built SuperDuper to work for all families. Two-parent, same-sex parents, single-parent, grandparents who do pickups, and nannies who need the whole picture. We built it for co-parents splitting weeks and couples splitting sanity. We built it for us. Because in almost every household, someone is carrying a weight the other person can't fully see. And that person deserves more than a "have you tried a shared Google Calendar?"</p>
-          </div>
-          <div class="story-visual">
-            <img src="images/about-families.png" alt="Diverse families — different ages, races, and family types together" />
-          </div>
-        </div>
-
-        <!-- Row 6: Close the app + presence illustration -->
-        <div class="story-row fade-in">
-          <div class="story-text">
-            <p>A lot of people in tech obsess over the moment a user first opens their app. We get that. But we're building SuperDuper for the moment you <em>close</em> it. So you can put down your phone and go play with your kids.</p>
-          </div>
-          <div class="story-visual">
-            <img src="images/about-presence.png" alt="A phone face-down on a table, a parent and child playing outside through the window" />
+          <div class="about-card">
+            <h3>Not one-size-fits-all.</h3>
+            <p>Every user gets a different app. Same infrastructure, same codebase, but a completely personal experience shaped by their data.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Vision Teaser -->
+    <!-- How It Works (Platform) -->
+    <section class="platform-section">
+      <div class="container">
+        <div class="platform-text fade-in">
+          <h2>Shared infrastructure. Personal everything else.</h2>
+          <p>SuperDuper is a platform for building applications that adapt to each user. We handle the hard parts — data ingestion, entity resolution, real-time updates — so every app on the platform can deliver a deeply personalized experience from the moment you connect.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Store Grid -->
     <section>
       <div class="container">
-        <div class="vision-teaser fade-in">
-          <p>Family is where we started, but the technology behind SuperDuper is bigger than any single app. We're building a platform for adaptive applications — software that figures out what you need without being told.</p>
-          <a href="/vision.html" class="vision-teaser-link">
-            Read about our vision
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
+        <div class="section-header fade-in">
+          <span class="section-label">SuperDuper Apps</span>
+          <h2>Same magic. Different mess.</h2>
+          <p>Adaptive applications aren't limited to one use case. The same platform that reads your kids' school emails can organize your finances, your events, your client work. Family is where we started. It won't be where we stop.</p>
+        </div>
+        <div class="app-grid fade-in">
+          <!-- Family - featured -->
+          <a href="/" class="app-card app-card--family">
+            <div>
+              <div class="app-card-name">SuperDuper Family</div>
+              <p class="app-card-desc">Every school newsletter, every coach update, every PDF attachment. SuperDuper reads it all and shows you what's next.</p>
+            </div>
+            <span class="app-card-link">
+              Available now
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
           </a>
+          <!-- Coming soon cards -->
+          <div class="app-card app-card--coming">
+            <div>
+              <div class="app-card-name">SuperDuper Finance</div>
+              <p class="app-card-desc">Bills, subscriptions, and spending patterns — organized and surfaced before you have to think about them.</p>
+            </div>
+            <span class="app-card-badge">Coming soon</span>
+          </div>
+          <div class="app-card app-card--coming">
+            <div>
+              <div class="app-card-name">SuperDuper Events</div>
+              <p class="app-card-desc">Invitations, RSVPs, and logistics pulled together from every thread and calendar you use.</p>
+            </div>
+            <span class="app-card-badge">Coming soon</span>
+          </div>
+          <div class="app-card app-card--coming">
+            <div>
+              <div class="app-card-name">SuperDuper Clients</div>
+              <p class="app-card-desc">Client communications, follow-ups, and project timelines — always current, never manual.</p>
+            </div>
+            <span class="app-card-badge">Coming soon</span>
+          </div>
+          <div class="app-card app-card--coming">
+            <div>
+              <div class="app-card-name">SuperDuper Home</div>
+              <p class="app-card-desc">Maintenance schedules, warranties, and service providers — the operating system for your home.</p>
+            </div>
+            <span class="app-card-badge">Coming soon</span>
+          </div>
         </div>
       </div>
     </section>
