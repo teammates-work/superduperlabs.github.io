@@ -450,12 +450,6 @@
       /* ============================================
          Section Headers
          ============================================ */
-      .section-header {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 4rem;
-      }
-
       .section-label {
         display: inline-block;
         font-family: 'Figtree', sans-serif;
@@ -465,17 +459,6 @@
         text-transform: uppercase;
         color: var(--pink);
         margin-bottom: 1rem;
-      }
-
-      .section-header h2 {
-        font-size: clamp(2rem, 4vw, 3rem);
-        margin-bottom: 1rem;
-        color: var(--navy);
-      }
-
-      .section-header p {
-        color: var(--navy-60);
-        font-size: 1.1rem;
       }
 
       /* ============================================
@@ -515,34 +498,6 @@
       }
 
       /* ============================================
-         Backed By Section
-         ============================================ */
-      .backed-section {
-        background: var(--navy-04);
-      }
-
-      .backed-logos {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4rem;
-        flex-wrap: wrap;
-      }
-
-      .backed-logo {
-        height: 36px;
-        width: auto;
-        filter: grayscale(100%);
-        opacity: 0.6;
-        transition: all 0.3s ease;
-      }
-
-      .backed-logo:hover {
-        filter: grayscale(0%);
-        opacity: 1;
-      }
-
-      /* ============================================
          Footer
          ============================================ */
       .footer {
@@ -578,11 +533,20 @@
         border-radius: 50%;
       }
 
-      .footer-tagline {
+      .footer-emojis {
         margin-top: 1.5rem;
+        margin-bottom: 0.4rem;
+        font-size: 1rem;
+        text-align: center;
+        font-style: normal;
+        letter-spacing: 0.25em;
+      }
+
+      .footer-tagline {
+        margin-top: 0;
         font-size: 0.8rem;
         font-style: italic;
-        color: var(--navy-40);
+        color: var(--navy-50);
         text-align: center;
         max-width: 480px;
         margin-left: auto;
@@ -659,9 +623,6 @@
           pointer-events: auto;
         }
 
-        .backed-logos {
-          gap: 2.5rem;
-        }
       }
 
       @media (max-width: 480px) {
@@ -824,19 +785,6 @@
       </div>
     </section>
 
-    <!-- Backed By -->
-    <section class="backed-section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <span class="section-label">Backed By</span>
-        </div>
-        <div class="backed-logos fade-in">
-          <img src="images/logo-matrix.svg" alt="Matrix Partners" class="backed-logo" />
-          <img src="images/logo-outset.png" alt="Outset Capital" class="backed-logo" />
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -849,7 +797,8 @@
           <span class="footer-divider"></span>
           <a href="https://trust.superduperlabs.com">Trust & Compliance</a>
         </div>
-        <p class="footer-tagline">Building software that adapts to you.</p>
+        <p class="footer-emojis">&#9917;&#127936;&#129648;&#127917;&#127926;&#127912;&#128218;&#127890;</p>
+        <p class="footer-tagline">Here's to the forgotten permission slips, the late pick-ups, wearing home uniforms at away games, and wandering around the wrong field.<br>Parents, we salute you.</p>
       </div>
       <div class="footer-wordmark" aria-hidden="true">
         <svg viewBox="0 0 660 120" fill="none" xmlns="http://www.w3.org/2000/svg">
