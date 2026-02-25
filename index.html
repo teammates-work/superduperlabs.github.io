@@ -390,6 +390,44 @@
         border: 0;
       }
 
+      .video-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background: #000;
+      }
+
+      .video-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .video-thumb-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 48px;
+        pointer-events: none;
+      }
+
+      .video-thumb-play svg {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+        transition: transform 0.15s ease;
+      }
+
+      .video-thumb:hover .video-thumb-play svg {
+        transform: scale(1.08);
+      }
+
       /* ============================================
          Signup Form
          ============================================ */
@@ -1522,8 +1560,16 @@
           </div>
         </div>
         <div class="hero-media">
-          <div class="video-wrapper">
-            <iframe id="hero-video" src="https://www.youtube.com/embed/q_b60e1D79w?rel=0&enablejsapi=1" title="SuperDuper demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="video-wrapper" id="hero-video-wrapper">
+            <div class="video-thumb" id="video-thumb" role="button" aria-label="Play video" tabindex="0">
+              <img src="https://i.ytimg.com/vi/q_b60e1D79w/maxresdefault.jpg" alt="SuperDuper demo video" />
+              <span class="video-thumb-play">
+                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/>
+                  <path d="M45 24 27 14v20" fill="#fff"/>
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -2148,22 +2194,26 @@
     </script>
 
     <script>
-      // Reset hero video when it ends to prevent YouTube recommendations
-      var tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      document.head.appendChild(tag);
-
-      function onYouTubeIframeAPIReady() {
-        new YT.Player('hero-video', {
-          events: {
-            onStateChange: function(e) {
-              if (e.data === YT.PlayerState.ENDED) {
-                e.target.stopVideo();
-              }
-            }
-          }
+      // Lite YouTube embed — click thumbnail to load iframe
+      (function() {
+        var thumb = document.getElementById('video-thumb');
+        var wrapper = document.getElementById('hero-video-wrapper');
+        function activate() {
+          var iframe = document.createElement('iframe');
+          iframe.id = 'hero-video';
+          iframe.src = 'https://www.youtube.com/embed/q_b60e1D79w?rel=0&autoplay=1&enablejsapi=1';
+          iframe.title = 'SuperDuper demo video';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          iframe.allowFullscreen = true;
+          iframe.style.border = '0';
+          wrapper.innerHTML = '';
+          wrapper.appendChild(iframe);
+        }
+        thumb.addEventListener('click', activate);
+        thumb.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
         });
-      }
+      })();
     </script>
 
     <!-- Konami Code Modal -->
