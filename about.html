@@ -462,39 +462,86 @@
       }
 
       /* ============================================
-         Vision Teaser
+         Vision Callout
          ============================================ */
-      .vision-teaser {
-        text-align: center;
-        max-width: 600px;
+      .vision-callout-section {
+        padding-bottom: 4rem;
+      }
+
+      .vision-callout {
+        max-width: 720px;
         margin: 0 auto;
+        background: linear-gradient(135deg, var(--navy) 0%, #2a1f8a 100%);
+        border-radius: 20px;
+        padding: 3rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
       }
 
-      .vision-teaser p {
-        font-size: 1.1rem;
-        color: var(--navy-60);
+      .vision-callout::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 120%;
+        background: radial-gradient(ellipse, rgba(232, 79, 154, 0.15) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .vision-callout-label {
+        display: inline-block;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 1rem;
+        position: relative;
+      }
+
+      .vision-callout h3 {
+        font-size: clamp(1.4rem, 3vw, 1.75rem);
+        color: #ffffff;
+        margin-bottom: 1rem;
+        position: relative;
+      }
+
+      .vision-callout p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.7);
         line-height: 1.7;
-        margin-bottom: 1.5rem;
+        max-width: 540px;
+        margin: 0 auto 2rem;
+        position: relative;
       }
 
-      .vision-teaser-link {
+      .vision-callout-link {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
         font-weight: 600;
-        font-size: 1rem;
-        color: var(--pink);
+        font-size: 0.95rem;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.65rem 1.4rem;
+        border-radius: 8px;
         text-decoration: none;
-        transition: gap 0.2s ease;
+        transition: background 0.2s ease, gap 0.2s ease;
+        position: relative;
       }
 
-      .vision-teaser-link:hover {
+      .vision-callout-link:hover {
+        background: rgba(255, 255, 255, 0.2);
         gap: 0.8rem;
       }
 
-      .vision-teaser-link svg {
-        width: 18px;
-        height: 18px;
+      .vision-callout-link svg {
+        width: 16px;
+        height: 16px;
       }
 
       /* ============================================
@@ -770,12 +817,14 @@
       </div>
     </section>
 
-    <!-- Vision Teaser -->
-    <section>
+    <!-- Vision Callout -->
+    <section class="vision-callout-section">
       <div class="container">
-        <div class="vision-teaser fade-in">
+        <div class="vision-callout fade-in">
+          <span class="vision-callout-label">Beyond Family</span>
+          <h3>The bigger picture.</h3>
           <p>Family is where we started, but the technology behind SuperDuper is bigger than any single app. We're building a platform for adaptive applications — software that figures out what you need without being told.</p>
-          <a href="/vision.html" class="vision-teaser-link">
+          <a href="/vision.html" class="vision-callout-link">
             Read about our vision
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
