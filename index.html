@@ -2039,6 +2039,8 @@
         .then((res) => [res.ok, res.json(), res])
         .then(([ok, dataPromise, res]) => {
           if (ok) {
+            var email = formInput.value;
+            posthog.identify(email, { email: email });
             success.style.display = "flex";
             form.reset();
           } else {
