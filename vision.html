@@ -57,6 +57,17 @@
         --pink-08: rgba(232, 79, 154, 0.08);
         --blue-15: rgba(74, 143, 231, 0.15);
         --blue-08: rgba(74, 143, 231, 0.08);
+        --dark-bg: #0E0B3D;
+        --dark-surface-1: #151050;
+        --dark-surface-2: #1B1464;
+        --dark-text: #F1F0F7;
+        --dark-text-muted: rgba(241, 240, 247, 0.65);
+        --dark-text-faint: rgba(241, 240, 247, 0.40);
+        --dark-border: rgba(255, 255, 255, 0.08);
+        --dark-border-hover: rgba(255, 255, 255, 0.15);
+        --dark-pink-glow: rgba(232, 79, 154, 0.15);
+        --dark-blue-glow: rgba(74, 143, 231, 0.12);
+        --dark-glass: rgba(14, 11, 61, 0.88);
       }
 
       /* ============================================
@@ -72,12 +83,13 @@
 
       html {
         scroll-behavior: smooth;
+        color-scheme: dark;
       }
 
       body {
         font-family: 'Onest', system-ui, sans-serif;
-        background: #ffffff;
-        color: var(--navy);
+        background: var(--dark-bg);
+        color: var(--dark-text);
         min-height: 100vh;
         overflow-x: hidden;
         position: relative;
@@ -91,7 +103,7 @@
         left: -20%;
         width: 60%;
         height: 80%;
-        background: radial-gradient(ellipse, var(--pink-08) 0%, transparent 70%);
+        background: radial-gradient(ellipse, var(--dark-pink-glow) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
       }
@@ -103,7 +115,7 @@
         right: -10%;
         width: 50%;
         height: 70%;
-        background: radial-gradient(ellipse, var(--blue-08) 0%, transparent 70%);
+        background: radial-gradient(ellipse, var(--dark-blue-glow) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
       }
@@ -155,9 +167,9 @@
         right: 0;
         z-index: 100;
         padding: 1rem 0;
-        background: rgba(255, 255, 255, 0.92);
+        background: var(--dark-glass);
         backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--navy-08);
+        border-bottom: 1px solid var(--dark-border);
       }
 
       .header .container {
@@ -181,6 +193,7 @@
       .logo-wordmark {
         height: 22px;
         width: auto;
+        filter: brightness(0) invert(1);
       }
 
       .nav {
@@ -190,7 +203,7 @@
       }
 
       .nav-link {
-        color: var(--navy-60);
+        color: var(--dark-text-muted);
         text-decoration: none;
         font-size: 0.9rem;
         font-weight: 500;
@@ -198,7 +211,7 @@
       }
 
       .nav-link:hover {
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .btn {
@@ -224,7 +237,7 @@
       .btn-primary:hover {
         background: #d63e87;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(232, 79, 154, 0.3);
+        box-shadow: 0 4px 12px rgba(232, 79, 154, 0.4);
       }
 
       /* ============================================
@@ -234,7 +247,7 @@
         display: none;
         background: none;
         border: none;
-        color: var(--navy);
+        color: var(--dark-text);
         cursor: pointer;
         padding: 0.5rem;
         z-index: 110;
@@ -249,7 +262,7 @@
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(27, 20, 100, 0.4);
+        background: rgba(0, 0, 0, 0.6);
         z-index: 105;
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -265,11 +278,11 @@
         right: -300px;
         width: 280px;
         height: 100%;
-        background: #fff;
+        background: var(--dark-surface-2);
         z-index: 110;
         padding: 5rem 2rem 2rem;
         transition: right 0.3s ease;
-        box-shadow: -4px 0 24px rgba(27, 20, 100, 0.1);
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.4);
       }
 
       .mobile-nav-drawer.active {
@@ -279,11 +292,11 @@
       .mobile-nav-drawer a {
         display: block;
         padding: 1rem 0;
-        color: var(--navy);
+        color: var(--dark-text);
         text-decoration: none;
         font-size: 1.1rem;
         font-weight: 500;
-        border-bottom: 1px solid var(--navy-08);
+        border-bottom: 1px solid var(--dark-border);
       }
 
       .mobile-nav-drawer a:last-child {
@@ -303,7 +316,7 @@
         right: 1.25rem;
         background: none;
         border: none;
-        color: var(--navy);
+        color: var(--dark-text);
         cursor: pointer;
         padding: 0.5rem;
       }
@@ -338,7 +351,7 @@
       .hero h1 {
         font-size: clamp(2.5rem, 5vw, 3.75rem);
         margin-bottom: 1.5rem;
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .underline-gradient {
@@ -355,12 +368,12 @@
         height: 6px;
         background: var(--gradient-pink);
         border-radius: 3px;
-        opacity: 0.5;
+        opacity: 0.7;
       }
 
       .hero-subheadline {
         font-size: 1.2rem;
-        color: var(--navy-60);
+        color: var(--dark-text-muted);
         margin-bottom: 2.5rem;
         font-weight: 300;
         max-width: 540px;
@@ -391,12 +404,16 @@
       .section-header h2 {
         font-size: clamp(2rem, 4vw, 3rem);
         margin-bottom: 1rem;
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .section-header p {
-        color: var(--navy-60);
+        color: var(--dark-text-muted);
         font-size: 1.1rem;
+      }
+
+      .section-alt {
+        background: var(--dark-surface-1);
       }
 
       /* ============================================
@@ -409,8 +426,8 @@
       }
 
       .about-card {
-        background: #ffffff;
-        border: 1px solid var(--navy-08);
+        background: var(--dark-surface-2);
+        border: 1px solid var(--dark-border);
         border-radius: 16px;
         padding: 2rem;
         position: relative;
@@ -432,11 +449,11 @@
         font-size: 1.1rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .about-card p {
-        color: var(--navy-60);
+        color: var(--dark-text-muted);
         font-size: 0.95rem;
         line-height: 1.6;
       }
@@ -445,7 +462,7 @@
          Platform Section (centered text)
          ============================================ */
       .platform-section {
-        background: var(--navy-04);
+        background: var(--dark-surface-1);
       }
 
       .platform-text {
@@ -457,11 +474,11 @@
       .platform-text h2 {
         font-size: clamp(2rem, 4vw, 2.75rem);
         margin-bottom: 1.5rem;
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .platform-text p {
-        color: var(--navy-60);
+        color: var(--dark-text-muted);
         font-size: 1.1rem;
         line-height: 1.7;
       }
@@ -487,9 +504,9 @@
       }
 
       .app-card--family {
-        background: linear-gradient(135deg, rgba(232, 79, 154, 0.06) 0%, rgba(232, 79, 154, 0.12) 100%);
-        border: 1px solid rgba(232, 79, 154, 0.2);
-        box-shadow: 0 2px 12px rgba(232, 79, 154, 0.08);
+        background: linear-gradient(135deg, rgba(232, 79, 154, 0.10) 0%, rgba(232, 79, 154, 0.20) 100%);
+        border: 1px solid rgba(232, 79, 154, 0.3);
+        box-shadow: 0 2px 12px rgba(232, 79, 154, 0.15);
         grid-column: span 2;
         cursor: pointer;
         transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -500,16 +517,16 @@
       }
 
       .app-card--family:hover {
-        box-shadow: 0 4px 20px rgba(232, 79, 154, 0.15);
-        border-color: rgba(232, 79, 154, 0.35);
+        box-shadow: 0 4px 20px rgba(232, 79, 154, 0.3);
+        border-color: rgba(232, 79, 154, 0.5);
       }
 
       .app-card--family .app-card-name {
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .app-card--family .app-card-desc {
-        color: var(--navy-70);
+        color: var(--dark-text-muted);
         opacity: 1;
       }
 
@@ -518,8 +535,8 @@
       }
 
       .app-card--coming {
-        background: var(--navy-04);
-        border: 1px solid var(--navy-08);
+        background: var(--dark-surface-2);
+        border: 1px solid var(--dark-border);
       }
 
       .app-card-name {
@@ -537,11 +554,11 @@
       }
 
       .app-card--coming .app-card-name {
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .app-card--coming .app-card-desc {
-        color: var(--navy-60);
+        color: var(--dark-text-muted);
       }
 
       .app-card-link {
@@ -571,8 +588,8 @@
         font-weight: 600;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: var(--navy-40);
-        background: var(--navy-08);
+        color: var(--dark-text-faint);
+        background: rgba(255, 255, 255, 0.08);
         padding: 0.3rem 0.7rem;
         border-radius: 20px;
         width: fit-content;
@@ -582,7 +599,7 @@
          Backed By Section
          ============================================ */
       .backed-section {
-        background: var(--navy-04);
+        background: var(--dark-surface-1);
       }
 
       .backed-logos {
@@ -596,14 +613,14 @@
       .backed-logo {
         height: 36px;
         width: auto;
-        filter: grayscale(100%);
-        opacity: 0.6;
+        filter: grayscale(100%) brightness(0) invert(1);
+        opacity: 0.5;
         transition: all 0.3s ease;
       }
 
       .backed-logo:hover {
-        filter: grayscale(0%);
-        opacity: 1;
+        filter: brightness(0) invert(1);
+        opacity: 0.8;
       }
 
       /* ============================================
@@ -621,11 +638,11 @@
       .contact-inner h2 {
         font-size: clamp(2rem, 4vw, 2.75rem);
         margin-bottom: 1rem;
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .contact-intro {
-        color: var(--navy-60);
+        color: var(--dark-text-muted);
         font-size: 1.05rem;
         line-height: 1.7;
         margin-bottom: 2rem;
@@ -644,7 +661,7 @@
       }
 
       .contact-email:hover {
-        color: #d63e87;
+        color: #F472B6;
       }
 
       .contact-email svg {
@@ -654,7 +671,7 @@
       }
 
       .contact-address {
-        color: var(--navy-40);
+        color: var(--dark-text-faint);
         font-size: 0.9rem;
         line-height: 1.6;
         margin-bottom: 2rem;
@@ -674,14 +691,14 @@
         width: 40px;
         height: 40px;
         border-radius: 10px;
-        background: var(--navy-08);
-        color: var(--navy-50);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--dark-text-faint);
         transition: background 0.2s ease, color 0.2s ease;
       }
 
       .contact-social-link:hover {
-        background: var(--navy-15);
-        color: var(--navy);
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--dark-text);
       }
 
       .contact-social-link svg {
@@ -694,7 +711,7 @@
          ============================================ */
       .footer {
         padding: 3rem 0;
-        border-top: 1px solid var(--navy-08);
+        border-top: 1px solid var(--dark-border);
         text-align: center;
       }
 
@@ -705,23 +722,23 @@
         gap: 1.5rem;
         flex-wrap: wrap;
         font-size: 0.85rem;
-        color: var(--navy-50);
+        color: var(--dark-text-faint);
       }
 
       .footer a {
-        color: var(--navy-50);
+        color: var(--dark-text-faint);
         text-decoration: none;
         transition: color 0.2s ease;
       }
 
       .footer a:hover {
-        color: var(--navy);
+        color: var(--dark-text);
       }
 
       .footer-divider {
         width: 4px;
         height: 4px;
-        background: var(--navy-15);
+        background: rgba(255, 255, 255, 0.15);
         border-radius: 50%;
       }
 
@@ -729,7 +746,7 @@
         margin-top: 1.5rem;
         font-size: 0.8rem;
         font-style: italic;
-        color: var(--navy-40);
+        color: var(--dark-text-faint);
         text-align: center;
         max-width: 480px;
         margin-left: auto;
@@ -742,7 +759,7 @@
         padding: 0 2rem;
         pointer-events: none;
         user-select: none;
-        color: rgba(27, 20, 100, 0.04);
+        color: rgba(255, 255, 255, 0.03);
         line-height: 0;
       }
 
@@ -872,7 +889,7 @@
     </section>
 
     <!-- Adaptive Applications -->
-    <section style="background: var(--navy-04);">
+    <section class="section-alt">
       <div class="container">
         <div class="section-header fade-in">
           <span class="section-label">What We're Building</span>
