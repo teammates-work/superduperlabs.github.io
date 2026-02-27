@@ -2029,8 +2029,6 @@
 
       var formBody = "userGroup=&mailingLists=&email=" + encodeURIComponent(formInput.value) + "&joinedWaitlist=" + encodeURIComponent(new Date().toISOString());
 
-      try { posthog.identify(formInput.value, { email: formInput.value }); } catch (e) {}
-
       fetch(event.target.action, {
         method: "POST",
         body: formBody,
@@ -2041,6 +2039,8 @@
         .then((res) => [res.ok, res.json(), res])
         .then(([ok, dataPromise, res]) => {
           if (ok) {
+            var email = formInput.value;
+            posthog.identify(email, { email: email });
             success.style.display = "flex";
             form.reset();
           } else {
