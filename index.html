@@ -740,202 +740,116 @@
         background: #ffffff;
       }
 
-      .how-cards {
+      .how-it-works .container {
+        max-width: 1100px;
+      }
+
+      .hiw-row {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 3rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: stretch;
+      }
+
+      .hiw-pair {
         background: var(--navy-04);
         border: 1px solid var(--navy-08);
         border-radius: 16px;
         overflow: hidden;
-        position: relative;
+        margin-bottom: 2.5rem;
       }
 
-      .how-cards::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: var(--gradient-blue);
-        z-index: 1;
+      .hiw-pair .hiw-row + .hiw-row {
+        border-top: 1px solid var(--navy-08);
       }
 
-      .how-card {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 1.75rem 1.5rem;
+      .hiw-standalone {
+        margin-bottom: 2.5rem;
       }
 
-      /* Right border on left-column items */
-      .how-card:nth-child(odd) {
-        border-right: 1px solid var(--navy-08);
+      .hiw-standalone:last-child {
+        margin-bottom: 0;
       }
 
-      /* Bottom border on top-row items */
-      .how-card:nth-child(1),
-      .how-card:nth-child(2) {
-        border-bottom: 1px solid var(--navy-08);
-      }
-
-      .how-card-icon {
-        width: 40px;
-        height: 40px;
-        flex-shrink: 0;
+      .hiw-image {
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 2rem;
       }
 
-      .how-card-icon svg {
-        width: 36px;
-        height: 36px;
-      }
-
-      .how-card h3 {
-        font-family: 'Onest', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.35rem;
-        color: var(--navy);
-      }
-
-      .how-card p {
-        color: var(--navy-60);
-        font-size: 0.9rem;
-        line-height: 1.5;
-      }
-
-      /* Visual mock-up cards inside how-cards */
-      .how-card-visual {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
+      .hiw-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         border-radius: 12px;
-        padding: 0.85rem 1rem;
-        margin-bottom: 0.75rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        display: block;
       }
 
-      .how-visual-row {
+      .hiw-text {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2.5rem;
       }
 
-      .how-visual-star svg {
-        width: 20px;
-        height: 20px;
+      .hiw-text h3 {
+        font-family: 'Fraunces', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 1rem;
+        line-height: 1.3;
       }
 
-      .how-visual-avatars {
-        display: flex;
+      .hiw-text p {
+        color: var(--navy-60);
+        font-size: 1rem;
+        line-height: 1.65;
+        max-width: 440px;
       }
 
-      .how-visual-avatar {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
+      /* Phone mockup for card 4 */
+      .hiw-phone {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: #fff;
-        border: 2px solid #fff;
+        padding: 2rem;
       }
 
-      .how-visual-avatar + .how-visual-avatar {
-        margin-left: -8px;
+      .hiw-phone-frame {
+        width: 260px;
+        background: #1a1a2e;
+        border-radius: 36px;
+        padding: 12px;
+        box-shadow: 0 25px 60px rgba(27, 20, 100, 0.18), 0 8px 20px rgba(0,0,0,0.1);
+        transform: rotate(2deg);
       }
 
-      .how-visual-title {
-        font-weight: 600;
-        font-size: 0.85rem;
-        color: var(--navy);
-        margin-bottom: 0.15rem;
-      }
-
-      .how-visual-subtitle {
-        font-size: 0.75rem;
-        color: #6b7280;
-        margin-bottom: 0.5rem;
-      }
-
-      .how-visual-badge {
-        display: inline-block;
-        font-size: 0.7rem;
-        font-weight: 500;
-        padding: 0.2rem 0.6rem;
-        border-radius: 999px;
-        background: rgba(212, 136, 15, 0.15);
-        color: #9A6A0A;
-      }
-
-      .how-visual-badge--green {
-        background: rgba(34, 139, 34, 0.15);
-        color: #1a7a1a;
-      }
-
-      .how-visual-badge--orange {
-        background: rgba(234, 128, 28, 0.15);
-        color: #b5600e;
-      }
-
-      .how-visual-icon {
-        width: 20px;
-        height: 20px;
-        flex-shrink: 0;
-      }
-
-      .how-visual-icon svg {
-        width: 20px;
-        height: 20px;
-      }
-
-      .how-visual-meta {
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
-        font-size: 0.75rem;
-        color: #6b7280;
-        margin-bottom: 0.2rem;
-      }
-
-      .how-visual-meta svg {
-        width: 14px;
-        height: 14px;
-        flex-shrink: 0;
-      }
-
-      .how-visual-checkbox {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        border: 2px solid #d1d5db;
-        flex-shrink: 0;
-      }
-
-      .how-visual-flag svg {
-        width: 16px;
-        height: 16px;
-      }
-
-      .how-visual-strikethrough {
-        font-size: 0.75rem;
-        color: #9ca3af;
-        text-decoration: line-through;
-        margin-bottom: 0.1rem;
-      }
-
-      .how-closer {
-        text-align: center;
-        max-width: 600px;
+      .hiw-phone-notch {
+        width: 100px;
+        height: 28px;
+        background: #1a1a2e;
+        border-radius: 0 0 16px 16px;
         margin: 0 auto;
-        font-size: 1.1rem;
-        color: var(--navy-70);
+        position: relative;
+        top: -1px;
+        z-index: 2;
+      }
+
+      .hiw-phone-screen {
+        background: #fff;
+        border-radius: 24px;
+        overflow: hidden;
+        aspect-ratio: 9 / 19.5;
+      }
+
+      .hiw-phone-screen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
       }
 
       /* ============================================
@@ -1272,9 +1186,6 @@
           margin: 0 auto 4rem;
         }
 
-        .how-cards {
-          grid-template-columns: repeat(2, 1fr);
-        }
       }
 
       @media (max-width: 768px) {
@@ -1325,22 +1236,33 @@
           pointer-events: auto;
         }
 
-        .how-cards {
+        .hiw-row {
           grid-template-columns: 1fr;
-          max-width: 420px;
-          margin: 0 auto 3rem;
         }
 
-        .how-card:nth-child(odd) {
-          border-right: none;
+        .hiw-row--reversed .hiw-image {
+          order: -1;
         }
 
-        .how-card:nth-child(2) {
-          border-bottom: 1px solid var(--navy-08);
+        .hiw-image {
+          padding: 1.5rem 1.5rem 0;
         }
 
-        .how-card:last-child {
-          border-bottom: none;
+        .hiw-text {
+          padding: 1.5rem;
+        }
+
+        .hiw-text h3 {
+          font-size: 1.3rem;
+        }
+
+        .hiw-phone {
+          padding: 1.5rem 1.5rem 0;
+        }
+
+        .hiw-phone-frame {
+          width: 220px;
+          transform: rotate(0deg);
         }
 
         .features-grid {
@@ -1658,126 +1580,65 @@
     <section class="how-it-works" id="how-it-works">
       <div class="container">
         <div class="section-header fade-in">
-          <span class="section-label">How it works</span>
+          <span class="section-label">Why SuperDuper?</span>
           <h2>One Click To Clarity</h2>
-          <p>Sign in with Gmail. SuperDuper does the rest. Seriously.</p>
+          <p>Sign in with Gmail. SuperDuper handles the rest.</p>
         </div>
-        <div class="how-cards fade-in">
-          <div class="how-card">
-            <div class="how-card-icon">
-              <!-- Calendar / Events -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#gradient-blue)">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-              </svg>
+
+        <!-- Cards 1 & 2: Paired container -->
+        <div class="hiw-pair fade-in">
+          <!-- Card 1: Image left, text right -->
+          <div class="hiw-row">
+            <div class="hiw-image">
+              <img src="images/hiw-inbox-chaos.png" alt="Illustration of an overflowing email inbox with dozens of unread school messages" />
             </div>
-            <div>
-              <h3>Your calendar, updated</h3>
-              <div class="how-card-visual">
-                <div class="how-visual-row">
-                  <span class="how-visual-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4880F"><path d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"/></svg>
-                  </span>
-                  <div class="how-visual-avatars">
-                    <span class="how-visual-avatar" style="background: #5A8A3C;">C</span>
-                    <span class="how-visual-avatar" style="background: #3B6BB5;">M</span>
-                  </div>
-                </div>
-                <div class="how-visual-title">Spring Musical Rehearsal</div>
-                <div class="how-visual-subtitle">Wednesday 5:30PM - 7:30PM</div>
-                <span class="how-visual-badge">Bring community snack</span>
-              </div>
-              <p>SuperDuper sorts through the mess of your inbox, finds the relevant information, and shows you your kids' week.</p>
+            <div class="hiw-text">
+              <h3>SuperDuper Digs Through Your Mess&hellip;</h3>
+              <p>Every week you get hundreds of emails. A few of them will ruin your Wednesday if you miss them. The rest are endless newsletters and reply-all threads with a dozen parents saying &ldquo;thanks!&rdquo;. And they all look the same.</p>
             </div>
           </div>
-          <div class="how-card">
-            <div class="how-card-icon">
-              <!-- Checklist / Tasks -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#gradient-blue)">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
+          <!-- Card 2: Text left, image right -->
+          <div class="hiw-row hiw-row--reversed">
+            <div class="hiw-text">
+              <h3>Finds The Stuff That Matters</h3>
+              <p>The last minute schedule change with &ldquo;FWD: re: A Few Updates&rdquo; as the subject line you ignored. The RSVP deadline hiding on page 3 of a PDF attachment you didn&rsquo;t open. The &ldquo;bring cleats Thursday&rdquo; buried in a reply-all you missed. SuperDuper catches it all so you can (finally) go to sleep.</p>
             </div>
-            <div>
-              <h3>To-do list, wrangled</h3>
-              <div class="how-card-visual">
-                <div class="how-visual-row">
-                  <div style="display:flex;align-items:center;gap:0.5rem;">
-                    <span class="how-visual-checkbox"></span>
-                    <span class="how-visual-title" style="margin-bottom:0;">Buy tap shoes for Carlo</span>
-                    <span class="how-visual-flag">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#dc2626"><path d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5"/></svg>
-                    </span>
-                  </div>
-                  <span class="how-visual-avatar" style="background:#5A8A3C;">C</span>
-                </div>
-                <div class="how-visual-meta">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
-                  Due Feb 18
-                </div>
-                <div class="how-visual-meta">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
-                  Miss Tina's Dance Studio
-                </div>
-              </div>
-              <p>No more dropped balls (or tight cleats) again. SuperDuper builds your to-do list and does it all while you focus on literally anything else.</p>
-            </div>
-          </div>
-          <div class="how-card">
-            <div class="how-card-icon">
-              <!-- Lightbulb / New Ideas -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#gradient-blue)">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
-              </svg>
-            </div>
-            <div>
-              <h3>Opportunities, surfaced</h3>
-              <div class="how-card-visual">
-                <div class="how-visual-row">
-                  <div style="display:flex;align-items:center;gap:0.5rem;">
-                    <span class="how-visual-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
-                    </span>
-                    <span class="how-visual-badge how-visual-badge--green">New Ideas</span>
-                  </div>
-                  <span class="how-visual-avatar" style="background:#3478e0;">G</span>
-                </div>
-                <div class="how-visual-title">Summer Baseball</div>
-                <div class="how-visual-subtitle">Registration now open</div>
-                <div class="how-visual-meta" style="margin-top:0.35rem;">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
-                  Source: RE: Town League Sign Up
-                </div>
-              </div>
-              <p>Stop learning about the perfect camp three weeks too late. SuperDuper knows your family and your kids' preferences and keeps an eye out for new cool stuff so you don't have to.</p>
-            </div>
-          </div>
-          <div class="how-card">
-            <div class="how-card-icon">
-              <!-- Bell / Updates -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="url(#gradient-blue)">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-              </svg>
-            </div>
-            <div>
-              <h3>Urgent items, flagged</h3>
-              <div class="how-card-visual">
-                <div class="how-visual-row">
-                  <div style="display:flex;align-items:center;gap:0.5rem;">
-                    <span class="how-visual-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ea801c"><path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"/></svg>
-                    </span>
-                    <span class="how-visual-badge how-visual-badge--orange">Updated</span>
-                  </div>
-                  <span class="how-visual-avatar" style="background:#8b5cf6;">L</span>
-                </div>
-                <div class="how-visual-title">Pajama Day Moved - Dress Normally Tomorrow!</div>
-                <div class="how-visual-strikethrough">Friday Feb 21</div>
-                <div class="how-visual-subtitle" style="margin-bottom:0;">Thursday Feb 27</div>
-              </div>
-              <p>SuperDuper catches the important updates before you find out the hard way. (Don't ask how we know this one.)</p>
+            <div class="hiw-image">
+              <img src="images/hiw-email-extract.png" alt="Illustration of important emails being extracted from a pile of messages" />
             </div>
           </div>
         </div>
-        <p class="how-closer fade-in">Your family isn't a template. Your dashboard shouldn't be either.</p>
+
+        <!-- Card 3: Image left, text right -->
+        <div class="hiw-standalone fade-in">
+          <div class="hiw-row">
+            <div class="hiw-image">
+              <img src="images/hiw-logistics-map.png" alt="Illustration of a neighborhood map showing family activities connected by routes with conflict markers" />
+            </div>
+            <div class="hiw-text">
+              <h3>And Figures Out the Rest</h3>
+              <p>Karate and piano are both at 4PM. The birthday party is 45 minutes away, there&rsquo;s roadwork scheduled, and you still need to buy a gift. Tennis was moved outdoors and it&rsquo;s going to thunderstorm. And that&rsquo;s just Saturday.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Text left, phone right -->
+        <div class="hiw-standalone fade-in">
+          <div class="hiw-row hiw-row--reversed">
+            <div class="hiw-text">
+              <h3>So Your Week is SuperDuper</h3>
+              <p>No more Sunday nights spent making sense of the rehearsal schedule. No more shared calendars with outdated information. No more scribbled to-do lists. No more wondering what&rsquo;s next.</p>
+            </div>
+            <div class="hiw-phone">
+              <div class="hiw-phone-frame">
+                <div class="hiw-phone-notch"></div>
+                <div class="hiw-phone-screen">
+                  <img src="images/hiw-app-screenshot.png" alt="SuperDuper app showing your personalized weekly view" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
