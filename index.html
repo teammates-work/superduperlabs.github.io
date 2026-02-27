@@ -2040,7 +2040,7 @@
         .then(([ok, dataPromise, res]) => {
           if (ok) {
             var email = formInput.value;
-            posthog.identify(email, { email: email });
+            try { posthog.identify(email, { email: email }); } catch(e) {}
             success.style.display = "flex";
             form.reset();
           } else {
