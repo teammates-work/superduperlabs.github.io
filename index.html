@@ -751,24 +751,30 @@
         align-items: stretch;
       }
 
-      .hiw-pair {
+      .hiw-card {
         background: var(--navy-04);
         border: 1px solid var(--navy-08);
         border-radius: 16px;
         overflow: hidden;
-        margin-bottom: 2.5rem;
       }
 
-      .hiw-pair .hiw-row + .hiw-row {
-        border-top: 1px solid var(--navy-08);
+      .hiw-arrow {
+        display: flex;
+        justify-content: center;
+        padding: 0.25rem 0;
+        color: var(--navy-15);
       }
 
-      .hiw-standalone {
-        margin-bottom: 2.5rem;
+      .hiw-arrow-curve {
+        width: 50%;
+        max-width: 400px;
+        height: 50px;
       }
 
-      .hiw-standalone:last-child {
-        margin-bottom: 0;
+      .hiw-arrow-down {
+        display: none;
+        width: 24px;
+        height: 40px;
       }
 
       .hiw-image {
@@ -1265,6 +1271,14 @@
           transform: rotate(0deg);
         }
 
+        .hiw-arrow-curve {
+          display: none;
+        }
+
+        .hiw-arrow-down {
+          display: block;
+        }
+
         .features-grid {
           grid-template-columns: 1fr;
         }
@@ -1585,9 +1599,8 @@
           <p>Sign in with Gmail. SuperDuper handles the rest.</p>
         </div>
 
-        <!-- Cards 1 & 2: Paired container -->
-        <div class="hiw-pair fade-in">
-          <!-- Card 1: Image left, text right -->
+        <!-- Card 1: Image left, text right -->
+        <div class="hiw-card fade-in">
           <div class="hiw-row">
             <div class="hiw-image">
               <img src="images/hiw-inbox-chaos.png" alt="Illustration of an overflowing email inbox with dozens of unread school messages" />
@@ -1597,7 +1610,22 @@
               <p>Every week you get hundreds of emails. A few of them will ruin your Wednesday if you miss them. The rest are endless newsletters and reply-all threads with a dozen parents saying &ldquo;thanks!&rdquo;. And they all look the same.</p>
             </div>
           </div>
-          <!-- Card 2: Text left, image right -->
+        </div>
+
+        <!-- Arrow: right to left -->
+        <div class="hiw-arrow">
+          <svg class="hiw-arrow-curve" viewBox="0 0 400 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M300 8C300 36 100 32 100 55" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>
+            <path d="M94 48L100 58L106 48" fill="currentColor"/>
+          </svg>
+          <svg class="hiw-arrow-down" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4V30" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
+            <path d="M8 28L12 36L16 28" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <!-- Card 2: Text left, image right -->
+        <div class="hiw-card fade-in">
           <div class="hiw-row hiw-row--reversed">
             <div class="hiw-text">
               <h3>Finds The Stuff That Matters</h3>
@@ -1609,8 +1637,20 @@
           </div>
         </div>
 
+        <!-- Arrow: left to right -->
+        <div class="hiw-arrow">
+          <svg class="hiw-arrow-curve" viewBox="0 0 400 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 8C100 36 300 32 300 55" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>
+            <path d="M294 48L300 58L306 48" fill="currentColor"/>
+          </svg>
+          <svg class="hiw-arrow-down" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4V30" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
+            <path d="M8 28L12 36L16 28" fill="currentColor"/>
+          </svg>
+        </div>
+
         <!-- Card 3: Image left, text right -->
-        <div class="hiw-standalone fade-in">
+        <div class="hiw-card fade-in">
           <div class="hiw-row">
             <div class="hiw-image">
               <img src="images/hiw-logistics-map.png" alt="Illustration of a neighborhood map showing family activities connected by routes with conflict markers" />
@@ -1622,8 +1662,20 @@
           </div>
         </div>
 
+        <!-- Arrow: right to left -->
+        <div class="hiw-arrow">
+          <svg class="hiw-arrow-curve" viewBox="0 0 400 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M300 8C300 36 100 32 100 55" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>
+            <path d="M94 48L100 58L106 48" fill="currentColor"/>
+          </svg>
+          <svg class="hiw-arrow-down" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4V30" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
+            <path d="M8 28L12 36L16 28" fill="currentColor"/>
+          </svg>
+        </div>
+
         <!-- Card 4: Text left, phone right -->
-        <div class="hiw-standalone fade-in">
+        <div class="hiw-card fade-in">
           <div class="hiw-row hiw-row--reversed">
             <div class="hiw-text">
               <h3>So Your Week is SuperDuper</h3>
