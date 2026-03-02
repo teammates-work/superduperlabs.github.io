@@ -734,7 +734,7 @@
       }
 
       /* ============================================
-         How it Works - 4 Cards
+         How it Works - Zigzag Layout
          ============================================ */
       .how-it-works {
         background: #ffffff;
@@ -742,81 +742,95 @@
 
       .how-it-works .container {
         max-width: 1100px;
+        position: relative;
       }
 
-      .hiw-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        align-items: stretch;
+      .hiw-connectors {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .zigzag-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .zigzag-row.left {
+        flex-direction: row;
+      }
+
+      .zigzag-row.right {
+        flex-direction: row-reverse;
+      }
+
+      .step-circle {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        border-radius: 50%;
+        background: var(--pink);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Fraunces', serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        box-shadow: 0 4px 16px rgba(232, 79, 154, 0.3);
       }
 
       .hiw-card {
+        width: 52%;
+        max-width: 500px;
         background: var(--navy-04);
         border: 1px solid var(--navy-08);
         border-radius: 16px;
         overflow: hidden;
       }
 
-      .hiw-arrow {
-        display: flex;
-        justify-content: center;
-        padding: 0.25rem 0;
-        color: var(--navy-15);
+      .hiw-card-image {
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
       }
 
-      .hiw-arrow-curve {
-        width: 50%;
-        max-width: 400px;
-        height: 50px;
-      }
-
-      .hiw-arrow-down {
-        display: none;
-        width: 24px;
-        height: 40px;
-      }
-
-      .hiw-image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-      }
-
-      .hiw-image img {
+      .hiw-card-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 12px;
         display: block;
       }
 
-      .hiw-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 2.5rem;
+      .hiw-card-text {
+        padding: 1.5rem 2rem 2rem;
       }
 
-      .hiw-text h3 {
+      .hiw-card-text h3 {
         font-family: 'Fraunces', serif;
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--navy);
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
         line-height: 1.3;
       }
 
-      .hiw-text p {
+      .hiw-card-text p {
         color: var(--navy-60);
         font-size: 1rem;
         line-height: 1.65;
-        max-width: 440px;
       }
 
       /* Phone mockup for card 4 */
-      .hiw-phone {
+      .hiw-card-phone {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1242,41 +1256,39 @@
           pointer-events: auto;
         }
 
-        .hiw-row {
-          grid-template-columns: 1fr;
+        .hiw-connectors {
+          display: none;
         }
 
-        .hiw-row--reversed .hiw-image {
+        .zigzag-row,
+        .zigzag-row.left,
+        .zigzag-row.right {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .step-circle {
           order: -1;
         }
 
-        .hiw-image {
-          padding: 1.5rem 1.5rem 0;
+        .hiw-card {
+          width: 100%;
+          max-width: 500px;
         }
 
-        .hiw-text {
-          padding: 1.5rem;
-        }
-
-        .hiw-text h3 {
+        .hiw-card-text h3 {
           font-size: 1.3rem;
         }
 
-        .hiw-phone {
+        .hiw-card-phone {
           padding: 1.5rem 1.5rem 0;
         }
 
         .hiw-phone-frame {
-          width: 220px;
+          width: 200px;
           transform: rotate(0deg);
-        }
-
-        .hiw-arrow-curve {
-          display: none;
-        }
-
-        .hiw-arrow-down {
-          display: block;
         }
 
         .features-grid {
@@ -1600,89 +1612,54 @@
           <p>Sign in with Gmail. SuperDuper handles the rest.</p>
         </div>
 
-        <!-- Card 1: Image left, text right -->
-        <div class="hiw-card fade-in">
-          <div class="hiw-row">
-            <div class="hiw-image">
+        <svg class="hiw-connectors" id="hiwConnectors"></svg>
+
+        <!-- Card 1 -->
+        <div class="zigzag-row left fade-in">
+          <div class="hiw-card">
+            <div class="hiw-card-image">
               <img src="images/hiw-inbox-chaos.png" alt="Illustration of an overflowing email inbox with dozens of unread school messages" />
             </div>
-            <div class="hiw-text">
+            <div class="hiw-card-text">
               <h3>SuperDuper Digs Through Your Mess&hellip;</h3>
               <p>Every week you get hundreds of emails. A few of them will ruin your Wednesday if you miss them. The rest are endless newsletters and reply-all threads with a dozen parents saying &ldquo;thanks!&rdquo;. And they all look the same.</p>
             </div>
           </div>
+          <div class="step-circle">1</div>
         </div>
 
-        <!-- Arrow: right to left -->
-        <div class="hiw-arrow">
-          <svg class="hiw-arrow-curve" viewBox="0 0 400 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M300 8C300 36 100 32 100 55" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>
-            <path d="M94 48L100 58L106 48" fill="currentColor"/>
-          </svg>
-          <svg class="hiw-arrow-down" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4V30" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
-            <path d="M8 28L12 36L16 28" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <!-- Card 2: Text left, image right -->
-        <div class="hiw-card fade-in">
-          <div class="hiw-row hiw-row--reversed">
-            <div class="hiw-text">
+        <!-- Card 2 -->
+        <div class="zigzag-row right fade-in">
+          <div class="hiw-card">
+            <div class="hiw-card-image">
+              <img src="images/hiw-email-extract.png" alt="Illustration of important emails being extracted from a pile of messages" />
+            </div>
+            <div class="hiw-card-text">
               <h3>Finds The Stuff That Matters&hellip;</h3>
               <p>The last minute schedule change with &ldquo;FWD: re: A Few Updates&rdquo; as the subject line. The RSVP deadline hiding on page 3 of a PDF attachment. The &ldquo;bring cleats Thursday&rdquo; buried in a reply-all. SuperDuper catches it all so you can (finally) go to sleep.</p>
             </div>
-            <div class="hiw-image">
-              <img src="images/hiw-email-extract.png" alt="Illustration of important emails being extracted from a pile of messages" />
-            </div>
           </div>
+          <div class="step-circle">2</div>
         </div>
 
-        <!-- Arrow: left to right -->
-        <div class="hiw-arrow">
-          <svg class="hiw-arrow-curve" viewBox="0 0 400 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 8C100 36 300 32 300 55" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>
-            <path d="M294 48L300 58L306 48" fill="currentColor"/>
-          </svg>
-          <svg class="hiw-arrow-down" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4V30" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
-            <path d="M8 28L12 36L16 28" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <!-- Card 3: Image left, text right -->
-        <div class="hiw-card fade-in">
-          <div class="hiw-row">
-            <div class="hiw-image">
+        <!-- Card 3 -->
+        <div class="zigzag-row left fade-in">
+          <div class="hiw-card">
+            <div class="hiw-card-image">
               <img src="images/hiw-logistics-map.png" alt="Illustration of a neighborhood map showing family activities connected by routes with conflict markers" />
             </div>
-            <div class="hiw-text">
+            <div class="hiw-card-text">
               <h3>And Figures Out the Rest&hellip;</h3>
               <p>Karate and piano are both at 4PM. The birthday party is 45 minutes away, there&rsquo;s roadwork scheduled, and you still need to buy a gift. Tennis was moved outdoors and it&rsquo;s going to thunderstorm. And that&rsquo;s just Saturday.</p>
             </div>
           </div>
+          <div class="step-circle">3</div>
         </div>
 
-        <!-- Arrow: right to left -->
-        <div class="hiw-arrow">
-          <svg class="hiw-arrow-curve" viewBox="0 0 400 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M300 8C300 36 100 32 100 55" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>
-            <path d="M94 48L100 58L106 48" fill="currentColor"/>
-          </svg>
-          <svg class="hiw-arrow-down" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4V30" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
-            <path d="M8 28L12 36L16 28" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <!-- Card 4: Text left, phone right -->
-        <div class="hiw-card fade-in">
-          <div class="hiw-row hiw-row--reversed">
-            <div class="hiw-text">
-              <h3>&hellip;So Your Week is SuperDuper</h3>
-              <p>No more Sunday nights spent making sense of the rehearsal schedule. No more shared calendars with outdated information. No more to-do lists scribbled on the back of a piece of junk mail. No more wondering what&rsquo;s next.</p>
-            </div>
-            <div class="hiw-phone">
+        <!-- Card 4 -->
+        <div class="zigzag-row right fade-in">
+          <div class="hiw-card">
+            <div class="hiw-card-phone">
               <div class="hiw-phone-frame">
                 <div class="hiw-phone-notch"></div>
                 <div class="hiw-phone-screen">
@@ -1690,7 +1667,12 @@
                 </div>
               </div>
             </div>
+            <div class="hiw-card-text">
+              <h3>&hellip;So Your Week is SuperDuper</h3>
+              <p>No more Sunday nights spent making sense of the rehearsal schedule. No more shared calendars with outdated information. No more to-do lists scribbled on the back of a piece of junk mail. No more wondering what&rsquo;s next.</p>
+            </div>
           </div>
+          <div class="step-circle">4</div>
         </div>
       </div>
     </section>
@@ -2060,6 +2042,56 @@
       fadeEls.forEach(function(el) {
         observer.observe(el);
       });
+    })();
+
+    // How-it-Works SVG connectors between step circles
+    (function() {
+      var svg = document.getElementById('hiwConnectors');
+      if (!svg) return;
+      var circles = document.querySelectorAll('.step-circle');
+      if (circles.length < 2) return;
+
+      function draw() {
+        var container = svg.closest('.container');
+        if (!container) return;
+        var rect = container.getBoundingClientRect();
+
+        svg.setAttribute('viewBox', '0 0 ' + rect.width + ' ' + rect.height);
+        svg.style.width = rect.width + 'px';
+        svg.style.height = rect.height + 'px';
+
+        var paths = '';
+        for (var i = 0; i < circles.length - 1; i++) {
+          var a = circles[i].getBoundingClientRect();
+          var b = circles[i + 1].getBoundingClientRect();
+
+          var x1 = a.left + a.width / 2 - rect.left;
+          var y1 = a.top + a.height / 2 - rect.top;
+          var x2 = b.left + b.width / 2 - rect.left;
+          var y2 = b.top + b.height / 2 - rect.top;
+
+          var midY = (y1 + y2) / 2;
+          paths += '<path d="M' + x1 + ' ' + y1 +
+            ' C' + x1 + ' ' + midY + ' ' + x2 + ' ' + midY + ' ' + x2 + ' ' + y2 +
+            '" fill="none" stroke="rgba(27,20,100,0.12)" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>';
+        }
+        svg.innerHTML = paths;
+      }
+
+      var resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(draw, 100);
+      });
+
+      document.addEventListener('transitionend', function(e) {
+        if (e.target.classList && e.target.classList.contains('fade-in')) {
+          draw();
+        }
+      });
+
+      // Initial draw after a short delay to allow layout
+      setTimeout(draw, 200);
     })();
 
     // Konami Code Easter Egg
