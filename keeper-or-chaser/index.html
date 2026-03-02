@@ -218,6 +218,90 @@
       }
 
       /* ============================================
+         Quiz Data
+         ============================================ */
+      var QUESTIONS = [
+        {
+          question: "It's Sunday night. How do you know what's happening this week?",
+          options: [
+            { text: "I already checked every email, every group chat, and the school portal. The week is mapped.", score: 'keeper' },
+            { text: "I'll ask my partner in the morning. They usually know.", score: 'chaser' },
+            { text: "We sort of piece it together as we go. Some weeks are smoother than others.", score: 'hybrid' }
+          ]
+        },
+        {
+          question: "A permission slip is due tomorrow. Where is it?",
+          options: [
+            { text: "Signed, in the folder, ready to go. I handled it the day it came home.", score: 'keeper' },
+            { text: "Wait, there's a permission slip? Let me check the backpack.", score: 'chaser' },
+            { text: "I saw the email but haven't printed it yet. I'll do it tonight.", score: 'hybrid' }
+          ]
+        },
+        {
+          question: "Your kid mentions a half day at school on Friday. Your reaction?",
+          options: [
+            { text: "I know. I already arranged coverage and moved my afternoon meeting.", score: 'keeper' },
+            { text: "This Friday? I had no idea. Let me figure out what to do.", score: 'chaser' },
+            { text: "I think I saw something about that. Let me double-check the calendar.", score: 'hybrid' }
+          ]
+        },
+        {
+          question: "Soccer practice got moved to a different field. How do you find out?",
+          options: [
+            { text: "I read the coach's email the minute it came in and updated the family calendar.", score: 'keeper' },
+            { text: "I show up at the wrong field and text my partner from the parking lot.", score: 'chaser' },
+            { text: "I saw the notification but forgot which field it said. I'll look it up on the way.", score: 'hybrid' }
+          ]
+        },
+        {
+          question: "How does your partner usually find out what's happening with the kids?",
+          options: [
+            { text: "From me. I'm the source of truth for this household.", score: 'keeper' },
+            { text: "From me asking them. They're the one with the master plan.", score: 'chaser' },
+            { text: "We each know different things and hope we've covered everything.", score: 'hybrid' }
+          ]
+        },
+        {
+          question: "Be honest: how does the current system make you feel?",
+          options: [
+            { text: "Exhausted. I carry the mental load and nobody sees it.", score: 'keeper' },
+            { text: "Guilty. I know I should be more on top of things but I can't keep up.", score: 'chaser' },
+            { text: "Stressed. We're both trying but things still fall through the cracks.", score: 'hybrid' }
+          ]
+        }
+      ];
+
+      /* ============================================
+         Quiz State
+         ============================================ */
+      var state = {
+        currentQuestion: 0,
+        answers: [null, null, null, null, null, null],
+        scores: { keeper: 0, hybrid: 0, chaser: 0 }
+      };
+
+      function calculateResult() {
+        var scores = { keeper: 0, hybrid: 0, chaser: 0 };
+        for (var i = 0; i < state.answers.length; i++) {
+          if (state.answers[i] !== null) {
+            var category = QUESTIONS[i].options[state.answers[i]].score;
+            scores[category]++;
+          }
+        }
+        state.scores = scores;
+
+        if (scores.keeper > scores.chaser && scores.keeper > scores.hybrid) return 'keeper';
+        if (scores.chaser > scores.keeper && scores.chaser > scores.hybrid) return 'chaser';
+        return 'hybrid';
+      }
+
+      function resetQuiz() {
+        state.currentQuestion = 0;
+        state.answers = [null, null, null, null, null, null];
+        state.scores = { keeper: 0, hybrid: 0, chaser: 0 };
+      }
+
+      /* ============================================
          Intro Screen Handler
          ============================================ */
       document.getElementById('btn-start').addEventListener('click', function() {
