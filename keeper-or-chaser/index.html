@@ -578,6 +578,326 @@
           border-radius: 8px;
         }
       }
+
+      /* ============================================
+         Results Screen
+         ============================================ */
+      #screen-results {
+        min-height: 100dvh;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1.5rem 3rem;
+      }
+
+      .results-logo {
+        height: 32px;
+        margin-bottom: 2rem;
+      }
+
+      .result-card {
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 4px 24px rgba(27, 20, 100, 0.08);
+        overflow: hidden;
+        max-width: 540px;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .result-card-band {
+        height: 6px;
+        width: 100%;
+      }
+
+      .result-card-band--keeper { background: var(--pink); }
+      .result-card-band--chaser { background: var(--blue); }
+      .result-card-band--hybrid { background: linear-gradient(135deg, var(--pink), var(--blue)); }
+
+      .result-card-body {
+        padding: 2rem 1.5rem;
+      }
+
+      .result-title {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        margin-bottom: 0.5rem;
+      }
+
+      .result-title--keeper { color: var(--pink); }
+      .result-title--chaser { color: var(--blue); }
+      .result-title--hybrid {
+        background: linear-gradient(135deg, var(--pink), var(--blue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .result-tagline {
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+        font-size: 1rem;
+        color: var(--navy-60);
+        margin-bottom: 1.5rem;
+      }
+
+      .result-section {
+        border-top: 1px solid var(--navy-08);
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .result-section-label {
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--navy-40);
+        margin-bottom: 0.75rem;
+      }
+
+      .result-section p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--navy-70);
+      }
+
+      .result-short-note {
+        border-top: 1px solid var(--navy-08);
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+        text-align: center;
+      }
+
+      .result-short-note p {
+        font-size: 0.9rem;
+        color: var(--navy-50);
+        margin-bottom: 0.75rem;
+      }
+
+      .result-short-cta {
+        font-family: 'Onest', system-ui, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--pink);
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* CTA Block */
+      .results-cta {
+        background: var(--navy-04);
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        max-width: 540px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .results-cta h2 {
+        font-size: clamp(1.3rem, 3vw, 1.6rem);
+        margin-bottom: 0.75rem;
+      }
+
+      .results-cta p {
+        font-size: 0.95rem;
+        color: var(--navy-60);
+        line-height: 1.6;
+        max-width: 460px;
+        margin: 0 auto 1.5rem;
+      }
+
+      .results-waitlist-confirmed {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        color: #16a34a;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .results-cta-form {
+        display: flex;
+        gap: 0;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .results-cta-input {
+        flex: 1;
+        padding: 0.8rem 1rem;
+        border: 2px solid var(--navy-08);
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        font-family: 'Onest', system-ui, sans-serif;
+        font-size: 0.95rem;
+        color: var(--navy);
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      .results-cta-input:focus {
+        border-color: var(--pink);
+      }
+
+      .results-cta-submit {
+        font-family: 'Onest', system-ui, sans-serif;
+        background: var(--pink);
+        color: #fff;
+        padding: 0.8rem 1.5rem;
+        border: 2px solid var(--pink);
+        border-radius: 0 8px 8px 0;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s ease;
+      }
+
+      .results-cta-submit:hover {
+        background: #d63e87;
+        border-color: #d63e87;
+      }
+
+      .results-cta-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .results-cta-loading {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+        color: var(--navy-40);
+      }
+
+      .results-cta-loading .spinner {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--navy-08);
+        border-top-color: var(--pink);
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+      }
+
+      .results-cta-error {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .results-cta-error-message {
+        font-size: 0.85rem;
+        color: #e04040;
+      }
+
+      .results-cta-error-retry {
+        font-family: 'Onest', system-ui, sans-serif;
+        background: none;
+        border: 1px solid var(--navy-15);
+        border-radius: 6px;
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        color: var(--navy-60);
+        cursor: pointer;
+      }
+
+      /* Share Block */
+      .results-share {
+        max-width: 540px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .results-share p {
+        font-size: 0.95rem;
+        color: var(--navy-60);
+        margin-bottom: 1rem;
+      }
+
+      .share-buttons {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .share-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid var(--navy-15);
+        border-radius: 8px;
+        padding: 0.6rem 1rem;
+        background: #fff;
+        cursor: pointer;
+        font-family: 'Onest', system-ui, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--navy-70);
+        transition: border-color 0.2s ease, background 0.2s ease;
+        text-decoration: none;
+      }
+
+      .share-btn:hover {
+        border-color: var(--navy-40);
+        background: var(--navy-04);
+      }
+
+      .share-btn svg {
+        flex-shrink: 0;
+      }
+
+      /* Retake */
+      .results-retake {
+        font-family: 'Onest', system-ui, sans-serif;
+        font-size: 0.9rem;
+        color: var(--navy-40);
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .results-retake:hover {
+        color: var(--navy-60);
+      }
+
+      @media (max-width: 480px) {
+        .results-cta-form {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        .results-cta-input {
+          border-right: 2px solid var(--navy-08);
+          border-radius: 8px;
+        }
+        .results-cta-input:focus {
+          border-color: var(--pink);
+        }
+        .results-cta-submit {
+          border-radius: 8px;
+        }
+        .share-buttons {
+          gap: 0.5rem;
+        }
+        .share-btn {
+          flex: 1 1 calc(50% - 0.5rem);
+          justify-content: center;
+          min-width: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -628,6 +948,43 @@
     </div>
 
     <div id="screen-results" class="screen">
+      <img src="/images/logo-header.png" alt="SuperDuper" class="results-logo" />
+
+      <div class="result-card" id="result-card">
+        <div class="result-card-band" id="result-card-band"></div>
+        <div class="result-card-body" id="result-card-body">
+        </div>
+      </div>
+
+      <div class="results-cta">
+        <h2>Parenting doesn't have to be this hard.</h2>
+        <p>SuperDuper reads every email from every school, coach, and activity organiser, and shows your whole family what's next. No manual entry. No setup. No homework.</p>
+        <div id="results-cta-content"></div>
+      </div>
+
+      <div class="results-share">
+        <p>Think you know your partner's result? Send them the quiz.</p>
+        <div class="share-buttons" id="share-buttons">
+          <button class="share-btn" id="share-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m9.86-2.54a4.5 4.5 0 0 0-1.242-7.244l-4.5-4.5a4.5 4.5 0 0 0-6.364 6.364L4.757 8.25" /></svg>
+            <span>Copy Link</span>
+          </button>
+          <a class="share-btn" id="share-sms" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" /></svg>
+            <span>Text Message</span>
+          </a>
+          <a class="share-btn" id="share-whatsapp" href="#" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a class="share-btn" id="share-linkedin" href="#" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <button class="results-retake" id="results-retake">Retake the Quiz</button>
     </div>
 
     <script>
@@ -1020,6 +1377,194 @@
       document.getElementById('gate-skip').addEventListener('click', function() {
         try { posthog.capture('quiz_email_skipped', { result: quizResult }); } catch(e) {}
         showResults(false);
+      });
+
+      /* ============================================
+         Results Screen
+         ============================================ */
+      function showResults(fullResult) {
+        var result = RESULTS[quizResult];
+        var body = document.getElementById('result-card-body');
+
+        // Color band
+        document.getElementById('result-card-band').className = 'result-card-band result-card-band--' + quizResult;
+
+        // Build card content
+        var html = '<h1 class="result-title result-title--' + quizResult + '">' + result.title + '</h1>';
+        html += '<p class="result-tagline">' + result.tagline + '</p>';
+
+        if (fullResult) {
+          html += '<div class="result-section">';
+          html += '<div class="result-section-label">What this means</div>';
+          html += '<p>' + result.validation + '</p>';
+          html += '</div>';
+          html += '<div class="result-section">';
+          html += '<div class="result-section-label">How SuperDuper helps</div>';
+          html += '<p>' + result.pitch + '</p>';
+          html += '</div>';
+        } else {
+          html += '<div class="result-section">';
+          html += '<p>' + result.shortSummary + '</p>';
+          html += '</div>';
+          html += '<div class="result-short-note">';
+          html += '<p>Want the full breakdown?</p>';
+          html += '<button class="result-short-cta" id="result-unlock-full">Enter your email to unlock it</button>';
+          html += '</div>';
+        }
+
+        body.innerHTML = html;
+
+        // CTA block
+        var ctaContent = document.getElementById('results-cta-content');
+        if (emailCaptured) {
+          ctaContent.innerHTML = '<div class="results-waitlist-confirmed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg> You\'re on the waiting list!</div>';
+        } else {
+          ctaContent.innerHTML =
+            '<form class="results-cta-form" id="results-cta-form">' +
+            '<input type="email" class="results-cta-input" id="results-cta-email" placeholder="you@email.com" required />' +
+            '<button type="submit" class="results-cta-submit" id="results-cta-submit">Join the Waiting List</button>' +
+            '</form>' +
+            '<div class="results-cta-loading" id="results-cta-loading"><div class="spinner"></div> Joining...</div>' +
+            '<div class="results-cta-error" id="results-cta-error">' +
+            '<span class="results-cta-error-message" id="results-cta-error-message">Something went wrong.</span>' +
+            '<button type="button" class="results-cta-error-retry" id="results-cta-retry">Try again</button>' +
+            '</div>';
+
+          // Attach CTA form handler after rendering
+          setTimeout(attachResultsCTAHandler, 0);
+        }
+
+        // Share URLs
+        var shareUrl = 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + quizResult;
+        var shareText = result.shareText + ' ' + shareUrl;
+
+        document.getElementById('share-sms').href = 'sms:?&body=' + encodeURIComponent(shareText);
+        document.getElementById('share-whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+        document.getElementById('share-linkedin').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl);
+
+        // Unlock full handler (for skip users)
+        if (!fullResult) {
+          setTimeout(function() {
+            var unlockBtn = document.getElementById('result-unlock-full');
+            if (unlockBtn) {
+              unlockBtn.addEventListener('click', function() {
+                // Scroll to CTA form and focus email input
+                var ctaEmail = document.getElementById('results-cta-email');
+                if (ctaEmail) {
+                  ctaEmail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  setTimeout(function() { ctaEmail.focus(); }, 400);
+                }
+              });
+            }
+          }, 0);
+        }
+
+        showScreen('screen-results');
+      }
+
+      function attachResultsCTAHandler() {
+        var form = document.getElementById('results-cta-form');
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var emailInput = document.getElementById('results-cta-email');
+          var submitBtn = document.getElementById('results-cta-submit');
+          var loading = document.getElementById('results-cta-loading');
+          var errorEl = document.getElementById('results-cta-error');
+          var errorMsg = document.getElementById('results-cta-error-message');
+          var email = emailInput.value;
+
+          var now = Date.now();
+          var prev = localStorage.getItem('loops-form-timestamp');
+          if (prev && Number(prev) + 60000 > now) {
+            errorEl.style.display = 'flex';
+            errorMsg.textContent = 'Too many signups, please try again in a little while';
+            submitBtn.style.display = 'none';
+            emailInput.style.display = 'none';
+            return;
+          }
+          localStorage.setItem('loops-form-timestamp', now);
+
+          submitBtn.style.display = 'none';
+          emailInput.style.display = 'none';
+          loading.style.display = 'flex';
+
+          var formBody = 'userGroup=&mailingLists=&email=' + encodeURIComponent(email) + '&quizResult=' + encodeURIComponent(quizResult) + '&joinedWaitlist=' + encodeURIComponent(new Date().toISOString());
+
+          fetch('https://app.loops.so/api/newsletter-form/cmkvrcj6o00lc0i1fhymv7jyi', {
+            method: 'POST',
+            body: formBody,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          })
+          .then(function(res) {
+            if (res.ok) {
+              emailCaptured = true;
+              try {
+                posthog.identify(email, { email: email });
+                posthog.capture('quiz_email_captured', { result: quizResult });
+              } catch(e) {}
+              loading.style.display = 'none';
+              var ctaContent = document.getElementById('results-cta-content');
+              ctaContent.innerHTML = '<div class="results-waitlist-confirmed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg> You\'re on the waiting list!</div>';
+              // Also show full results now
+              showResults(true);
+            } else {
+              return res.json().then(function(data) {
+                throw new Error(data.message || res.statusText);
+              });
+            }
+          })
+          .catch(function(err) {
+            loading.style.display = 'none';
+            errorEl.style.display = 'flex';
+            errorMsg.textContent = err.message === 'Failed to fetch'
+              ? 'Too many signups, please try again in a little while'
+              : (err.message || 'Something went wrong. Please try again.');
+            localStorage.setItem('loops-form-timestamp', '');
+          });
+        });
+
+        var retryBtn = document.getElementById('results-cta-retry');
+        if (retryBtn) {
+          retryBtn.addEventListener('click', function() {
+            document.getElementById('results-cta-error').style.display = 'none';
+            document.getElementById('results-cta-email').style.display = '';
+            document.getElementById('results-cta-submit').style.display = '';
+          });
+        }
+      }
+
+      // Share handlers
+      document.getElementById('share-copy').addEventListener('click', function() {
+        var shareUrl = 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + (quizResult || '');
+        navigator.clipboard.writeText(shareUrl).then(function() {
+          var btn = document.getElementById('share-copy');
+          var span = btn.querySelector('span');
+          span.textContent = 'Copied!';
+          setTimeout(function() { span.textContent = 'Copy Link'; }, 2000);
+        });
+        try { posthog.capture('quiz_result_shared', { channel: 'copy_link', result: quizResult }); } catch(e) {}
+      });
+
+      document.getElementById('share-sms').addEventListener('click', function() {
+        try { posthog.capture('quiz_result_shared', { channel: 'sms', result: quizResult }); } catch(e) {}
+      });
+
+      document.getElementById('share-whatsapp').addEventListener('click', function() {
+        try { posthog.capture('quiz_result_shared', { channel: 'whatsapp', result: quizResult }); } catch(e) {}
+      });
+
+      document.getElementById('share-linkedin').addEventListener('click', function() {
+        try { posthog.capture('quiz_result_shared', { channel: 'linkedin', result: quizResult }); } catch(e) {}
+      });
+
+      // Retake
+      document.getElementById('results-retake').addEventListener('click', function() {
+        resetQuiz();
+        quizResult = null;
+        emailCaptured = false;
+        showScreen('screen-intro');
       });
 
       /* ============================================
