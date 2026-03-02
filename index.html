@@ -1966,6 +1966,7 @@
             dataPromise.then(data => {
               errorContainer.style.display = "flex";
               errorMessage.innerText = data.message ? data.message : res.statusText;
+              backButton.style.display = "block";
             });
           }
         })
@@ -1976,12 +1977,12 @@
           }
           errorContainer.style.display = "flex";
           if (error.message) errorMessage.innerText = error.message;
+          backButton.style.display = "block";
           localStorage.setItem("loops-form-timestamp", '');
         })
         .finally(() => {
           formInput.style.display = "none";
           loadingButton.style.display = "none";
-          backButton.style.display = "block";
         });
     }
 
