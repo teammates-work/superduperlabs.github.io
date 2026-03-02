@@ -939,7 +939,7 @@
       <p class="gate-tagline" id="gate-tagline"></p>
       <div class="gate-blur" id="gate-blur"></div>
       <div class="gate-form-wrap">
-        <p class="gate-form-text">Enter your email to unlock your full result and join the SuperDuper waiting list. We're building something for parents like you.</p>
+        <p class="gate-form-text">Enter your email to get your full result and join the SuperDuper waiting list. We're building something for parents like you.</p>
         <form class="gate-form" id="gate-form">
           <input type="email" class="gate-form-input" id="gate-email" placeholder="you@email.com" required />
           <button type="submit" class="gate-form-submit" id="gate-submit">Show Me My Result</button>
@@ -968,7 +968,7 @@
 
       <div class="results-cta">
         <h2>Parenting doesn't have to be this hard.</h2>
-        <p>SuperDuper reads every email from every school, coach, and activity organiser, and shows your whole family what's next. No manual entry. No setup. No homework.</p>
+        <p>SuperDuper reads every email from every school, coach, and activity organizer, and shows your whole family what's next. No manual entry. No setup. No homework.</p>
         <div id="results-cta-content"></div>
       </div>
 
@@ -1014,51 +1014,51 @@
          ============================================ */
       var QUESTIONS = [
         {
-          question: "It's Sunday night. How do you know what's happening this week?",
+          question: "It\u2019s Tuesday night. Do you know what your kids have going on this week?",
           options: [
-            { text: "I already checked every email, every group chat, and the school portal. The week is mapped.", score: 'keeper' },
-            { text: "I'll ask my partner in the morning. They usually know.", score: 'chaser' },
-            { text: "We sort of piece it together as we go. Some weeks are smoother than others.", score: 'hybrid' }
+            { text: "Every single thing. I could probably recite the week from memory, including which kid needs cleats Thursday.", score: 'keeper' },
+            { text: "Mostly? I mean I handle most of the stuff, so I pretty much know what\u2019s on my plate.", score: 'hybrid' },
+            { text: "I\u2019d have to check. Or ask. Why? Is there something special going on?", score: 'chaser' }
           ]
         },
         {
-          question: "A permission slip is due tomorrow. Where is it?",
+          question: "An email comes in from the soccer coach at 9pm on a Sunday. What happens?",
           options: [
-            { text: "Signed, in the folder, ready to go. I handled it the day it came home.", score: 'keeper' },
-            { text: "Wait, there's a permission slip? Let me check the backpack.", score: 'chaser' },
-            { text: "I saw the email but haven't printed it yet. I'll do it tonight.", score: 'hybrid' }
+            { text: "Yeah, I read it already. Duh.", score: 'keeper' },
+            { text: "Snooze it to tomorrow, for when I have a second? Ugh, just thinking about it gives me anxiety.", score: 'hybrid' },
+            { text: "Honestly? I\u2019ll find out when I\u2019m wandering lost at the wrong field.", score: 'chaser' }
           ]
         },
         {
-          question: "Your kid mentions a half day at school on Friday. Your reaction?",
+          question: "It was snack day for your kid\u2019s class. How\u2019d that go?",
           options: [
-            { text: "I know. I already arranged coverage and moved my afternoon meeting.", score: 'keeper' },
-            { text: "This Friday? I had no idea. Let me figure out what to do.", score: 'chaser' },
-            { text: "I think I saw something about that. Let me double-check the calendar.", score: 'hybrid' }
+            { text: "Handled. I actually posted a reminder on the \u201CClass Parent Group Text Thread.\u201D", score: 'keeper' },
+            { text: "My kid reminded me! Luckily, I had bought extra Goldfish earlier that week!", score: 'hybrid' },
+            { text: "Wait\u2026 There was a snack day???", score: 'chaser' }
           ]
         },
         {
-          question: "Soccer practice got moved to a different field. How do you find out?",
+          question: "When your partner needs to know something about the kids\u2019 schedule, what usually happens?",
           options: [
-            { text: "I read the coach's email the minute it came in and updated the family calendar.", score: 'keeper' },
-            { text: "I show up at the wrong field and text my partner from the parking lot.", score: 'chaser' },
-            { text: "I saw the notification but forgot which field it said. I'll look it up on the way.", score: 'hybrid' }
+            { text: "They ask me. To be fair, I signed up for everything so I get the emails\u2026", score: 'keeper' },
+            { text: "We check the shared calendar, and then argue about which version is right.", score: 'hybrid' },
+            { text: "I mean, they always know. I\u2019m not sure what I\u2019d do without them.", score: 'chaser' }
           ]
         },
         {
-          question: "How does your partner usually find out what's happening with the kids?",
+          question: "Two of your kids have activities at the same time on Saturday, in opposite directions. What happens?",
           options: [
-            { text: "From me. I'm the source of truth for this household.", score: 'keeper' },
-            { text: "From me asking them. They're the one with the master plan.", score: 'chaser' },
-            { text: "We each know different things and hope we've covered everything.", score: 'hybrid' }
+            { text: "I already knew. I reworked the carpool Tuesday night and texted the other parent.", score: 'keeper' },
+            { text: "I saw that. Thought we\u2019d figure it out in the morning. Narrator: They did not figure it out in the morning.", score: 'hybrid' },
+            { text: "Yeah. Ugh. Totally forgot. One kid ended up having to be early. The other was late. I think I spent 35 hours in the car racing between locations.", score: 'chaser' }
           ]
         },
         {
-          question: "Be honest: how does the current system make you feel?",
+          question: "Last question: Be honest. When it comes to general kid schedule planning, who handles it in your house?",
           options: [
-            { text: "Exhausted. I carry the mental load and nobody sees it.", score: 'keeper' },
-            { text: "Guilty. I know I should be more on top of things but I can't keep up.", score: 'chaser' },
-            { text: "Stressed. We're both trying but things still fall through the cracks.", score: 'hybrid' }
+            { text: "Me. I\u2019m the one reading emails, checking calendars, and making sure nothing falls through the cracks.", score: 'keeper' },
+            { text: "We both try. Some weeks it works. Other weeks we\u2019re both texting each other \u201Cdid you see that email?\u201D", score: 'hybrid' },
+            { text: "My partner, mostly. I help when I know what\u2019s going on, but they\u2019re the one keeping track.", score: 'chaser' }
           ]
         }
       ];
@@ -1098,31 +1098,31 @@
          ============================================ */
       var RESULTS = {
         keeper: {
-          title: "You're The Keeper.",
-          tagline: "Every email, every text thread, every PDF. It all lands on you.",
+          title: "You\u2019re The Keeper.",
+          tagline: "The one who knows everything. And everyone relies on you for it.",
           color: 'keeper',
-          validation: "You're the one who reads the school newsletters the day they arrive. You know which kid needs shin guards by Thursday and that picture day got moved to next week. You cross-reference the family calendar with the class WhatsApp and the coach's email, because if you don't, nobody will. You're not a control freak \u2014 you're the reason the household runs. But it's exhausting, and nobody fully sees it.",
-          pitch: "SuperDuper was built for you. It reads every email from every school, coach, and activity organiser so you don't have to. It pulls out the dates, the deadlines, and the action items, and puts them where your whole family can see them. You've been carrying this alone. You don't have to.",
-          shareText: "I took the SuperDuper parenting quiz and I'm The Keeper \u2014 the one who tracks everything so the house doesn't fall apart. Which one are you?",
-          shortSummary: "You're the household's operating system \u2014 every email, every deadline, every detail runs through you. SuperDuper was built to lighten that load."
+          validation: "You\u2019ve read every email, tracked every deadline, and remembered every early dismissal. Not because you love doing it, but because if you don\u2019t, nobody will. You\u2019re the family\u2019s search engine, calendar, and emergency contact, all in one. That\u2019s an enormous amount to carry. And the hardest part isn\u2019t the work itself. It\u2019s that nobody realizes how much of it there is.",
+          pitch: "SuperDuper was built for you. Not to add another app to your list, but to actually take things off your plate. It reads the emails so you don\u2019t have to. It catches the schedule changes, the buried deadlines, the PDF attachments nobody opens. And for the first time, your partner sees the same picture you do, without you being the one to hand it to them.",
+          shareText: "I\u2019m The Keeper. I know what every kid in my house is doing every day this week, and honestly, it\u2019s exhausting. Take the quiz.",
+          shortSummary: "You know everything about your kids\u2019 schedules because if you don\u2019t, nobody will. SuperDuper was built to take things off your plate."
         },
         chaser: {
-          title: "You're The Chaser.",
-          tagline: "You're not out of the loop by choice. The system just wasn't built for you.",
+          title: "You\u2019re The Chaser.",
+          tagline: "You want to help. You just never have the information.",
           color: 'chaser',
-          validation: "You're the one asking \"Wait, what's happening Friday?\" at 10pm on Thursday. Not because you don't care \u2014 because the information is buried in an email chain you were never on, or a group chat you muted because it pings 40 times a day. You want to be on top of things, but the way school and activity info gets shared just doesn't work for you. So you rely on your partner, and then feel guilty about it.",
-          pitch: "SuperDuper fixes the information gap. It reads every email from every school, coach, and activity organiser and shows the whole family what's happening this week \u2014 no forwarding, no asking, no guilt. You'll finally know what's going on without having to chase it.",
-          shareText: "I took the SuperDuper parenting quiz and I'm The Chaser \u2014 always one step behind on school and activity updates. Which one are you?",
-          shortSummary: "You're always asking your partner what's happening because the info never reaches you directly. SuperDuper brings it all to one place."
+          validation: "It\u2019s not that you don\u2019t care. It\u2019s that the information never seems to land in front of you. Your inbox is full of unread school newsletters. Your partner mentions things you\u2019re pretty sure you\u2019ve never heard before. You spend half your time asking \u201Cwhat time?\u201D and \u201Cwhere again?\u201D and the other half feeling guilty about asking. You want to show up. You just don\u2019t always know where or when.",
+          pitch: "SuperDuper gives you what you\u2019ve been missing: the full picture, without having to ask for it. Same dashboard your partner sees. Same schedule, same deadlines, same \u201Cdon\u2019t forget the permission slip\u201D alerts. You\u2019ll finally know what\u2019s happening in your own family without someone having to tell you.",
+          shareText: "I\u2019m The Chaser. I show up. I just don\u2019t always know where I\u2019m supposed to be. Take the quiz.",
+          shortSummary: "You want to help but the information never reaches you. SuperDuper gives you the full picture without having to ask."
         },
         hybrid: {
-          title: "You're The Hybrid.",
-          tagline: "Some days you're the one who knows everything. Some days you're scrambling.",
+          title: "You\u2019re The Hybrid.",
+          tagline: "Keeper for some things. Chaser for others. Exhausted either way.",
           color: 'hybrid',
-          validation: "You split the mental load \u2014 or try to. Maybe you handle school stuff while your partner tracks sport. Maybe you're on top of things for one kid but flying blind for the other. The reality is that no one in your house has the full picture, and things slip through the cracks because you're both assuming the other one knows. You're not dropping the ball. You're juggling too many.",
-          pitch: "SuperDuper gives your whole family one shared view of what's happening. It reads every email from every school, coach, and activity organiser, and puts it all in one place \u2014 so nobody has to be the keeper, and nobody has to chase.",
-          shareText: "I took the SuperDuper parenting quiz and I'm The Hybrid \u2014 some days I know everything, some days I'm scrambling. Which one are you?",
-          shortSummary: "You split the mental load but things still fall through the cracks because nobody has the full picture. SuperDuper brings it all together."
+          validation: "You\u2019re the parent who has it together in one area and is completely lost in another. Maybe you own the sports schedule but have no idea what\u2019s happening at school. Maybe you handle the big stuff but miss every small detail. You live in the gap between knowing too much and not knowing enough, and you never quite feel like you\u2019re doing either one well.",
+          pitch: "SuperDuper doesn\u2019t care which hat you\u2019re wearing today. It pulls everything into one place so you can stop splitting your brain between the things you track and the things you\u2019ve given up on. One dashboard. Every kid. Every activity. Every email you didn\u2019t read and every one you did.",
+          shareText: "I\u2019m The Hybrid. Half Keeper, half Chaser, fully overwhelmed. Take the quiz.",
+          shortSummary: "You have it together in one area and are lost in another. SuperDuper pulls everything into one place so you can stop splitting your brain."
         }
       };
 
@@ -1292,9 +1292,10 @@
         quizResult = calculateResult();
         var result = RESULTS[quizResult];
 
-        document.getElementById('gate-archetype').textContent = result.title;
+        var gateNames = { keeper: 'Keeper', chaser: 'Chaser', hybrid: 'Hybrid' };
+        document.getElementById('gate-archetype').textContent = "You\u2019re a " + gateNames[quizResult] + ".";
         document.getElementById('gate-archetype').className = 'gate-archetype gate-archetype--' + quizResult;
-        document.getElementById('gate-tagline').textContent = result.tagline;
+        document.getElementById('gate-tagline').textContent = "Want to know what that means?";
 
         // Populate blurred preview
         var blur = document.getElementById('gate-blur');
