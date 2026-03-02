@@ -362,6 +362,222 @@
       .quiz-option--selected .quiz-option-check {
         display: flex;
       }
+
+      /* ============================================
+         Gate Screen
+         ============================================ */
+      #screen-gate {
+        min-height: 100dvh;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1.5rem 2rem;
+      }
+
+      .gate-archetype {
+        font-size: clamp(2rem, 6vw, 3rem);
+        text-align: center;
+        animation: fadeUp 0.6s ease both;
+      }
+
+      .gate-archetype--keeper { color: var(--pink); }
+      .gate-archetype--chaser { color: var(--blue); }
+      .gate-archetype--hybrid {
+        background: linear-gradient(135deg, var(--pink), var(--blue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .gate-tagline {
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--navy-60);
+        text-align: center;
+        max-width: 440px;
+        margin: 0.75rem 0 2rem;
+        animation: fadeUp 0.6s ease 0.15s both;
+      }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .gate-blur {
+        filter: blur(8px);
+        pointer-events: none;
+        user-select: none;
+        max-height: 300px;
+        overflow: hidden;
+        max-width: 540px;
+        width: 100%;
+        padding: 1.5rem;
+        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        margin-bottom: 2rem;
+        animation: fadeUp 0.6s ease 0.3s both;
+      }
+
+      .gate-blur p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--navy-70);
+        margin-bottom: 1rem;
+      }
+
+      .gate-form-wrap {
+        max-width: 540px;
+        width: 100%;
+        text-align: center;
+        animation: fadeUp 0.6s ease 0.45s both;
+      }
+
+      .gate-form-text {
+        font-size: 0.95rem;
+        color: var(--navy-60);
+        margin-bottom: 1.25rem;
+        line-height: 1.6;
+      }
+
+      .gate-form {
+        display: flex;
+        gap: 0;
+        max-width: 440px;
+        margin: 0 auto 1rem;
+      }
+
+      .gate-form-input {
+        flex: 1;
+        padding: 0.8rem 1rem;
+        border: 2px solid var(--navy-08);
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        font-family: 'Onest', system-ui, sans-serif;
+        font-size: 0.95rem;
+        color: var(--navy);
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      .gate-form-input:focus {
+        border-color: var(--pink);
+      }
+
+      .gate-form-submit {
+        font-family: 'Onest', system-ui, sans-serif;
+        background: var(--pink);
+        color: #fff;
+        padding: 0.8rem 1.5rem;
+        border: 2px solid var(--pink);
+        border-radius: 0 8px 8px 0;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s ease;
+      }
+
+      .gate-form-submit:hover {
+        background: #d63e87;
+        border-color: #d63e87;
+      }
+
+      .gate-form-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .gate-loading {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        color: var(--navy-40);
+      }
+
+      .gate-loading .spinner {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--navy-08);
+        border-top-color: var(--pink);
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      .gate-error {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .gate-error-message {
+        font-size: 0.85rem;
+        color: #e04040;
+      }
+
+      .gate-error-retry {
+        font-family: 'Onest', system-ui, sans-serif;
+        background: none;
+        border: 1px solid var(--navy-15);
+        border-radius: 6px;
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        color: var(--navy-60);
+        cursor: pointer;
+      }
+
+      .gate-success {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+        color: #16a34a;
+        padding: 0.5rem 0;
+      }
+
+      .gate-skip {
+        display: inline-block;
+        font-size: 0.85rem;
+        color: var(--navy-40);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: 'Onest', system-ui, sans-serif;
+        margin-top: 0.5rem;
+      }
+
+      .gate-skip:hover {
+        color: var(--navy-60);
+      }
+
+      @media (max-width: 480px) {
+        .gate-form {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        .gate-form-input {
+          border-right: 2px solid var(--navy-08);
+          border-radius: 8px;
+        }
+        .gate-form-input:focus {
+          border-color: var(--pink);
+        }
+        .gate-form-submit {
+          border-radius: 8px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -389,6 +605,26 @@
     </div>
 
     <div id="screen-gate" class="screen">
+      <h1 class="gate-archetype" id="gate-archetype"></h1>
+      <p class="gate-tagline" id="gate-tagline"></p>
+      <div class="gate-blur" id="gate-blur"></div>
+      <div class="gate-form-wrap">
+        <p class="gate-form-text">Enter your email to unlock your full result and join the SuperDuper waiting list. We're building something for parents like you.</p>
+        <form class="gate-form" id="gate-form">
+          <input type="email" class="gate-form-input" id="gate-email" placeholder="you@email.com" required />
+          <button type="submit" class="gate-form-submit" id="gate-submit">Show Me My Result</button>
+        </form>
+        <div class="gate-loading" id="gate-loading"><div class="spinner"></div> Joining...</div>
+        <div class="gate-success" id="gate-success">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg>
+          You're in!
+        </div>
+        <div class="gate-error" id="gate-error">
+          <span class="gate-error-message" id="gate-error-message">Oops! Something went wrong.</span>
+          <button type="button" class="gate-error-retry" id="gate-retry">Try again</button>
+        </div>
+        <button type="button" class="gate-skip" id="gate-skip">Just show me the short version</button>
+      </div>
     </div>
 
     <div id="screen-results" class="screen">
@@ -489,6 +725,42 @@
         state.answers = [null, null, null, null, null, null];
         state.scores = { keeper: 0, hybrid: 0, chaser: 0 };
       }
+
+      /* ============================================
+         Results Data
+         ============================================ */
+      var RESULTS = {
+        keeper: {
+          title: "You're The Keeper.",
+          tagline: "Every email, every text thread, every PDF. It all lands on you.",
+          color: 'keeper',
+          validation: "You're the one who reads the school newsletters the day they arrive. You know which kid needs shin guards by Thursday and that picture day got moved to next week. You cross-reference the family calendar with the class WhatsApp and the coach's email, because if you don't, nobody will. You're not a control freak \u2014 you're the reason the household runs. But it's exhausting, and nobody fully sees it.",
+          pitch: "SuperDuper was built for you. It reads every email from every school, coach, and activity organiser so you don't have to. It pulls out the dates, the deadlines, and the action items, and puts them where your whole family can see them. You've been carrying this alone. You don't have to.",
+          shareText: "I took the SuperDuper parenting quiz and I'm The Keeper \u2014 the one who tracks everything so the house doesn't fall apart. Which one are you?",
+          shortSummary: "You're the household's operating system \u2014 every email, every deadline, every detail runs through you. SuperDuper was built to lighten that load."
+        },
+        chaser: {
+          title: "You're The Chaser.",
+          tagline: "You're not out of the loop by choice. The system just wasn't built for you.",
+          color: 'chaser',
+          validation: "You're the one asking \"Wait, what's happening Friday?\" at 10pm on Thursday. Not because you don't care \u2014 because the information is buried in an email chain you were never on, or a group chat you muted because it pings 40 times a day. You want to be on top of things, but the way school and activity info gets shared just doesn't work for you. So you rely on your partner, and then feel guilty about it.",
+          pitch: "SuperDuper fixes the information gap. It reads every email from every school, coach, and activity organiser and shows the whole family what's happening this week \u2014 no forwarding, no asking, no guilt. You'll finally know what's going on without having to chase it.",
+          shareText: "I took the SuperDuper parenting quiz and I'm The Chaser \u2014 always one step behind on school and activity updates. Which one are you?",
+          shortSummary: "You're always asking your partner what's happening because the info never reaches you directly. SuperDuper brings it all to one place."
+        },
+        hybrid: {
+          title: "You're The Hybrid.",
+          tagline: "Some days you're the one who knows everything. Some days you're scrambling.",
+          color: 'hybrid',
+          validation: "You split the mental load \u2014 or try to. Maybe you handle school stuff while your partner tracks sport. Maybe you're on top of things for one kid but flying blind for the other. The reality is that no one in your house has the full picture, and things slip through the cracks because you're both assuming the other one knows. You're not dropping the ball. You're juggling too many.",
+          pitch: "SuperDuper gives your whole family one shared view of what's happening. It reads every email from every school, coach, and activity organiser, and puts it all in one place \u2014 so nobody has to be the keeper, and nobody has to chase.",
+          shareText: "I took the SuperDuper parenting quiz and I'm The Hybrid \u2014 some days I know everything, some days I'm scrambling. Which one are you?",
+          shortSummary: "You split the mental load but things still fall through the cracks because nobody has the full picture. SuperDuper brings it all together."
+        }
+      };
+
+      var quizResult = null;
+      var emailCaptured = false;
 
       /* ============================================
          Quiz Rendering & Transitions
@@ -645,6 +917,110 @@
       }
 
       document.getElementById('quiz-back').addEventListener('click', goBack);
+
+      /* ============================================
+         Gate Screen
+         ============================================ */
+      function showGateScreen() {
+        quizResult = calculateResult();
+        var result = RESULTS[quizResult];
+
+        document.getElementById('gate-archetype').textContent = result.title;
+        document.getElementById('gate-archetype').className = 'gate-archetype gate-archetype--' + quizResult;
+        document.getElementById('gate-tagline').textContent = result.tagline;
+
+        // Populate blurred preview
+        var blur = document.getElementById('gate-blur');
+        blur.innerHTML =
+          '<p>' + result.validation + '</p>' +
+          '<p>' + result.pitch + '</p>';
+
+        // Reset form state
+        document.getElementById('gate-form').style.display = 'flex';
+        document.getElementById('gate-email').style.display = '';
+        document.getElementById('gate-email').value = '';
+        document.getElementById('gate-submit').style.display = '';
+        document.getElementById('gate-submit').disabled = false;
+        document.getElementById('gate-loading').style.display = 'none';
+        document.getElementById('gate-success').style.display = 'none';
+        document.getElementById('gate-error').style.display = 'none';
+        document.getElementById('gate-skip').style.display = '';
+
+        try { posthog.capture('quiz_completed', { result: quizResult, scores: state.scores }); } catch(e) {}
+
+        showScreen('screen-gate');
+      }
+
+      document.getElementById('gate-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var emailInput = document.getElementById('gate-email');
+        var submitBtn = document.getElementById('gate-submit');
+        var loading = document.getElementById('gate-loading');
+        var successEl = document.getElementById('gate-success');
+        var errorEl = document.getElementById('gate-error');
+        var errorMsg = document.getElementById('gate-error-message');
+        var email = emailInput.value;
+
+        // Rate limit check
+        var now = Date.now();
+        var prev = localStorage.getItem('loops-form-timestamp');
+        if (prev && Number(prev) + 60000 > now) {
+          errorEl.style.display = 'flex';
+          errorMsg.textContent = 'Too many signups, please try again in a little while';
+          submitBtn.style.display = 'none';
+          emailInput.style.display = 'none';
+          return;
+        }
+        localStorage.setItem('loops-form-timestamp', now);
+
+        submitBtn.style.display = 'none';
+        emailInput.style.display = 'none';
+        loading.style.display = 'flex';
+
+        var formBody = 'userGroup=&mailingLists=&email=' + encodeURIComponent(email) + '&quizResult=' + encodeURIComponent(quizResult) + '&joinedWaitlist=' + encodeURIComponent(new Date().toISOString());
+
+        fetch('https://app.loops.so/api/newsletter-form/cmkvrcj6o00lc0i1fhymv7jyi', {
+          method: 'POST',
+          body: formBody,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        })
+        .then(function(res) {
+          if (res.ok) {
+            emailCaptured = true;
+            try {
+              posthog.identify(email, { email: email });
+              posthog.capture('quiz_email_captured', { result: quizResult });
+            } catch(e) {}
+            loading.style.display = 'none';
+            successEl.style.display = 'flex';
+            document.getElementById('gate-skip').style.display = 'none';
+            setTimeout(function() { showResults(true); }, 1200);
+          } else {
+            return res.json().then(function(data) {
+              throw new Error(data.message || res.statusText);
+            });
+          }
+        })
+        .catch(function(err) {
+          loading.style.display = 'none';
+          errorEl.style.display = 'flex';
+          errorMsg.textContent = err.message === 'Failed to fetch'
+            ? 'Too many signups, please try again in a little while'
+            : (err.message || 'Something went wrong. Please try again.');
+          localStorage.setItem('loops-form-timestamp', '');
+        });
+      });
+
+      document.getElementById('gate-retry').addEventListener('click', function() {
+        document.getElementById('gate-error').style.display = 'none';
+        document.getElementById('gate-email').style.display = '';
+        document.getElementById('gate-submit').style.display = '';
+      });
+
+      document.getElementById('gate-skip').addEventListener('click', function() {
+        try { posthog.capture('quiz_email_skipped', { result: quizResult }); } catch(e) {}
+        showResults(false);
+      });
 
       /* ============================================
          Intro Screen Handler
