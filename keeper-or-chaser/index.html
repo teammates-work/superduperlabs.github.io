@@ -184,6 +184,184 @@
       .btn-quiz:active {
         transform: translateY(0);
       }
+
+      /* ============================================
+         Quiz Screen
+         ============================================ */
+      #screen-quiz {
+        min-height: 100dvh;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .quiz-topbar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+      }
+
+      .quiz-back {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--navy-40);
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        transition: color 0.2s ease;
+      }
+
+      .quiz-back:hover {
+        color: var(--navy);
+      }
+
+      .quiz-back.hidden {
+        visibility: hidden;
+      }
+
+      .quiz-progress {
+        flex: 1;
+        height: 4px;
+        background: var(--navy-08);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .quiz-progress-fill {
+        height: 100%;
+        background: var(--gradient-pink);
+        border-radius: 2px;
+        transition: width 0.4s ease;
+      }
+
+      .quiz-progress-label {
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--navy-40);
+        white-space: nowrap;
+      }
+
+      .quiz-body {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .quiz-question-card {
+        padding: 1rem 1.5rem 2rem;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+      }
+
+      .quiz-question-card.slide-out-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      .quiz-question-card.slide-in-right {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      .quiz-question-card.slide-out-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      .quiz-question-card.slide-in-left {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      .quiz-question-text {
+        font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.25;
+      }
+
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .quiz-option {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+        background: #fff;
+        border: 2px solid var(--navy-08);
+        border-radius: 16px;
+        cursor: pointer;
+        transition: border-color 0.2s ease, background 0.2s ease;
+        text-align: left;
+        font-family: 'Onest', system-ui, sans-serif;
+        font-size: 0.95rem;
+        color: var(--navy);
+        line-height: 1.5;
+        width: 100%;
+      }
+
+      .quiz-option:hover {
+        border-color: var(--navy-15);
+        background: var(--navy-04);
+      }
+
+      .quiz-option--selected {
+        border-color: var(--pink);
+        background: var(--pink-08);
+      }
+
+      .quiz-option--selected:hover {
+        border-color: var(--pink);
+        background: var(--pink-08);
+      }
+
+      .quiz-option-letter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        border-radius: 50%;
+        background: var(--pink-08);
+        color: var(--pink);
+        font-family: 'Figtree', sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+
+      .quiz-option-text {
+        flex: 1;
+        padding-top: 2px;
+      }
+
+      .quiz-option-check {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        color: var(--pink);
+        margin-top: 2px;
+      }
+
+      .quiz-option--selected .quiz-option-check {
+        display: flex;
+      }
     </style>
   </head>
   <body>
@@ -197,6 +375,17 @@
     </div>
 
     <div id="screen-quiz" class="screen">
+      <div class="quiz-topbar">
+        <button class="quiz-back hidden" id="quiz-back" aria-label="Go back">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" /></svg>
+        </button>
+        <div class="quiz-progress">
+          <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 0%"></div>
+        </div>
+        <span class="quiz-progress-label" id="quiz-progress-label">Q1 of 6</span>
+      </div>
+      <div class="quiz-body" id="quiz-body" aria-live="polite">
+      </div>
     </div>
 
     <div id="screen-gate" class="screen">
@@ -300,6 +489,162 @@
         state.answers = [null, null, null, null, null, null];
         state.scores = { keeper: 0, hybrid: 0, chaser: 0 };
       }
+
+      /* ============================================
+         Quiz Rendering & Transitions
+         ============================================ */
+      var isTransitioning = false;
+      var LETTERS = ['A', 'B', 'C'];
+
+      function buildQuestionCard(index) {
+        var q = QUESTIONS[index];
+        var card = document.createElement('div');
+        card.className = 'quiz-question-card';
+
+        var h2 = document.createElement('h2');
+        h2.className = 'quiz-question-text';
+        h2.textContent = q.question;
+        card.appendChild(h2);
+
+        var optionsDiv = document.createElement('div');
+        optionsDiv.className = 'quiz-options';
+
+        for (var i = 0; i < q.options.length; i++) {
+          (function(optIndex) {
+            var btn = document.createElement('button');
+            btn.className = 'quiz-option';
+            if (state.answers[index] === optIndex) {
+              btn.classList.add('quiz-option--selected');
+            }
+            btn.setAttribute('type', 'button');
+
+            btn.innerHTML =
+              '<span class="quiz-option-letter">' + LETTERS[optIndex] + '</span>' +
+              '<span class="quiz-option-text">' + q.options[optIndex].text + '</span>' +
+              '<span class="quiz-option-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg></span>';
+
+            btn.addEventListener('click', function() {
+              selectOption(index, optIndex);
+            });
+
+            optionsDiv.appendChild(btn);
+          })(i);
+        }
+
+        card.appendChild(optionsDiv);
+        return card;
+      }
+
+      function renderQuestion(index) {
+        state.currentQuestion = index;
+        var body = document.getElementById('quiz-body');
+        body.innerHTML = '';
+        var card = buildQuestionCard(index);
+        body.appendChild(card);
+        updateProgress();
+      }
+
+      function updateProgress() {
+        var pct = ((state.currentQuestion + 1) / QUESTIONS.length) * 100;
+        document.getElementById('quiz-progress-fill').style.width = pct + '%';
+        document.getElementById('quiz-progress-label').textContent = 'Q' + (state.currentQuestion + 1) + ' of ' + QUESTIONS.length;
+
+        var backBtn = document.getElementById('quiz-back');
+        if (state.currentQuestion === 0) {
+          backBtn.classList.add('hidden');
+        } else {
+          backBtn.classList.remove('hidden');
+        }
+      }
+
+      function selectOption(questionIndex, optionIndex) {
+        if (isTransitioning) return;
+
+        state.answers[questionIndex] = optionIndex;
+
+        // Visual feedback: mark selected
+        var options = document.querySelectorAll('#quiz-body .quiz-option');
+        options.forEach(function(opt, i) {
+          opt.classList.toggle('quiz-option--selected', i === optionIndex);
+        });
+
+        try {
+          posthog.capture('quiz_question_answered', {
+            question: questionIndex + 1,
+            answer: QUESTIONS[questionIndex].options[optionIndex].score
+          });
+        } catch(e) {}
+
+        // Auto-advance after short delay
+        setTimeout(function() {
+          advanceQuestion();
+        }, 400);
+      }
+
+      function advanceQuestion() {
+        if (isTransitioning) return;
+        var nextIndex = state.currentQuestion + 1;
+
+        if (nextIndex >= QUESTIONS.length) {
+          showGateScreen();
+          return;
+        }
+
+        isTransitioning = true;
+        var body = document.getElementById('quiz-body');
+        var currentCard = body.querySelector('.quiz-question-card');
+
+        // Slide current out left
+        currentCard.classList.add('slide-out-left');
+
+        // Build next card off-screen right
+        var nextCard = buildQuestionCard(nextIndex);
+        nextCard.classList.add('slide-in-right');
+        body.appendChild(nextCard);
+
+        // Trigger reflow then animate in
+        nextCard.offsetHeight;
+        nextCard.classList.remove('slide-in-right');
+
+        state.currentQuestion = nextIndex;
+        updateProgress();
+
+        setTimeout(function() {
+          if (currentCard.parentNode) currentCard.parentNode.removeChild(currentCard);
+          isTransitioning = false;
+        }, 350);
+      }
+
+      function goBack() {
+        if (isTransitioning || state.currentQuestion === 0) return;
+        isTransitioning = true;
+
+        var prevIndex = state.currentQuestion - 1;
+        var body = document.getElementById('quiz-body');
+        var currentCard = body.querySelector('.quiz-question-card');
+
+        // Slide current out right
+        currentCard.classList.add('slide-out-right');
+
+        // Build previous card off-screen left
+        var prevCard = buildQuestionCard(prevIndex);
+        prevCard.classList.add('slide-in-left');
+        body.appendChild(prevCard);
+
+        // Trigger reflow then animate in
+        prevCard.offsetHeight;
+        prevCard.classList.remove('slide-in-left');
+
+        state.currentQuestion = prevIndex;
+        updateProgress();
+
+        setTimeout(function() {
+          if (currentCard.parentNode) currentCard.parentNode.removeChild(currentCard);
+          isTransitioning = false;
+        }, 350);
+      }
+
+      document.getElementById('quiz-back').addEventListener('click', goBack);
 
       /* ============================================
          Intro Screen Handler
