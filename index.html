@@ -753,6 +753,7 @@
         height: 100%;
         z-index: 0;
         pointer-events: none;
+        overflow: visible;
       }
 
       .zigzag-row {
@@ -762,15 +763,16 @@
         gap: 2.5rem;
         margin-bottom: 2.5rem;
         position: relative;
-        z-index: 1;
       }
 
       .zigzag-row.left {
         flex-direction: row;
+        margin-right: 8%;
       }
 
       .zigzag-row.right {
         flex-direction: row-reverse;
+        margin-left: 8%;
       }
 
       .step-circle {
@@ -787,6 +789,8 @@
         font-size: 1.25rem;
         font-weight: 700;
         box-shadow: 0 4px 16px rgba(232, 79, 154, 0.3);
+        position: relative;
+        z-index: 2;
       }
 
       .hiw-card {
@@ -796,6 +800,8 @@
         border: 1px solid var(--navy-08);
         border-radius: 16px;
         overflow: hidden;
+        position: relative;
+        z-index: 2;
       }
 
       .hiw-card-image {
@@ -1281,6 +1287,8 @@
           align-items: center;
           gap: 1rem;
           margin-bottom: 2rem;
+          margin-left: 0;
+          margin-right: 0;
         }
 
         .step-circle {
@@ -2086,7 +2094,7 @@
           var midY = (y1 + y2) / 2;
           paths += '<path d="M' + x1 + ' ' + y1 +
             ' C' + x1 + ' ' + midY + ' ' + x2 + ' ' + midY + ' ' + x2 + ' ' + y2 +
-            '" fill="none" stroke="rgba(27,20,100,0.12)" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>';
+            '" fill="none" stroke="rgba(232,79,154,0.25)" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>';
         }
         svg.innerHTML = paths;
       }
