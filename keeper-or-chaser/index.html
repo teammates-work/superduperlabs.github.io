@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <title>Are You a Keeper or a Chaser? | SuperDuper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Every household has one parent who tracks everything and one who's always asking. Take the 60-second quiz to find out which one you are." />
+    <meta name="description" content="Answer 5 questions to learn what kind of parent you are. No signup required." />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Are You a Keeper or a Chaser? | SuperDuper" />
-    <meta property="og:description" content="Every household has one parent who tracks everything and one who's always asking. Take the 60-second quiz." />
+    <meta property="og:description" content="Answer 5 questions to learn what kind of parent you are. No signup required." />
     <meta property="og:image" content="https://superduperlabs.com/images/og-image.png" />
     <meta property="og:url" content="https://superduperlabs.com/keeper-or-chaser" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -41,10 +41,11 @@
          ============================================ */
       :root {
         --navy: #1B1464;
-        --pink: #E84F9A;
-        --blue: #4A8FE7;
-        --gradient-pink: linear-gradient(135deg, #F472B6, #DB2777);
-        --gradient-blue: linear-gradient(135deg, #60A5FA, #2563EB);
+        --magenta: #DD1C9D;
+        --cyan: #00D0E7;
+        --gradient-magenta: linear-gradient(135deg, #DD1C9D, #FF54C6);
+        --gradient-cyan: linear-gradient(135deg, #00D0E7, #0077FF);
+        --gradient-progress: linear-gradient(90deg, #DD1C9D, #0077FF);
         --navy-90: rgba(27, 20, 100, 0.9);
         --navy-70: rgba(27, 20, 100, 0.7);
         --navy-60: rgba(27, 20, 100, 0.6);
@@ -53,10 +54,10 @@
         --navy-15: rgba(27, 20, 100, 0.15);
         --navy-08: rgba(27, 20, 100, 0.08);
         --navy-04: rgba(27, 20, 100, 0.04);
-        --pink-15: rgba(232, 79, 154, 0.15);
-        --pink-08: rgba(232, 79, 154, 0.08);
-        --blue-15: rgba(74, 143, 231, 0.15);
-        --blue-08: rgba(74, 143, 231, 0.08);
+        --magenta-15: rgba(221, 28, 157, 0.15);
+        --magenta-08: rgba(221, 28, 157, 0.08);
+        --cyan-15: rgba(0, 208, 231, 0.15);
+        --cyan-08: rgba(0, 208, 231, 0.08);
       }
 
       /* ============================================
@@ -87,7 +88,7 @@
         left: -20%;
         width: 60%;
         height: 80%;
-        background: radial-gradient(ellipse, var(--pink-08) 0%, transparent 70%);
+        background: radial-gradient(ellipse, var(--magenta-08) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
       }
@@ -99,7 +100,7 @@
         right: -10%;
         width: 50%;
         height: 70%;
-        background: radial-gradient(ellipse, var(--blue-08) 0%, transparent 70%);
+        background: radial-gradient(ellipse, var(--cyan-08) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
       }
@@ -109,11 +110,10 @@
         line-height: 1.1;
       }
 
-      /* Focus states for accessibility */
       button:focus-visible,
       input:focus-visible,
       a:focus-visible {
-        outline: 2px solid var(--pink);
+        outline: 2px solid var(--magenta);
         outline-offset: 2px;
       }
 
@@ -150,30 +150,13 @@
       .intro-title {
         font-size: clamp(2rem, 5vw, 3.2rem);
         max-width: 560px;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         color: var(--navy);
-      }
-
-      .intro-body {
-        font-size: 1.05rem;
-        color: var(--navy-60);
-        max-width: 440px;
-        margin-bottom: 2rem;
-      }
-
-      .intro-label {
-        font-family: 'Figtree', sans-serif;
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--navy-40);
-        margin-bottom: 2rem;
       }
 
       .btn-quiz {
         font-family: 'Onest', system-ui, sans-serif;
-        background: var(--pink);
+        background: var(--gradient-magenta);
         color: #fff;
         padding: 0.9rem 2.4rem;
         border-radius: 8px;
@@ -186,11 +169,17 @@
 
       .btn-quiz:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(232, 79, 154, 0.3);
+        box-shadow: 0 4px 16px rgba(221, 28, 157, 0.3);
       }
 
       .btn-quiz:active {
         transform: translateY(0);
+      }
+
+      .intro-note {
+        font-size: 0.85rem;
+        color: var(--navy-40);
+        margin-top: 0.75rem;
       }
 
       /* ============================================
@@ -242,7 +231,7 @@
 
       .quiz-progress-fill {
         height: 100%;
-        background: var(--gradient-pink);
+        background: var(--gradient-progress);
         border-radius: 2px;
         transition: width 0.4s ease;
       }
@@ -332,13 +321,13 @@
       }
 
       .quiz-option--selected {
-        border-color: var(--pink);
-        background: var(--pink-08);
+        border-color: var(--magenta);
+        background: var(--magenta-08);
       }
 
       .quiz-option--selected:hover {
-        border-color: var(--pink);
-        background: var(--pink-08);
+        border-color: var(--magenta);
+        background: var(--magenta-08);
       }
 
       .quiz-option-letter {
@@ -349,8 +338,8 @@
         height: 28px;
         min-width: 28px;
         border-radius: 50%;
-        background: var(--pink-08);
-        color: var(--pink);
+        background: var(--magenta-08);
+        color: var(--magenta);
         font-family: 'Figtree', sans-serif;
         font-weight: 600;
         font-size: 0.8rem;
@@ -365,7 +354,7 @@
         display: none;
         align-items: center;
         justify-content: center;
-        color: var(--pink);
+        color: var(--magenta);
         margin-top: 2px;
       }
 
@@ -374,219 +363,53 @@
       }
 
       /* ============================================
-         Gate Screen
+         Gender Selection Screen
          ============================================ */
-      #screen-gate {
+      #screen-gender {
         min-height: 100dvh;
         flex-direction: column;
         align-items: center;
-        padding: 3rem 1.5rem 2rem;
-      }
-
-      .gate-archetype {
-        font-size: clamp(2rem, 6vw, 3rem);
+        justify-content: center;
+        padding: 2rem 1.5rem;
         text-align: center;
-        animation: fadeUp 0.6s ease both;
       }
 
-      .gate-archetype--keeper { color: var(--pink); }
-      .gate-archetype--chaser { color: var(--blue); }
-      .gate-archetype--hybrid {
-        background: linear-gradient(135deg, var(--pink), var(--blue));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .gate-tagline {
-        font-family: 'Fraunces', serif;
-        font-style: italic;
-        font-size: 1.1rem;
+      .gender-prompt {
+        font-size: 1rem;
         color: var(--navy-60);
-        text-align: center;
-        max-width: 440px;
-        margin: 0.75rem 0 2rem;
-        animation: fadeUp 0.6s ease 0.15s both;
+        margin-bottom: 0.5rem;
       }
 
-      @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      .gate-blur {
-        filter: blur(8px);
-        pointer-events: none;
-        user-select: none;
-        max-height: 300px;
-        overflow: hidden;
-        max-width: 540px;
-        width: 100%;
-        padding: 1.5rem;
-        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+      .gender-heading {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
         margin-bottom: 2rem;
-        animation: fadeUp 0.6s ease 0.3s both;
-      }
-
-      .gate-blur p {
-        font-size: 0.95rem;
-        line-height: 1.7;
-        color: var(--navy-70);
-        margin-bottom: 1rem;
-      }
-
-      .gate-form-wrap {
-        max-width: 540px;
-        width: 100%;
-        text-align: center;
-        animation: fadeUp 0.6s ease 0.45s both;
-      }
-
-      .gate-form-text {
-        font-size: 0.95rem;
-        color: var(--navy-60);
-        margin-bottom: 1.25rem;
-        line-height: 1.6;
-      }
-
-      .gate-form {
-        display: flex;
-        gap: 0;
-        max-width: 440px;
-        margin: 0 auto 1rem;
-      }
-
-      .gate-form-input {
-        flex: 1;
-        padding: 0.8rem 1rem;
-        border: 2px solid var(--navy-08);
-        border-right: none;
-        border-radius: 8px 0 0 8px;
-        font-family: 'Onest', system-ui, sans-serif;
-        font-size: 0.95rem;
         color: var(--navy);
-        outline: none;
-        transition: border-color 0.2s ease;
       }
 
-      .gate-form-input:focus {
-        border-color: var(--pink);
-      }
-
-      .gate-form-submit {
-        font-family: 'Onest', system-ui, sans-serif;
-        background: var(--pink);
-        color: #fff;
-        padding: 0.8rem 1.5rem;
-        border: 2px solid var(--pink);
-        border-radius: 0 8px 8px 0;
-        font-weight: 600;
-        font-size: 0.9rem;
-        cursor: pointer;
-        white-space: nowrap;
-        transition: background 0.2s ease;
-      }
-
-      .gate-form-submit:hover {
-        background: #d63e87;
-        border-color: #d63e87;
-      }
-
-      .gate-form-submit:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-
-      .gate-loading {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-        color: var(--navy-40);
-      }
-
-      .gate-loading .spinner {
-        width: 18px;
-        height: 18px;
-        border: 2px solid var(--navy-08);
-        border-top-color: var(--pink);
-        border-radius: 50%;
-        animation: spin 0.6s linear infinite;
-      }
-
-      @keyframes spin {
-        to { transform: rotate(360deg); }
-      }
-
-      .gate-error {
-        display: none;
+      .gender-options {
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
+        gap: 0.75rem;
+        width: 100%;
+        max-width: 360px;
       }
 
-      .gate-error-message {
-        font-size: 0.85rem;
-        color: #e04040;
-      }
-
-      .gate-error-retry {
+      .gender-btn {
         font-family: 'Onest', system-ui, sans-serif;
-        background: none;
-        border: 1px solid var(--navy-15);
-        border-radius: 6px;
-        padding: 0.4rem 1rem;
-        font-size: 0.85rem;
-        color: var(--navy-60);
+        padding: 0.9rem 1.5rem;
+        border: 2px solid var(--navy-15);
+        border-radius: 50px;
+        background: #fff;
         cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: border-color 0.2s ease, background 0.2s ease;
       }
 
-      .gate-success {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        font-size: 0.95rem;
-        color: #16a34a;
-        padding: 0.5rem 0;
-      }
-
-      .gate-skip {
-        display: inline-block;
-        font-size: 0.85rem;
-        color: var(--navy-40);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        cursor: pointer;
-        background: none;
-        border: none;
-        font-family: 'Onest', system-ui, sans-serif;
-        margin-top: 0.5rem;
-      }
-
-      .gate-skip:hover {
-        color: var(--navy-60);
-      }
-
-      @media (max-width: 480px) {
-        .gate-form {
-          flex-direction: column;
-          gap: 0.75rem;
-        }
-        .gate-form-input {
-          border-right: 2px solid var(--navy-08);
-          border-radius: 8px;
-        }
-        .gate-form-input:focus {
-          border-color: var(--pink);
-        }
-        .gate-form-submit {
-          border-radius: 8px;
-        }
+      .gender-btn:hover {
+        border-color: var(--magenta);
+        background: var(--magenta-08);
       }
 
       /* ============================================
@@ -604,229 +427,265 @@
         margin-bottom: 2rem;
       }
 
-      .result-card {
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Horizontal result card */
+      .rcard {
+        display: flex;
         background: #fff;
         border-radius: 24px;
         box-shadow: 0 4px 24px rgba(27, 20, 100, 0.08);
         overflow: hidden;
-        max-width: 540px;
+        max-width: 720px;
         width: 100%;
         margin-bottom: 2rem;
+        animation: fadeUp 0.6s ease both;
       }
 
-      .result-card-band {
-        height: 6px;
+      .rcard-img {
+        position: relative;
+        width: 42%;
+        min-height: 320px;
+        flex-shrink: 0;
+      }
+
+      .rcard-img img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
-      .result-card-band--keeper { background: var(--pink); }
-      .result-card-band--chaser { background: var(--blue); }
-      .result-card-band--hybrid { background: linear-gradient(135deg, var(--pink), var(--blue)); }
-
-      .result-card-body {
-        padding: 2rem 1.5rem;
+      .rcard-share-overlay {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--navy);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        transition: background 0.2s ease;
       }
 
-      .result-title {
-        font-size: clamp(1.6rem, 4vw, 2.2rem);
-        margin-bottom: 0.5rem;
+      .rcard-share-overlay:hover {
+        background: #fff;
       }
 
-      .result-title--keeper { color: var(--pink); }
-      .result-title--chaser { color: var(--blue); }
-      .result-title--hybrid {
-        background: linear-gradient(135deg, var(--pink), var(--blue));
+      .rcard-copy {
+        flex: 1;
+        padding: 2rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .rcard-title {
+        font-size: clamp(1.5rem, 3.5vw, 2rem);
+        margin-bottom: 0.4rem;
+      }
+
+      .rcard-title--keeper { color: var(--magenta); }
+      .rcard-title--chaser { color: var(--cyan); }
+      .rcard-title--hybrid {
+        background: linear-gradient(135deg, var(--magenta), var(--cyan));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
 
-      .result-tagline {
+      .rcard-tagline {
         font-family: 'Fraunces', serif;
         font-style: italic;
-        font-size: 1rem;
-        color: var(--navy-60);
-        margin-bottom: 1.5rem;
-      }
-
-      .result-section {
-        border-top: 1px solid var(--navy-08);
-        padding-top: 1.5rem;
-        margin-top: 1.5rem;
-      }
-
-      .result-section-label {
-        font-family: 'Figtree', sans-serif;
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--navy-40);
-        margin-bottom: 0.75rem;
-      }
-
-      .result-section p {
         font-size: 0.95rem;
+        color: var(--navy-60);
+        margin-bottom: 1.25rem;
+      }
+
+      .rcard-validation {
+        font-size: 0.92rem;
         line-height: 1.7;
         color: var(--navy-70);
       }
 
-      .result-short-note {
-        border-top: 1px solid var(--navy-08);
-        padding-top: 1.5rem;
-        margin-top: 1.5rem;
-        text-align: center;
+      .rcard-footnote {
+        font-size: 0.75rem;
+        color: var(--navy-40);
+        margin-top: 0.75rem;
+        line-height: 1.5;
       }
 
-      .result-short-note p {
-        font-size: 0.9rem;
-        color: var(--navy-50);
-        margin-bottom: 0.75rem;
-      }
-
-      .result-short-cta {
-        font-family: 'Onest', system-ui, sans-serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--pink);
-        background: none;
-        border: none;
-        cursor: pointer;
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-
-      /* CTA Block */
-      .results-cta {
-        background: var(--navy-04);
-        border-radius: 16px;
-        padding: 2rem 1.5rem;
-        max-width: 540px;
+      /* Dark navy CTA block */
+      .ctab {
+        background: var(--navy);
+        border-radius: 24px;
+        padding: 2.5rem 2rem;
+        max-width: 720px;
         width: 100%;
-        text-align: center;
         margin-bottom: 2rem;
+        animation: fadeUp 0.6s ease 0.15s both;
       }
 
-      .results-cta h2 {
-        font-size: clamp(1.3rem, 3vw, 1.6rem);
-        margin-bottom: 0.75rem;
-      }
-
-      .results-cta p {
-        font-size: 0.95rem;
-        color: var(--navy-60);
-        line-height: 1.6;
-        max-width: 460px;
-        margin: 0 auto 1.5rem;
-      }
-
-      .results-waitlist-confirmed {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        color: #16a34a;
+      .ctab-eyebrow {
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.8rem;
         font-weight: 600;
-        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        margin-bottom: 1rem;
       }
 
-      .results-cta-form {
+      .ctab-body {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.75);
+        max-width: 540px;
+        margin-bottom: 1.5rem;
+      }
+
+      .ctab-video {
+        display: block;
+        width: 100%;
+        max-width: 480px;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+      }
+
+      .ctab-video:hover {
+        opacity: 0.9;
+      }
+
+      .ctab-headline {
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        color: #fff;
+        margin-bottom: 1.5rem;
+      }
+
+      .ctab-form {
         display: flex;
         gap: 0;
-        max-width: 400px;
-        margin: 0 auto;
+        max-width: 440px;
       }
 
-      .results-cta-input {
+      .ctab-input {
         flex: 1;
         padding: 0.8rem 1rem;
-        border: 2px solid var(--navy-08);
+        border: 2px solid rgba(255, 255, 255, 0.15);
         border-right: none;
         border-radius: 8px 0 0 8px;
         font-family: 'Onest', system-ui, sans-serif;
         font-size: 0.95rem;
-        color: var(--navy);
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
         outline: none;
         transition: border-color 0.2s ease;
       }
 
-      .results-cta-input:focus {
-        border-color: var(--pink);
+      .ctab-input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
       }
 
-      .results-cta-submit {
+      .ctab-input:focus {
+        border-color: var(--cyan);
+      }
+
+      .ctab-submit {
         font-family: 'Onest', system-ui, sans-serif;
-        background: var(--pink);
-        color: #fff;
+        background: var(--cyan);
+        color: var(--navy);
         padding: 0.8rem 1.5rem;
-        border: 2px solid var(--pink);
+        border: 2px solid var(--cyan);
         border-radius: 0 8px 8px 0;
         font-weight: 600;
         font-size: 0.9rem;
         cursor: pointer;
         white-space: nowrap;
-        transition: background 0.2s ease;
+        transition: background 0.2s ease, border-color 0.2s ease;
       }
 
-      .results-cta-submit:hover {
-        background: #d63e87;
-        border-color: #d63e87;
+      .ctab-submit:hover {
+        background: #00b8cc;
+        border-color: #00b8cc;
       }
 
-      .results-cta-submit:disabled {
+      .ctab-submit:disabled {
         opacity: 0.6;
         cursor: not-allowed;
       }
 
-      .results-cta-loading {
+      .ctab-loading {
         display: none;
         align-items: center;
-        justify-content: center;
         gap: 0.5rem;
         padding: 0.5rem 0;
         font-size: 0.9rem;
-        color: var(--navy-40);
+        color: rgba(255, 255, 255, 0.5);
       }
 
-      .results-cta-loading .spinner {
+      .ctab-loading .spinner {
         width: 18px;
         height: 18px;
-        border: 2px solid var(--navy-08);
-        border-top-color: var(--pink);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        border-top-color: var(--cyan);
         border-radius: 50%;
         animation: spin 0.6s linear infinite;
       }
 
-      .results-cta-error {
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      .ctab-error {
         display: none;
         flex-direction: column;
-        align-items: center;
         gap: 0.5rem;
         margin-top: 0.5rem;
       }
 
-      .results-cta-error-message {
+      .ctab-error-message {
         font-size: 0.85rem;
-        color: #e04040;
+        color: #ff6b6b;
       }
 
-      .results-cta-error-retry {
+      .ctab-error-retry {
         font-family: 'Onest', system-ui, sans-serif;
         background: none;
-        border: 1px solid var(--navy-15);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 6px;
         padding: 0.4rem 1rem;
         font-size: 0.85rem;
-        color: var(--navy-60);
+        color: rgba(255, 255, 255, 0.6);
         cursor: pointer;
+      }
+
+      .ctab-success {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+        color: #4ade80;
+        font-weight: 600;
+        font-size: 0.95rem;
       }
 
       /* Share Block */
       .results-share {
-        max-width: 540px;
+        max-width: 720px;
         width: 100%;
         text-align: center;
         margin-bottom: 2rem;
+        animation: fadeUp 0.6s ease 0.3s both;
       }
 
       .results-share p {
@@ -884,28 +743,58 @@
         color: var(--navy-60);
       }
 
-      @media (max-width: 480px) {
-        .results-cta-form {
+      /* ============================================
+         Responsive
+         ============================================ */
+      @media (max-width: 640px) {
+        .rcard {
+          flex-direction: column;
+        }
+
+        .rcard-img {
+          width: 100%;
+          min-height: 240px;
+          max-height: 300px;
+        }
+
+        .rcard-copy {
+          padding: 1.5rem 1.25rem;
+        }
+
+        .ctab {
+          padding: 1.75rem 1.25rem;
+        }
+
+        .ctab-form {
           flex-direction: column;
           gap: 0.75rem;
         }
-        .results-cta-input {
-          border-right: 2px solid var(--navy-08);
+
+        .ctab-input {
+          border-right: 2px solid rgba(255, 255, 255, 0.15);
           border-radius: 8px;
         }
-        .results-cta-input:focus {
-          border-color: var(--pink);
+
+        .ctab-input:focus {
+          border-color: var(--cyan);
         }
-        .results-cta-submit {
+
+        .ctab-submit {
           border-radius: 8px;
         }
+
         .share-buttons {
           gap: 0.5rem;
         }
+
         .share-btn {
           flex: 1 1 calc(50% - 0.5rem);
           justify-content: center;
           min-width: 0;
+        }
+
+        .gender-options {
+          max-width: 100%;
         }
       }
     </style>
@@ -914,11 +803,10 @@
 
     <div id="screen-intro" class="screen active">
       <img src="/images/logo-header.png" alt="SuperDuper" class="intro-logo" />
-      <h1 class="intro-title">Are You a Keeper or a Chaser?</h1>
-      <p class="intro-body">Every household has one parent who tracks everything and one who's always asking. Which one are you?</p>
-      <p class="intro-label">6 Questions. 60 Seconds.</p>
-      <button class="btn-quiz" id="btn-start">Find Out</button>
-      <p style="margin-top:3rem;font-size:0.7rem;color:rgba(27,20,100,0.25);">Jump to results: <a href="#" onclick="event.preventDefault();state.answers=[0,0,0,0,0,0];showGateScreen();" style="color:inherit;">Keeper</a> | <a href="#" onclick="event.preventDefault();state.answers=[2,2,2,2,2,2];showGateScreen();" style="color:inherit;">Chaser</a> | <a href="#" onclick="event.preventDefault();state.answers=[1,1,1,1,1,1];showGateScreen();" style="color:inherit;">Hybrid</a></p>
+      <h1 class="intro-title">Answer 5 Questions To Learn What Kind of Parent You Are</h1>
+      <button class="btn-quiz" id="btn-start">Take the Quiz</button>
+      <p class="intro-note">No signup required</p>
+      <p style="margin-top:3rem;font-size:0.7rem;color:rgba(27,20,100,0.25);">Jump to results: <a href="#" onclick="event.preventDefault();state.answers=[0,0,0,0,0];showGenderScreen();" style="color:inherit;">Keeper</a> | <a href="#" onclick="event.preventDefault();state.answers=[2,2,2,2,2];showGenderScreen();" style="color:inherit;">Chaser</a> | <a href="#" onclick="event.preventDefault();state.answers=[1,1,1,1,1];showGenderScreen();" style="color:inherit;">Hybrid</a></p>
     </div>
 
     <div id="screen-quiz" class="screen">
@@ -929,69 +817,59 @@
         <div class="quiz-progress">
           <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 0%"></div>
         </div>
-        <span class="quiz-progress-label" id="quiz-progress-label">Q1 of 6</span>
+        <span class="quiz-progress-label" id="quiz-progress-label">Q1 of 5</span>
       </div>
       <div class="quiz-body" id="quiz-body" aria-live="polite">
       </div>
     </div>
 
-    <div id="screen-gate" class="screen">
-      <h1 class="gate-archetype" id="gate-archetype"></h1>
-      <p class="gate-tagline" id="gate-tagline"></p>
-      <div class="gate-blur" id="gate-blur"></div>
-      <div class="gate-form-wrap">
-        <p class="gate-form-text">Enter your email to get your full result and join the SuperDuper waiting list. We're building something for parents like you.</p>
-        <form class="gate-form" id="gate-form">
-          <input type="email" class="gate-form-input" id="gate-email" placeholder="you@email.com" required />
-          <button type="submit" class="gate-form-submit" id="gate-submit">Show Me My Result</button>
-        </form>
-        <div class="gate-loading" id="gate-loading"><div class="spinner"></div> Joining...</div>
-        <div class="gate-success" id="gate-success">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg>
-          You're in!
-        </div>
-        <div class="gate-error" id="gate-error">
-          <span class="gate-error-message" id="gate-error-message">Oops! Something went wrong.</span>
-          <button type="button" class="gate-error-retry" id="gate-retry">Try again</button>
-        </div>
-        <button type="button" class="gate-skip" id="gate-skip">Just show me the short version</button>
+    <div id="screen-gender" class="screen">
+      <p class="gender-prompt">One quick thing to personalize your result:</p>
+      <h2 class="gender-heading">How do you identify?</h2>
+      <div class="gender-options">
+        <button class="gender-btn" data-gender="woman">Woman</button>
+        <button class="gender-btn" data-gender="man">Man</button>
+        <button class="gender-btn" data-gender="nonbinary">Non-binary</button>
+        <button class="gender-btn" data-gender="">Prefer not to say</button>
       </div>
     </div>
 
     <div id="screen-results" class="screen">
       <img src="/images/logo-header.png" alt="SuperDuper" class="results-logo" />
 
-      <div class="result-card" id="result-card">
-        <div class="result-card-band" id="result-card-band"></div>
-        <div class="result-card-body" id="result-card-body">
+      <div class="rcard" id="rcard">
+        <div class="rcard-img" id="rcard-img">
+          <img id="rcard-persona-img" src="" alt="" />
+          <button class="rcard-share-overlay" id="rcard-share-btn" aria-label="Share result">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.935-2.186 2.25 2.25 0 0 0-3.935 2.186Z" /></svg>
+          </button>
+        </div>
+        <div class="rcard-copy" id="rcard-copy">
         </div>
       </div>
 
-      <div class="results-cta">
-        <h2>Parenting doesn't have to be this hard.</h2>
-        <p>SuperDuper reads every email from every school, coach, and activity organizer, and shows your whole family what's next. No manual entry. No setup. No homework.</p>
-        <div id="results-cta-content"></div>
+      <div class="ctab" id="ctab">
       </div>
 
       <div class="results-share">
-        <p>Think you know your partner's result? Send them the quiz.</p>
+        <p>Think You Know Your Partner's Result? Share and Find Out!</p>
         <div class="share-buttons" id="share-buttons">
-          <button class="share-btn" id="share-copy">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9.334a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" /></svg>
-            <span>Copy Link</span>
-          </button>
-          <a class="share-btn" id="share-sms" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" /></svg>
-            <span>Text Message</span>
-          </a>
-          <a class="share-btn" id="share-whatsapp" href="#" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            <span>WhatsApp</span>
-          </a>
           <a class="share-btn" id="share-linkedin" href="#" target="_blank" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             <span>LinkedIn</span>
           </a>
+          <button class="share-btn" id="share-instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            <span>Instagram</span>
+          </button>
+          <a class="share-btn" id="share-sms" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" /></svg>
+            <span>Text</span>
+          </a>
+          <button class="share-btn" id="share-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9.334a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" /></svg>
+            <span>Copy Link</span>
+          </button>
         </div>
       </div>
 
@@ -1011,7 +889,7 @@
       }
 
       /* ============================================
-         Quiz Data
+         Quiz Data (5 questions)
          ============================================ */
       var QUESTIONS = [
         {
@@ -1027,7 +905,7 @@
           options: [
             { text: "Yeah, I read it already. Duh.", score: 'keeper' },
             { text: "Snooze it to tomorrow, for when I have a second? Ugh, just thinking about it gives me anxiety.", score: 'hybrid' },
-            { text: "Honestly? I\u2019ll find out when I\u2019m wandering lost at the wrong field.", score: 'chaser' }
+            { text: "Honestly? I probably won\u2019t find out what was in the email until someone asks me why I\u2019m at the wrong field.", score: 'chaser' }
           ]
         },
         {
@@ -1051,15 +929,7 @@
           options: [
             { text: "I already knew. I reworked the carpool Tuesday night and texted the other parent.", score: 'keeper' },
             { text: "I saw that. Thought we\u2019d figure it out in the morning. Narrator: They did not figure it out in the morning.", score: 'hybrid' },
-            { text: "Yeah. Ugh. Totally forgot. One kid ended up having to be early. The other was late. I think I spent 35 hours in the car racing between locations.", score: 'chaser' }
-          ]
-        },
-        {
-          question: "Last question: Be honest. When it comes to general kid schedule planning, who handles it in your house?",
-          options: [
-            { text: "Me. I\u2019m the one reading emails, checking calendars, and making sure nothing falls through the cracks.", score: 'keeper' },
-            { text: "We both try. Some weeks it works. Other weeks we\u2019re both texting each other \u201Cdid you see that email?\u201D", score: 'hybrid' },
-            { text: "My partner, mostly. I help when I know what\u2019s going on, but they\u2019re the one keeping track.", score: 'chaser' }
+            { text: "Yeah. Ugh. Totally forgot. One kid ended up having to be early. The other was late. I think I spent 35 hours in the car.", score: 'chaser' }
           ]
         }
       ];
@@ -1069,8 +939,9 @@
          ============================================ */
       var state = {
         currentQuestion: 0,
-        answers: [null, null, null, null, null, null],
-        scores: { keeper: 0, hybrid: 0, chaser: 0 }
+        answers: [null, null, null, null, null],
+        scores: { keeper: 0, hybrid: 0, chaser: 0 },
+        gender: null
       };
 
       function calculateResult() {
@@ -1090,40 +961,98 @@
 
       function resetQuiz() {
         state.currentQuestion = 0;
-        state.answers = [null, null, null, null, null, null];
+        state.answers = [null, null, null, null, null];
         state.scores = { keeper: 0, hybrid: 0, chaser: 0 };
+        state.gender = null;
       }
 
       /* ============================================
-         Results Data
+         Results Data (with gender variants)
          ============================================ */
       var RESULTS = {
         keeper: {
           title: "You\u2019re The Keeper.",
           tagline: "The one who knows everything. And everyone relies on you for it.",
           color: 'keeper',
-          validation: "You\u2019ve read every email, tracked every deadline, and remembered every early dismissal. Not because you love doing it, but because if you don\u2019t, nobody will. You\u2019re the family\u2019s search engine, calendar, and emergency contact, all in one. That\u2019s an enormous amount to carry. And the hardest part isn\u2019t the work itself. It\u2019s that nobody realizes how much of it there is.",
-          pitch: "SuperDuper was built for you. Not to add another app to your list, but to actually take things off your plate. It reads the emails so you don\u2019t have to. It catches the schedule changes, the buried deadlines, the PDF attachments nobody opens. And for the first time, your partner sees the same picture you do, without you being the one to hand it to them.",
-          shareText: "I\u2019m The Keeper. I know what every kid in my house is doing every day this week, and honestly, it\u2019s exhausting. Take the quiz.",
-          shortSummary: "You know everything about your kids\u2019 schedules because if you don\u2019t, nobody will. SuperDuper was built to take things off your plate."
+          images: {
+            woman: '/images/quiz/keeper_woman.webp',
+            man: '/images/quiz/keeper_man.webp',
+            nb: '/images/quiz/keeper_nb.webp'
+          },
+          validation: {
+            '': "Hoo boy. We see you. In 78% of households, one parent carries nearly all the schedule management. That parent spends 30+ hours a week on family logistics alone. You\u2019re not \u2018organized.\u2019 You\u2019re doing an unpaid second job.",
+            woman: "Hoo boy. We see you. You\u2019re just like 78% of mothers who say they carry more of the schedule management than their partner. That\u2019s not a personality trait. That\u2019s a pattern, and you\u2019re carrying it.",
+            man: "Hoo boy. We see you. Only 22% of dads are the primary schedule keeper in their household. You\u2019re one of them, and nobody assumes it, which honestly makes the job even lonelier.",
+            nonbinary: "Hoo boy. We see you. In 78% of households, one parent carries nearly all the schedule management. That parent spends 30+ hours a week on family logistics alone. You\u2019re not \u2018organized.\u2019 You\u2019re doing an unpaid second job."
+          },
+          footnotes: {
+            '': "Pew Research Center, 2023",
+            woman: "Pew Research Center, 2023",
+            man: "Pew Research Center, 2023",
+            nonbinary: "Pew Research Center, 2023"
+          },
+          cta: {
+            eyebrow: "SuperDuper was built for you.",
+            body: "Not to add another app to your list, but to actually take things off your plate. It finds the schedule changes, the deadlines, and the \u2018bring cleats Thursday\u2019 buried on page three, and for the first time, your partner sees the same picture you do.",
+            headline: "Take your week back."
+          },
+          shareText: "I\u2019m The Keeper. I know what every kid in my house is doing every day this week, and honestly, it\u2019s exhausting. Find out what kind of parent you are."
         },
         chaser: {
           title: "You\u2019re The Chaser.",
           tagline: "You want to help. You just never have the information.",
           color: 'chaser',
-          validation: "It\u2019s not that you don\u2019t care. It\u2019s that the information never seems to land in front of you. Your inbox is full of unread school newsletters. Your partner mentions things you\u2019re pretty sure you\u2019ve never heard before. You spend half your time asking \u201Cwhat time?\u201D and \u201Cwhere again?\u201D and the other half feeling guilty about asking. You want to show up. You just don\u2019t always know where or when.",
-          pitch: "SuperDuper gives you what you\u2019ve been missing: the full picture, without having to ask for it. Same dashboard your partner sees. Same schedule, same deadlines, same \u201Cdon\u2019t forget the permission slip\u201D alerts. You\u2019ll finally know what\u2019s happening in your own family without someone having to tell you.",
-          shareText: "I\u2019m The Chaser. I show up. I just don\u2019t always know where I\u2019m supposed to be. Take the quiz.",
-          shortSummary: "You want to help but the information never reaches you. SuperDuper gives you the full picture without having to ask."
+          images: {
+            woman: '/images/quiz/chaser_woman.webp',
+            man: '/images/quiz/chaser_man.webp',
+            nb: '/images/quiz/chaser_nb.webp'
+          },
+          validation: {
+            '': "Yeah, we get it. Either you\u2019re super lucky and your partner just looooves staying up all night making the schedule, or you\u2019re like the rest of us and there\u2019s a ton of tension in the house around kid logistics. Either way, SuperDuper was built for you.",
+            woman: "Yeah, we get it. Either your partner genuinely loves being the family scheduler, or there\u2019s a conversation you\u2019ve both been avoiding. Research shows that in the vast majority of couples, one parent just ends up owning the entire schedule. You didn\u2019t opt out. You just never got opted in.",
+            man: "Yeah, we get it. Either your partner just looooves staying up all night making the schedule, or you\u2019re like 78% of households where one parent carries the load and the other one\u2019s always asking \u2018wait, what time?\u2019 Either way, SuperDuper was built for you.",
+            nonbinary: "Yeah, we get it. Either you\u2019re super lucky and your partner just looooves staying up all night making the schedule, or you\u2019re like the rest of us and there\u2019s a ton of tension in the house around kid logistics. Either way, SuperDuper was built for you."
+          },
+          footnotes: {
+            '': "",
+            woman: "Daminger, A. (2019). The Cognitive Dimension of Household Labor.",
+            man: "Pew Research Center, 2023",
+            nonbinary: ""
+          },
+          cta: {
+            eyebrow: "SuperDuper gives you what you\u2019ve been missing.",
+            body: "The full picture, without having to ask for it. Same dashboard your partner sees. Same schedule, same deadlines, same \u2018don\u2019t forget the permission slip\u2019 alerts.",
+            headline: "Get control of your week."
+          },
+          shareText: "I\u2019m The Chaser. I show up. I just don\u2019t always know where I\u2019m supposed to be. Find out what kind of parent you are."
         },
         hybrid: {
           title: "You\u2019re The Hybrid.",
           tagline: "Keeper for some things. Chaser for others. Exhausted either way.",
           color: 'hybrid',
-          validation: "You\u2019re the parent who has it together in one area and is completely lost in another. Maybe you own the sports schedule but have no idea what\u2019s happening at school. Maybe you handle the big stuff but miss every small detail. You live in the gap between knowing too much and not knowing enough, and you never quite feel like you\u2019re doing either one well.",
-          pitch: "SuperDuper doesn\u2019t care which hat you\u2019re wearing today. It pulls everything into one place so you can stop splitting your brain between the things you track and the things you\u2019ve given up on. One dashboard. Every kid. Every activity. Every email you didn\u2019t read and every one you did.",
-          shareText: "I\u2019m The Hybrid. Half Keeper, half Chaser, fully overwhelmed. Take the quiz.",
-          shortSummary: "You have it together in one area and are lost in another. SuperDuper pulls everything into one place so you can stop splitting your brain."
+          images: {
+            woman: '/images/quiz/hybrid_woman.webp',
+            man: '/images/quiz/hybrid_man.webp',
+            nb: '/images/quiz/hybrid_nb.webp'
+          },
+          validation: {
+            '': "Oof. You\u2019re the parent who nails the sports schedule and completely forgets picture day. You own some of it, you\u2019re winging the rest, and you\u2019re exhausted from doing both. That\u2019s not a system. That\u2019s survival mode.",
+            woman: "Oof. 71% of family cognitive tasks fall on one parent, and somehow you ended up with a grab bag of the rest. Half in control, half in the dark, fully over it. No wonder nothing ever feels done.",
+            man: "Oof. In dual-earner households, 54% say one parent does more schedule management. But \u2018more\u2019 isn\u2019t \u2018all.\u2019 You\u2019re carrying real weight that nobody counts. And somehow you still feel like you\u2019re not doing enough.",
+            nonbinary: "Oof. You\u2019re the parent who nails the sports schedule and completely forgets picture day. You own some of it, you\u2019re winging the rest, and you\u2019re exhausted from doing both. That\u2019s not a system. That\u2019s survival mode."
+          },
+          footnotes: {
+            '': "",
+            woman: "Socius, 2025",
+            man: "Pew Research Center, 2023",
+            nonbinary: ""
+          },
+          cta: {
+            eyebrow: "SuperDuper doesn\u2019t care which hat you\u2019re wearing today.",
+            body: "It pulls everything into one place so you can stop splitting your brain between the things you track and the things you\u2019ve given up on.",
+            headline: "Take your week back."
+          },
+          shareText: "I\u2019m The Hybrid. Half Keeper, half Chaser, fully overwhelmed. Find out what kind of parent you are."
         }
       };
 
@@ -1202,7 +1131,6 @@
 
         state.answers[questionIndex] = optionIndex;
 
-        // Visual feedback: mark selected
         var options = document.querySelectorAll('#quiz-body .quiz-option');
         options.forEach(function(opt, i) {
           opt.classList.toggle('quiz-option--selected', i === optionIndex);
@@ -1215,10 +1143,9 @@
           });
         } catch(e) {}
 
-        // Auto-advance after short delay
         setTimeout(function() {
           advanceQuestion();
-        }, 400);
+        }, 500);
       }
 
       function advanceQuestion() {
@@ -1226,7 +1153,7 @@
         var nextIndex = state.currentQuestion + 1;
 
         if (nextIndex >= QUESTIONS.length) {
-          showGateScreen();
+          showGenderScreen();
           return;
         }
 
@@ -1234,15 +1161,12 @@
         var body = document.getElementById('quiz-body');
         var currentCard = body.querySelector('.quiz-question-card');
 
-        // Slide current out left
         currentCard.classList.add('slide-out-left');
 
-        // Build next card off-screen right
         var nextCard = buildQuestionCard(nextIndex);
         nextCard.classList.add('slide-in-right');
         body.appendChild(nextCard);
 
-        // Trigger reflow then animate in
         nextCard.offsetHeight;
         nextCard.classList.remove('slide-in-right');
 
@@ -1263,15 +1187,12 @@
         var body = document.getElementById('quiz-body');
         var currentCard = body.querySelector('.quiz-question-card');
 
-        // Slide current out right
         currentCard.classList.add('slide-out-right');
 
-        // Build previous card off-screen left
         var prevCard = buildQuestionCard(prevIndex);
         prevCard.classList.add('slide-in-left');
         body.appendChild(prevCard);
 
-        // Trigger reflow then animate in
         prevCard.offsetHeight;
         prevCard.classList.remove('slide-in-left');
 
@@ -1287,66 +1208,117 @@
       document.getElementById('quiz-back').addEventListener('click', goBack);
 
       /* ============================================
-         Gate Screen
+         Gender Selection Screen
          ============================================ */
-      function showGateScreen() {
+      function showGenderScreen() {
         quizResult = calculateResult();
-        var result = RESULTS[quizResult];
-
-        var gateNames = { keeper: 'Keeper', chaser: 'Chaser', hybrid: 'Hybrid' };
-        document.getElementById('gate-archetype').textContent = "You\u2019re a " + gateNames[quizResult] + ".";
-        document.getElementById('gate-archetype').className = 'gate-archetype gate-archetype--' + quizResult;
-        document.getElementById('gate-tagline').textContent = "Want to know what that means?";
-
-        // Populate blurred preview
-        var blur = document.getElementById('gate-blur');
-        blur.innerHTML =
-          '<p>' + result.validation + '</p>' +
-          '<p>' + result.pitch + '</p>';
-
-        // Reset form state
-        document.getElementById('gate-form').style.display = 'flex';
-        document.getElementById('gate-email').style.display = '';
-        document.getElementById('gate-email').value = '';
-        document.getElementById('gate-submit').style.display = '';
-        document.getElementById('gate-submit').disabled = false;
-        document.getElementById('gate-loading').style.display = 'none';
-        document.getElementById('gate-success').style.display = 'none';
-        document.getElementById('gate-error').style.display = 'none';
-        document.getElementById('gate-skip').style.display = '';
-
         try { posthog.capture('quiz_completed', { result: quizResult, scores: state.scores }); } catch(e) {}
-
-        showScreen('screen-gate');
+        showScreen('screen-gender');
       }
 
-      document.getElementById('gate-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var emailInput = document.getElementById('gate-email');
-        var submitBtn = document.getElementById('gate-submit');
-        var loading = document.getElementById('gate-loading');
-        var successEl = document.getElementById('gate-success');
-        var errorEl = document.getElementById('gate-error');
-        var errorMsg = document.getElementById('gate-error-message');
-        var email = emailInput.value;
+      document.querySelectorAll('.gender-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.gender = this.getAttribute('data-gender');
+          try { posthog.capture('quiz_gender_selected', { gender: state.gender, result: quizResult }); } catch(e) {}
+          showResults();
+        });
+      });
 
-        // Rate limit check
+      /* ============================================
+         Results Screen
+         ============================================ */
+      function getGenderKey() {
+        var g = state.gender;
+        if (g === 'woman' || g === 'man') return g;
+        if (g === 'nonbinary') return 'nonbinary';
+        return '';
+      }
+
+      function getImageKey() {
+        var g = state.gender;
+        if (g === 'woman') return 'woman';
+        if (g === 'man') return 'man';
+        return 'nb';
+      }
+
+      function showResults() {
+        var result = RESULTS[quizResult];
+        var genderKey = getGenderKey();
+        var imageKey = getImageKey();
+
+        // Persona image
+        var img = document.getElementById('rcard-persona-img');
+        img.src = result.images[imageKey];
+        img.alt = result.title;
+
+        // Copy panel
+        var copyPanel = document.getElementById('rcard-copy');
+        var html = '<h1 class="rcard-title rcard-title--' + quizResult + '">' + result.title + '</h1>';
+        html += '<p class="rcard-tagline">' + result.tagline + '</p>';
+        html += '<p class="rcard-validation">' + result.validation[genderKey] + '</p>';
+        var footnote = result.footnotes[genderKey];
+        if (footnote) {
+          html += '<p class="rcard-footnote">' + footnote + '</p>';
+        }
+        copyPanel.innerHTML = html;
+
+        // CTA block
+        var ctab = document.getElementById('ctab');
+        var ctaHtml = '<p class="ctab-eyebrow">' + result.cta.eyebrow + '</p>';
+        ctaHtml += '<p class="ctab-body">' + result.cta.body + '</p>';
+        ctaHtml += '<a href="https://www.youtube.com/watch?v=q_b60e1D79w" target="_blank" rel="noopener"><img class="ctab-video" src="https://img.youtube.com/vi/q_b60e1D79w/maxresdefault.jpg" alt="Watch SuperDuper demo" /></a>';
+        ctaHtml += '<h2 class="ctab-headline">' + result.cta.headline + '</h2>';
+        ctaHtml += '<div id="ctab-form-wrap">';
+
+        if (emailCaptured) {
+          ctaHtml += '<div class="ctab-success" style="display:flex;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg> You\u2019re on the list!</div>';
+        } else {
+          ctaHtml += '<form class="ctab-form" id="ctab-email-form">';
+          ctaHtml += '<input type="email" class="ctab-input" id="ctab-email" placeholder="you@email.com" required />';
+          ctaHtml += '<button type="submit" class="ctab-submit" id="ctab-submit">Join the Waiting List</button>';
+          ctaHtml += '</form>';
+          ctaHtml += '<div class="ctab-loading" id="ctab-loading"><div class="spinner"></div> Joining...</div>';
+          ctaHtml += '<div class="ctab-error" id="ctab-error">';
+          ctaHtml += '<span class="ctab-error-message" id="ctab-error-message">Something went wrong.</span>';
+          ctaHtml += '<button type="button" class="ctab-error-retry" id="ctab-retry">Try again</button>';
+          ctaHtml += '</div>';
+          ctaHtml += '<div class="ctab-success" id="ctab-success"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg> You\u2019re on the list!</div>';
+        }
+
+        ctaHtml += '</div>';
+        ctab.innerHTML = ctaHtml;
+
+        // Attach email form handler
+        if (!emailCaptured) {
+          setTimeout(attachEmailHandler, 0);
+        }
+
+        // Share URLs
+        var shareUrl = 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + quizResult;
+        var shareText = result.shareText + ' ' + shareUrl;
+
+        document.getElementById('share-sms').href = 'sms:?&body=' + encodeURIComponent(shareText);
+        document.getElementById('share-linkedin').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl);
+
+        showScreen('screen-results');
+      }
+
+      /* ============================================
+         Email Submission
+         ============================================ */
+      function submitEmail(email, onSuccess, onError) {
         var now = Date.now();
         var prev = localStorage.getItem('loops-form-timestamp');
         if (prev && Number(prev) + 60000 > now) {
-          errorEl.style.display = 'flex';
-          errorMsg.textContent = 'Too many signups, please try again in a little while';
-          submitBtn.style.display = 'none';
-          emailInput.style.display = 'none';
+          onError('Too many signups, please try again in a little while');
           return;
         }
         localStorage.setItem('loops-form-timestamp', now);
 
-        submitBtn.style.display = 'none';
-        emailInput.style.display = 'none';
-        loading.style.display = 'flex';
-
-        var formBody = 'userGroup=&mailingLists=&email=' + encodeURIComponent(email) + '&quizResult=' + encodeURIComponent(quizResult) + '&joinedWaitlist=' + encodeURIComponent(new Date().toISOString());
+        var formBody = 'userGroup=&mailingLists=&email=' + encodeURIComponent(email) +
+          '&quizResult=' + encodeURIComponent(quizResult) +
+          '&gender=' + encodeURIComponent(state.gender || '') +
+          '&joinedWaitlist=' + encodeURIComponent(new Date().toISOString());
 
         fetch('https://app.loops.so/api/newsletter-form/cmkvrcj6o00lc0i1fhymv7jyi', {
           method: 'POST',
@@ -1357,13 +1329,10 @@
           if (res.ok) {
             emailCaptured = true;
             try {
-              posthog.identify(email, { email: email });
-              posthog.capture('quiz_email_captured', { result: quizResult });
+              posthog.identify(email, { email: email, gender: state.gender || '' });
+              posthog.capture('quiz_email_captured', { result: quizResult, gender: state.gender || '' });
             } catch(e) {}
-            loading.style.display = 'none';
-            successEl.style.display = 'flex';
-            document.getElementById('gate-skip').style.display = 'none';
-            setTimeout(function() { showResults(true); }, 1200);
+            onSuccess();
           } else {
             return res.json().then(function(data) {
               throw new Error(data.message || res.statusText);
@@ -1371,183 +1340,56 @@
           }
         })
         .catch(function(err) {
-          loading.style.display = 'none';
-          errorEl.style.display = 'flex';
-          errorMsg.textContent = err.message === 'Failed to fetch'
+          var msg = err.message === 'Failed to fetch'
             ? 'Too many signups, please try again in a little while'
             : (err.message || 'Something went wrong. Please try again.');
           localStorage.setItem('loops-form-timestamp', '');
+          onError(msg);
         });
-      });
-
-      document.getElementById('gate-retry').addEventListener('click', function() {
-        document.getElementById('gate-error').style.display = 'none';
-        document.getElementById('gate-email').style.display = '';
-        document.getElementById('gate-submit').style.display = '';
-      });
-
-      document.getElementById('gate-skip').addEventListener('click', function() {
-        try { posthog.capture('quiz_email_skipped', { result: quizResult }); } catch(e) {}
-        showResults(false);
-      });
-
-      /* ============================================
-         Results Screen
-         ============================================ */
-      function showResults(fullResult) {
-        var result = RESULTS[quizResult];
-        var body = document.getElementById('result-card-body');
-
-        // Color band
-        document.getElementById('result-card-band').className = 'result-card-band result-card-band--' + quizResult;
-
-        // Build card content
-        var html = '<h1 class="result-title result-title--' + quizResult + '">' + result.title + '</h1>';
-        html += '<p class="result-tagline">' + result.tagline + '</p>';
-
-        if (fullResult) {
-          html += '<div class="result-section">';
-          html += '<div class="result-section-label">What this means</div>';
-          html += '<p>' + result.validation + '</p>';
-          html += '</div>';
-          html += '<div class="result-section">';
-          html += '<div class="result-section-label">How SuperDuper helps</div>';
-          html += '<p>' + result.pitch + '</p>';
-          html += '</div>';
-        } else {
-          html += '<div class="result-section">';
-          html += '<p>' + result.shortSummary + '</p>';
-          html += '</div>';
-          html += '<div class="result-short-note">';
-          html += '<p>Want the full breakdown?</p>';
-          html += '<button class="result-short-cta" id="result-unlock-full">Enter your email to unlock it</button>';
-          html += '</div>';
-        }
-
-        body.innerHTML = html;
-
-        // CTA block
-        var ctaContent = document.getElementById('results-cta-content');
-        if (emailCaptured) {
-          ctaContent.innerHTML = '<div class="results-waitlist-confirmed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg> You\'re on the waiting list!</div>';
-        } else {
-          ctaContent.innerHTML =
-            '<form class="results-cta-form" id="results-cta-form">' +
-            '<input type="email" class="results-cta-input" id="results-cta-email" placeholder="you@email.com" required />' +
-            '<button type="submit" class="results-cta-submit" id="results-cta-submit">Join the Waiting List</button>' +
-            '</form>' +
-            '<div class="results-cta-loading" id="results-cta-loading"><div class="spinner"></div> Joining...</div>' +
-            '<div class="results-cta-error" id="results-cta-error">' +
-            '<span class="results-cta-error-message" id="results-cta-error-message">Something went wrong.</span>' +
-            '<button type="button" class="results-cta-error-retry" id="results-cta-retry">Try again</button>' +
-            '</div>';
-
-          // Attach CTA form handler after rendering
-          setTimeout(attachResultsCTAHandler, 0);
-        }
-
-        // Share URLs
-        var shareUrl = 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + quizResult;
-        var shareText = result.shareText + ' ' + shareUrl;
-
-        document.getElementById('share-sms').href = 'sms:?&body=' + encodeURIComponent(shareText);
-        document.getElementById('share-whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
-        document.getElementById('share-linkedin').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl);
-
-        // Unlock full handler (for skip users)
-        if (!fullResult) {
-          setTimeout(function() {
-            var unlockBtn = document.getElementById('result-unlock-full');
-            if (unlockBtn) {
-              unlockBtn.addEventListener('click', function() {
-                // Scroll to CTA form and focus email input
-                var ctaEmail = document.getElementById('results-cta-email');
-                if (ctaEmail) {
-                  ctaEmail.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  setTimeout(function() { ctaEmail.focus(); }, 400);
-                }
-              });
-            }
-          }, 0);
-        }
-
-        showScreen('screen-results');
       }
 
-      function attachResultsCTAHandler() {
-        var form = document.getElementById('results-cta-form');
+      function attachEmailHandler() {
+        var form = document.getElementById('ctab-email-form');
         if (!form) return;
 
         form.addEventListener('submit', function(e) {
           e.preventDefault();
-          var emailInput = document.getElementById('results-cta-email');
-          var submitBtn = document.getElementById('results-cta-submit');
-          var loading = document.getElementById('results-cta-loading');
-          var errorEl = document.getElementById('results-cta-error');
-          var errorMsg = document.getElementById('results-cta-error-message');
+          var emailInput = document.getElementById('ctab-email');
+          var submitBtn = document.getElementById('ctab-submit');
+          var loading = document.getElementById('ctab-loading');
+          var errorEl = document.getElementById('ctab-error');
+          var errorMsg = document.getElementById('ctab-error-message');
+          var successEl = document.getElementById('ctab-success');
           var email = emailInput.value;
-
-          var now = Date.now();
-          var prev = localStorage.getItem('loops-form-timestamp');
-          if (prev && Number(prev) + 60000 > now) {
-            errorEl.style.display = 'flex';
-            errorMsg.textContent = 'Too many signups, please try again in a little while';
-            submitBtn.style.display = 'none';
-            emailInput.style.display = 'none';
-            return;
-          }
-          localStorage.setItem('loops-form-timestamp', now);
 
           submitBtn.style.display = 'none';
           emailInput.style.display = 'none';
           loading.style.display = 'flex';
+          errorEl.style.display = 'none';
 
-          var formBody = 'userGroup=&mailingLists=&email=' + encodeURIComponent(email) + '&quizResult=' + encodeURIComponent(quizResult) + '&joinedWaitlist=' + encodeURIComponent(new Date().toISOString());
-
-          fetch('https://app.loops.so/api/newsletter-form/cmkvrcj6o00lc0i1fhymv7jyi', {
-            method: 'POST',
-            body: formBody,
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-          })
-          .then(function(res) {
-            if (res.ok) {
-              emailCaptured = true;
-              try {
-                posthog.identify(email, { email: email });
-                posthog.capture('quiz_email_captured', { result: quizResult });
-              } catch(e) {}
-              loading.style.display = 'none';
-              var ctaContent = document.getElementById('results-cta-content');
-              ctaContent.innerHTML = '<div class="results-waitlist-confirmed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg> You\'re on the waiting list!</div>';
-              // Also show full results now
-              showResults(true);
-            } else {
-              return res.json().then(function(data) {
-                throw new Error(data.message || res.statusText);
-              });
-            }
-          })
-          .catch(function(err) {
+          submitEmail(email, function() {
+            loading.style.display = 'none';
+            successEl.style.display = 'flex';
+          }, function(msg) {
             loading.style.display = 'none';
             errorEl.style.display = 'flex';
-            errorMsg.textContent = err.message === 'Failed to fetch'
-              ? 'Too many signups, please try again in a little while'
-              : (err.message || 'Something went wrong. Please try again.');
-            localStorage.setItem('loops-form-timestamp', '');
+            errorMsg.textContent = msg;
           });
         });
 
-        var retryBtn = document.getElementById('results-cta-retry');
+        var retryBtn = document.getElementById('ctab-retry');
         if (retryBtn) {
           retryBtn.addEventListener('click', function() {
-            document.getElementById('results-cta-error').style.display = 'none';
-            document.getElementById('results-cta-email').style.display = '';
-            document.getElementById('results-cta-submit').style.display = '';
+            document.getElementById('ctab-error').style.display = 'none';
+            document.getElementById('ctab-email').style.display = '';
+            document.getElementById('ctab-submit').style.display = '';
           });
         }
       }
 
-      // Share handlers
+      /* ============================================
+         Share Handlers
+         ============================================ */
       document.getElementById('share-copy').addEventListener('click', function() {
         var shareUrl = 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + (quizResult || '');
         navigator.clipboard.writeText(shareUrl).then(function() {
@@ -1559,16 +1401,42 @@
         try { posthog.capture('quiz_result_shared', { channel: 'copy_link', result: quizResult }); } catch(e) {}
       });
 
+      document.getElementById('share-instagram').addEventListener('click', function() {
+        var shareUrl = 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + (quizResult || '');
+        navigator.clipboard.writeText(shareUrl).then(function() {
+          var btn = document.getElementById('share-instagram');
+          var span = btn.querySelector('span');
+          span.textContent = 'Link copied! Paste in Instagram';
+          setTimeout(function() { span.textContent = 'Instagram'; }, 3000);
+        });
+        try { posthog.capture('quiz_result_shared', { channel: 'instagram', result: quizResult }); } catch(e) {}
+      });
+
       document.getElementById('share-sms').addEventListener('click', function() {
         try { posthog.capture('quiz_result_shared', { channel: 'sms', result: quizResult }); } catch(e) {}
       });
 
-      document.getElementById('share-whatsapp').addEventListener('click', function() {
-        try { posthog.capture('quiz_result_shared', { channel: 'whatsapp', result: quizResult }); } catch(e) {}
-      });
-
       document.getElementById('share-linkedin').addEventListener('click', function() {
         try { posthog.capture('quiz_result_shared', { channel: 'linkedin', result: quizResult }); } catch(e) {}
+      });
+
+      // Share overlay on result card image
+      document.getElementById('rcard-share-btn').addEventListener('click', function() {
+        var shareUrl = 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + (quizResult || '');
+        if (navigator.share) {
+          navigator.share({
+            title: RESULTS[quizResult].title,
+            text: RESULTS[quizResult].shareText,
+            url: shareUrl
+          }).catch(function() {});
+        } else {
+          navigator.clipboard.writeText(shareUrl).then(function() {
+            var btn = document.getElementById('rcard-share-btn');
+            btn.style.background = '#4ade80';
+            setTimeout(function() { btn.style.background = ''; }, 1500);
+          });
+        }
+        try { posthog.capture('quiz_result_shared', { channel: 'share_overlay', result: quizResult }); } catch(e) {}
       });
 
       // Retake
