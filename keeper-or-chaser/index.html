@@ -1110,7 +1110,16 @@
             body: "Not to add another app to your list, but to actually take things off your plate. It finds the schedule changes, the deadlines, and the \u2018bring cleats Thursday\u2019 buried on page three, and for the first time, your partner sees the same picture you do.",
             headline: "Take your week back."
           },
-          shareText: "I\u2019m The Keeper. I know what every kid in my house is doing every day this week, and honestly, it\u2019s exhausting. Find out what kind of parent you are."
+          share: {
+            result: {
+              sms: "Ok this parenting quiz just called me out. Apparently I\u2019m \u201cThe Keeper\u201d \u2014 the one who tracks every practice, snack day, and permission slip in the house. It\u2019s 5 questions and brutally accurate. https://superduperlabs.com/keeper-or-chaser",
+              social: "Just took a 60-second parenting quiz and got \u201cThe Keeper\u201d \u2014 the parent who knows every kid\u2019s schedule, every deadline, every snack day. Painfully accurate. Are you a Keeper or a Chaser? https://superduperlabs.com/keeper-or-chaser"
+            },
+            challenge: {
+              sms: "Ok I just took this parenting quiz and I have thoughts about what you\u2019ll get. It\u2019s 5 questions. I dare you. https://superduperlabs.com/keeper-or-chaser",
+              social: "I just took this quiz on whether you\u2019re the parent who runs the schedule or the one who asks \u201cwhat time is that again?\u201d I have a strong prediction for you. 5 questions. https://superduperlabs.com/keeper-or-chaser"
+            }
+          }
         },
         chaser: {
           title: "You\u2019re The Chaser.",
@@ -1138,7 +1147,16 @@
             body: "The full picture, without having to ask for it. Same dashboard your partner sees. Same schedule, same deadlines, same \u2018don\u2019t forget the permission slip\u2019 alerts.",
             headline: "Get control of your week."
           },
-          shareText: "I\u2019m The Chaser. I show up. I just don\u2019t always know where I\u2019m supposed to be. Find out what kind of parent you are."
+          share: {
+            result: {
+              sms: "Ok this parenting quiz just called me out. Apparently I\u2019m \u201cThe Chaser\u201d \u2014 the parent who shows up but never has the details. 5 questions, brutally accurate. https://superduperlabs.com/keeper-or-chaser",
+              social: "Just took a 60-second parenting quiz and got \u201cThe Chaser\u201d \u2014 the parent who\u2019s always one text away from knowing what\u2019s going on. Painfully accurate. Are you a Keeper or a Chaser? https://superduperlabs.com/keeper-or-chaser"
+            },
+            challenge: {
+              sms: "Ok I just took this parenting quiz and honestly you should see what it says about you. 5 questions. I dare you. https://superduperlabs.com/keeper-or-chaser",
+              social: "I just took this quiz on whether you\u2019re the parent who runs the schedule or the one who asks \u201cwhat time is that again?\u201d I bet I can guess your result. 5 questions. https://superduperlabs.com/keeper-or-chaser"
+            }
+          }
         },
         hybrid: {
           title: "You\u2019re The Hybrid.",
@@ -1166,7 +1184,16 @@
             body: "It pulls everything into one place so you can stop splitting your brain between the things you track and the things you\u2019ve given up on.",
             headline: "Take your week back."
           },
-          shareText: "I\u2019m The Hybrid. Half Keeper, half Chaser, fully overwhelmed. Find out what kind of parent you are."
+          share: {
+            result: {
+              sms: "Ok this parenting quiz just called me out. Apparently I\u2019m \u201cThe Hybrid\u201d \u2014 half organized, half winging it, fully overwhelmed. 5 questions, brutally accurate. https://superduperlabs.com/keeper-or-chaser",
+              social: "Just took a 60-second parenting quiz and got \u201cThe Hybrid\u201d \u2014 half organized, half winging it, 100% overwhelmed. Painfully accurate. Are you a Keeper or a Chaser? https://superduperlabs.com/keeper-or-chaser"
+            },
+            challenge: {
+              sms: "Ok I just took this parenting quiz and I need to know what you get. 5 questions. No wrong answers. (Ok maybe one.) https://superduperlabs.com/keeper-or-chaser",
+              social: "I just took this quiz on whether you\u2019re the parent who runs the schedule or the one who asks \u201cwhat time is that again?\u201d I need to compare results. 5 questions. https://superduperlabs.com/keeper-or-chaser"
+            }
+          }
         }
       };
 
@@ -1504,43 +1531,50 @@
       /* ============================================
          Share Handlers
          ============================================ */
-      document.getElementById('share-copy').addEventListener('click', function() { doShare('link'); });
-      document.getElementById('share-instagram').addEventListener('click', function() { doShare('instagram'); });
-      document.getElementById('share-sms').addEventListener('click', function(e) { e.preventDefault(); doShare('text'); });
-      document.getElementById('share-linkedin').addEventListener('click', function(e) { e.preventDefault(); doShare('linkedin'); });
+      document.getElementById('share-copy').addEventListener('click', function() { doShare('link', 'challenge'); });
+      document.getElementById('share-instagram').addEventListener('click', function() { doShare('instagram', 'challenge'); });
+      document.getElementById('share-sms').addEventListener('click', function(e) { e.preventDefault(); doShare('text', 'challenge'); });
+      document.getElementById('share-linkedin').addEventListener('click', function(e) { e.preventDefault(); doShare('linkedin', 'challenge'); });
 
       // Share popup on result card image
-      function getShareUrl() {
-        return 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + (quizResult || '');
+      function getShareUrl(context) {
+        var source = context === 'challenge' ? 'quiz_challenge' : 'quiz_share';
+        return 'https://superduperlabs.com/keeper-or-chaser?utm_source=' + source + '&utm_content=' + (quizResult || '');
       }
 
-      function getShareText() {
-        return quizResult ? RESULTS[quizResult].shareText : '';
+      function getShareText(context, method) {
+        if (!quizResult) return '';
+        var share = RESULTS[quizResult].share;
+        var ctx = share[context];
+        return method === 'text' ? ctx.sms : ctx.social;
       }
 
-      function doShare(method) {
-        var url = getShareUrl();
-        var text = getShareText();
+      function doShare(method, context, triggerBtn) {
+        context = context || 'result';
+        var url = getShareUrl(context);
+        var text = getShareText(context, method);
         if (method === 'link') {
           navigator.clipboard.writeText(url).then(function() {
-            var btn = document.getElementById('share-copy');
+            var btn = triggerBtn || document.getElementById('share-copy');
             var span = btn.querySelector('span');
+            var orig = span.textContent;
             span.textContent = 'Copied!';
-            setTimeout(function() { span.textContent = 'Copy Link'; }, 2000);
+            setTimeout(function() { span.textContent = orig; }, 2000);
           });
         } else if (method === 'text') {
-          window.open('sms:?&body=' + encodeURIComponent(text + ' ' + url));
+          window.open('sms:?&body=' + encodeURIComponent(text));
         } else if (method === 'instagram') {
-          navigator.clipboard.writeText(text + ' ' + url).then(function() {
-            var btn = document.getElementById('share-instagram');
+          navigator.clipboard.writeText(text).then(function() {
+            var btn = triggerBtn || document.getElementById('share-instagram');
             var span = btn.querySelector('span');
+            var orig = span.textContent;
             span.textContent = 'Link copied! Paste in Instagram';
-            setTimeout(function() { span.textContent = 'Instagram'; }, 3000);
+            setTimeout(function() { span.textContent = orig; }, 3000);
           });
         } else if (method === 'linkedin') {
           window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url));
         }
-        try { posthog.capture('quiz_result_shared', { channel: method, result: quizResult }); } catch(e) {}
+        try { posthog.capture('quiz_result_shared', { channel: method, context: context, result: quizResult }); } catch(e) {}
       }
 
       // Build share popup items
@@ -1558,7 +1592,7 @@
           btn.innerHTML = item.icon + '<span>' + item.label + '</span>';
           btn.addEventListener('click', function(e) {
             e.stopPropagation();
-            doShare(item.method);
+            doShare(item.method, 'result', btn);
             popup.classList.remove('show');
           });
           popup.appendChild(btn);
