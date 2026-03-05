@@ -25,6 +25,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Onest:wght@300;400;500;600&family=Figtree:wght@500;600;700&display=swap" rel="stylesheet" />
 
+    <!-- Lite YouTube Embed -->
+    <link rel="stylesheet" href="/css/lite-youtube.css" />
+
     <!-- PostHog -->
     <script>
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init rs ls wi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile setInternalOrTestUser ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug M cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -533,6 +536,7 @@
         width: 100%;
         margin-bottom: 2rem;
         animation: fadeUp 0.6s ease 0.15s both;
+        text-align: center;
       }
 
       .ctab-eyebrow {
@@ -550,21 +554,13 @@
         line-height: 1.7;
         color: rgba(255, 255, 255, 0.75);
         max-width: 540px;
-        margin-bottom: 1.5rem;
+        margin: 0 auto 1.5rem;
       }
 
-      .ctab-video {
-        display: block;
-        width: 100%;
+      .ctab-yt {
         max-width: 480px;
+        margin: 0 auto 1.5rem;
         border-radius: 12px;
-        margin-bottom: 1.5rem;
-        cursor: pointer;
-        transition: opacity 0.2s ease;
-      }
-
-      .ctab-video:hover {
-        opacity: 0.9;
       }
 
       .ctab-headline {
@@ -577,6 +573,7 @@
         display: flex;
         gap: 0;
         max-width: 440px;
+        margin: 0 auto;
       }
 
       .ctab-input {
@@ -1266,7 +1263,7 @@
         var ctab = document.getElementById('ctab');
         var ctaHtml = '<p class="ctab-eyebrow">' + result.cta.eyebrow + '</p>';
         ctaHtml += '<p class="ctab-body">' + result.cta.body + '</p>';
-        ctaHtml += '<a href="https://www.youtube.com/watch?v=q_b60e1D79w" target="_blank" rel="noopener"><img class="ctab-video" src="https://img.youtube.com/vi/q_b60e1D79w/maxresdefault.jpg" alt="Watch SuperDuper demo" /></a>';
+        ctaHtml += '<div class="lite-yt ctab-yt" data-yt-id="q_b60e1D79w"><div class="lite-yt-thumb" role="button" aria-label="Play video" tabindex="0"><img src="https://i.ytimg.com/vi/q_b60e1D79w/maxresdefault.jpg" alt="Watch SuperDuper demo" /><span class="lite-yt-play"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></div></div>';
         ctaHtml += '<h2 class="ctab-headline">' + result.cta.headline + '</h2>';
         ctaHtml += '<div id="ctab-form-wrap">';
 
@@ -1288,10 +1285,11 @@
         ctaHtml += '</div>';
         ctab.innerHTML = ctaHtml;
 
-        // Attach email form handler
+        // Attach email form handler and re-init lite-yt for dynamic content
         if (!emailCaptured) {
           setTimeout(attachEmailHandler, 0);
         }
+        setTimeout(function() { if (window.liteYtInit) liteYtInit(); }, 0);
 
         // Share URLs
         var shareUrl = 'https://superduperlabs.com/keeper-or-chaser?utm_source=quiz_share&utm_content=' + quizResult;
@@ -1456,5 +1454,6 @@
         renderQuestion(0);
       });
     </script>
+    <script src="/js/lite-youtube.js"></script>
   </body>
 </html>

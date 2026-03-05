@@ -25,6 +25,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Onest:wght@300;400;500;600&family=Figtree:wght@500;600;700&display=swap" rel="stylesheet" />
 
+    <!-- Lite YouTube Embed -->
+    <link rel="stylesheet" href="/css/lite-youtube.css" />
+
     <!-- PostHog -->
     <script>
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init rs ls wi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile setInternalOrTestUser ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug M cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -379,61 +382,9 @@
         justify-content: center;
       }
 
-      .hero-media .video-wrapper {
-        position: relative;
-        width: 100%;
+      .hero-media .lite-yt {
         max-width: 480px;
-        padding-bottom: 56.25%; /* 16:9 */
-        border-radius: 16px;
-        overflow: hidden;
         box-shadow: 0 8px 32px rgba(10, 25, 48, 0.18);
-      }
-
-      .hero-media .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-      }
-
-      .video-thumb {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        background: #000;
-      }
-
-      .video-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .video-thumb-play {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 68px;
-        height: 48px;
-        pointer-events: none;
-      }
-
-      .video-thumb-play svg {
-        width: 100%;
-        height: 100%;
-        filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-        transition: transform 0.15s ease;
-      }
-
-      .video-thumb:hover .video-thumb-play svg {
-        transform: scale(1.08);
       }
 
       /* ============================================
@@ -1248,7 +1199,7 @@
           order: -1;
         }
 
-        .hero-media .video-wrapper {
+        .hero-media .lite-yt {
           max-width: 340px;
         }
 
@@ -1524,10 +1475,10 @@
           </div>
         </div>
         <div class="hero-media">
-          <div class="video-wrapper" id="hero-video-wrapper">
-            <div class="video-thumb" id="video-thumb" role="button" aria-label="Play video" tabindex="0">
+          <div class="lite-yt" data-yt-id="q_b60e1D79w">
+            <div class="lite-yt-thumb" role="button" aria-label="Play video" tabindex="0">
               <img src="https://i.ytimg.com/vi/q_b60e1D79w/maxresdefault.jpg" alt="SuperDuper demo video" />
-              <span class="video-thumb-play">
+              <span class="lite-yt-play">
                 <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
                   <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/>
                   <path d="M45 24 27 14v20" fill="#fff"/>
@@ -2166,28 +2117,7 @@
     })();
     </script>
 
-    <script>
-      // Lite YouTube embed — click thumbnail to load iframe
-      (function() {
-        var thumb = document.getElementById('video-thumb');
-        var wrapper = document.getElementById('hero-video-wrapper');
-        function activate() {
-          var iframe = document.createElement('iframe');
-          iframe.id = 'hero-video';
-          iframe.src = 'https://www.youtube-nocookie.com/embed/q_b60e1D79w?rel=0&autoplay=1&enablejsapi=1';
-          iframe.title = 'SuperDuper demo video';
-          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-          iframe.allowFullscreen = true;
-          iframe.style.border = '0';
-          wrapper.innerHTML = '';
-          wrapper.appendChild(iframe);
-        }
-        thumb.addEventListener('click', activate);
-        thumb.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
-        });
-      })();
-    </script>
+    <script src="/js/lite-youtube.js"></script>
 
     <!-- Konami Code Modal -->
     <div class="konami-modal" id="konami-modal">
