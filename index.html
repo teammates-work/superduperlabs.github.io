@@ -2170,7 +2170,9 @@
     })();
     </script>
 
-    <script src="/js/lite-youtube.js"></script>
+    <script>
+    (function(){function a(w){var id=w.getAttribute('data-yt-id');if(!id)return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1&enablejsapi=1';f.title='SuperDuper demo video';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;w.innerHTML='';w.appendChild(f)}function init(){document.querySelectorAll('.lite-yt[data-yt-id]').forEach(function(w){var t=w.querySelector('.lite-yt-thumb');if(!t)return;t.addEventListener('click',function(){a(w)});t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();a(w)}})})}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init)}else{init()}window.liteYtInit=init})();
+    </script>
 
     <!-- Konami Code Modal -->
     <div class="konami-modal" id="konami-modal">
