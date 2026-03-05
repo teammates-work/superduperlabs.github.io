@@ -43,6 +43,7 @@
         --navy: #1B1464;
         --magenta: #DD1C9D;
         --cyan: #00D0E7;
+        --pink: #E84F9A;
         --gradient-magenta: linear-gradient(135deg, #DD1C9D, #FF54C6);
         --gradient-cyan: linear-gradient(135deg, #00D0E7, #0077FF);
         --gradient-progress: linear-gradient(90deg, #DD1C9D, #0077FF);
@@ -671,52 +672,64 @@
         gap: 0;
         max-width: 440px;
         margin: 0 auto;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(232, 79, 154, 0.15);
       }
 
       .ctab-input {
         flex: 1;
-        padding: 0.8rem 1rem;
-        border: 2px solid rgba(255, 255, 255, 0.15);
+        padding: 0.9rem 1.2rem;
+        font-family: 'Onest', sans-serif;
+        font-size: 0.95rem;
+        border: none;
+        outline: none;
+        background: #ffffff;
+        color: var(--navy);
+        border: 1px solid var(--navy-15, rgba(27, 20, 100, 0.15));
         border-right: none;
         border-radius: 8px 0 0 8px;
-        font-family: 'Onest', system-ui, sans-serif;
-        font-size: 0.95rem;
-        color: #fff;
-        background: rgba(255, 255, 255, 0.08);
-        outline: none;
-        transition: border-color 0.2s ease;
       }
 
       .ctab-input::placeholder {
-        color: rgba(255, 255, 255, 0.4);
+        color: var(--navy-40, rgba(27, 20, 100, 0.4));
       }
 
       .ctab-input:focus {
-        border-color: var(--cyan);
+        border-color: var(--pink);
+        background: rgba(232, 79, 154, 0.03);
       }
 
       .ctab-submit {
-        font-family: 'Onest', system-ui, sans-serif;
-        background: var(--cyan);
-        color: var(--navy);
-        padding: 0.8rem 1.5rem;
-        border: 2px solid var(--cyan);
+        font-family: 'Onest', sans-serif;
+        background: var(--pink);
+        color: #ffffff;
+        padding: 0.9rem 1.6rem;
+        border: none;
         border-radius: 0 8px 8px 0;
         font-weight: 600;
         font-size: 0.9rem;
         cursor: pointer;
         white-space: nowrap;
-        transition: background 0.2s ease, border-color 0.2s ease;
+        transition: background 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
       }
 
       .ctab-submit:hover {
-        background: #00b8cc;
-        border-color: #00b8cc;
+        background: #d63e87;
       }
 
       .ctab-submit:disabled {
         opacity: 0.6;
         cursor: not-allowed;
+      }
+
+      .ctab-submit svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
       }
 
       .ctab-loading {
@@ -862,19 +875,25 @@
         .ctab-form {
           flex-direction: column;
           gap: 0.75rem;
+          border-radius: 0;
+          overflow: visible;
+          box-shadow: none;
         }
 
         .ctab-input {
-          border-right: 2px solid rgba(255, 255, 255, 0.15);
+          border-right: 1px solid var(--navy-15, rgba(27, 20, 100, 0.15));
           border-radius: 8px;
+          box-shadow: 0 4px 24px rgba(232, 79, 154, 0.15);
         }
 
         .ctab-input:focus {
-          border-color: var(--cyan);
+          border-color: var(--pink);
         }
 
         .ctab-submit {
           border-radius: 8px;
+          justify-content: center;
+          box-shadow: 0 4px 24px rgba(232, 79, 154, 0.15);
         }
 
         .share-buttons {
@@ -1369,8 +1388,8 @@
           ctaHtml += '<div class="ctab-success" style="display:flex;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" /></svg> You\u2019re on the list!</div>';
         } else {
           ctaHtml += '<form class="ctab-form" id="ctab-email-form">';
-          ctaHtml += '<input type="email" class="ctab-input" id="ctab-email" placeholder="you@email.com" required />';
-          ctaHtml += '<button type="submit" class="ctab-submit" id="ctab-submit">Join the Waiting List</button>';
+          ctaHtml += '<input type="email" class="ctab-input" id="ctab-email" placeholder="you@example.com" required />';
+          ctaHtml += '<button type="submit" class="ctab-submit" id="ctab-submit">Join Waitlist <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></button>';
           ctaHtml += '</form>';
           ctaHtml += '<div class="ctab-loading" id="ctab-loading"><div class="spinner"></div> Joining...</div>';
           ctaHtml += '<div class="ctab-error" id="ctab-error">';
