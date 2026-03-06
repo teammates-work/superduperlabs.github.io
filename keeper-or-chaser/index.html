@@ -526,6 +526,36 @@
         color: #6B7280;
       }
 
+      .avatar-toggle {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+        gap: 4px;
+      }
+
+      .avatar-toggle-btn {
+        padding: 4px 10px;
+        font-family: 'Onest', sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        color: #fff;
+        background: rgba(27, 20, 100, 0.5);
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        backdrop-filter: blur(4px);
+        transition: all 0.2s ease;
+      }
+
+      .avatar-toggle-btn:hover {
+        background: rgba(27, 20, 100, 0.7);
+      }
+
+      .avatar-toggle-btn.active {
+        background: rgba(221, 28, 157, 0.85);
+      }
+
       .rcard-copy {
         flex: 1;
         padding: 2rem 1.75rem;
@@ -919,7 +949,8 @@
       <h1 class="intro-title">Answer 5 Questions To Learn What Kind of Parent You Are</h1>
       <button class="btn-quiz" id="btn-start">Take the Quiz</button>
       <p class="intro-note">No signup required</p>
-      <p style="margin-top:3rem;font-size:0.7rem;color:rgba(27,20,100,0.25);">Jump to results: <a href="#" onclick="event.preventDefault();state.answers=[0,0,0,0,0];showGenderScreen();" style="color:inherit;">Keeper</a> | <a href="#" onclick="event.preventDefault();state.answers=[2,2,2,2,2];showGenderScreen();" style="color:inherit;">Chaser</a> | <a href="#" onclick="event.preventDefault();state.answers=[1,1,1,1,1];showGenderScreen();" style="color:inherit;">Hybrid</a></p>
+      <p style="margin-top:3rem;font-size:0.7rem;color:rgba(27,20,100,0.25);">Jump to results: <a href="#" onclick="event.preventDefault();state.answers=[0,0,0,0,0];showGenderScreen();" style="color:inherit;">Keeper</a> | <a href="#" onclick="event.preventDefault();state.answers=[2,2,2,2,2];showGenderScreen();" style="color:inherit;">Chaser</a> | <a href="#" onclick="event.preventDefault();state.answers=[1,1,1,1,1];showGenderScreen();" style="color:inherit;">Hybrid</a>
+</p>
     </div>
 
     <div id="screen-quiz" class="screen">
@@ -957,6 +988,11 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
           </button>
           <div class="share-popup" id="share-popup"></div>
+          <div class="avatar-toggle" id="avatar-toggle">
+            <button class="avatar-toggle-btn active" data-gender="woman">Woman</button>
+            <button class="avatar-toggle-btn" data-gender="man">Man</button>
+            <button class="avatar-toggle-btn" data-gender="nonbinary">Non-binary</button>
+          </div>
         </div>
         <div class="rcard-copy" id="rcard-copy">
         </div>
@@ -1353,14 +1389,17 @@
          ============================================ */
       function showGenderScreen() {
         quizResult = calculateResult();
+        state.gender = 'woman';
         try { posthog.capture('quiz_completed', { result: quizResult, scores: state.scores }); } catch(e) {}
-        showScreen('screen-gender');
+        showResults();
       }
 
-      document.querySelectorAll('.gender-btn').forEach(function(btn) {
+      document.querySelectorAll('.avatar-toggle-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
           state.gender = this.getAttribute('data-gender');
-          try { posthog.capture('quiz_gender_selected', { gender: state.gender, result: quizResult }); } catch(e) {}
+          document.querySelectorAll('.avatar-toggle-btn').forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          try { posthog.capture('quiz_avatar_switched', { gender: state.gender, result: quizResult }); } catch(e) {}
           showResults();
         });
       });
@@ -1386,6 +1425,11 @@
         var result = RESULTS[quizResult];
         var genderKey = getGenderKey();
         var imageKey = getImageKey();
+
+        // Sync avatar toggle
+        document.querySelectorAll('.avatar-toggle-btn').forEach(function(b) {
+          b.classList.toggle('active', b.getAttribute('data-gender') === state.gender);
+        });
 
         // Persona image
         var img = document.getElementById('rcard-persona-img');
