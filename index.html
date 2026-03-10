@@ -1086,6 +1086,85 @@
       }
 
       /* ============================================
+         Testimonials Section
+         ============================================ */
+      .testimonials-section {
+        background: #ffffff;
+        padding: 6rem 0;
+      }
+
+      .testimonials-label {
+        display: block;
+        text-align: center;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 2.5rem;
+      }
+
+      .testimonials-track {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 0.5rem 0 2rem;
+        padding-left: max(1.5rem, calc((100% - 1120px) / 2));
+        padding-right: 1.5rem;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .testimonials-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .testimonial-card {
+        flex: 0 0 320px;
+        background: #ffffff;
+        border: 1px solid var(--navy-08);
+        border-radius: 20px;
+        padding: 2rem 1.75rem;
+        box-shadow: 0 2px 12px rgba(27, 20, 100, 0.06);
+        scroll-snap-align: start;
+      }
+
+      .testimonial-card .quote-mark {
+        font-family: 'Fraunces', serif;
+        font-size: 3.5rem;
+        line-height: 1;
+        color: rgba(232, 79, 154, 0.35);
+        margin-bottom: -0.5rem;
+        display: block;
+      }
+
+      .testimonial-card .quote-text {
+        font-family: 'Onest', sans-serif;
+        font-size: 0.95rem;
+        color: var(--navy-90);
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+
+      .testimonial-card .attribution {
+        border-top: 1px solid var(--navy-08);
+        padding-top: 1rem;
+      }
+
+      .testimonial-card .attribution .name {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--navy);
+      }
+
+      .testimonial-card .attribution .role {
+        font-size: 0.8rem;
+        color: var(--navy-50);
+      }
+
+      /* ============================================
          Final CTA Section
          ============================================ */
       .final-cta {
@@ -1338,6 +1417,14 @@
           grid-template-columns: 1fr;
           gap: 2rem;
         }
+
+        .testimonials-section {
+          padding: 4rem 0;
+        }
+
+        .testimonial-card {
+          flex: 0 0 280px;
+        }
       }
 
       @media (max-width: 480px) {
@@ -1381,6 +1468,16 @@
 
         .persona-convo-bubble p {
           font-size: 0.875rem;
+        }
+
+        .testimonial-card {
+          flex: 0 0 260px;
+          padding: 1.5rem 1.25rem;
+        }
+
+        .testimonials-track {
+          padding-left: 1.25rem;
+          padding-right: 1rem;
         }
 
       }
@@ -1836,6 +1933,47 @@
           <div class="privacy-footer">
             <p>No human at SuperDuper can access your inbox.</p>
             <a href="/privacy.html">How we securely handle email &mdash; the full breakdown &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <span class="testimonials-label fade-in">What Parents Are Saying</span>
+      </div>
+      <div class="testimonials-track fade-in">
+        <div class="testimonial-card">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">I get all the theater rehearsal emails and my husband gets all the fencing ones. For the first time ever, we BOTH know what's going on.</p>
+          <div class="attribution">
+            <div class="name">Sarah M.</div>
+            <div class="role">Mother of 3</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">I never check my email at work, so when SuperDuper alerted me that soccer practice was rained out, I was so relieved I didn't drive across town for nothing.</p>
+          <div class="attribution">
+            <div class="name">Marcus T.</div>
+            <div class="role">Father of 2</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">OMG SuperDuper read the 80-row spreadsheet with her basketball tournament schedule and turned it into a bracket. I'm still in shock.</p>
+          <div class="attribution">
+            <div class="name">Priya K.</div>
+            <div class="role">Mother of 1</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">We got a confirmation email about our trip to France and SuperDuper added a reminder to check the kids' passports. And one was expired! Saved our vacation.</p>
+          <div class="attribution">
+            <div class="name">David L.</div>
+            <div class="role">Father of 3</div>
           </div>
         </div>
       </div>
