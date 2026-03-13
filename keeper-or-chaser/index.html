@@ -1493,7 +1493,8 @@
         var now = Date.now();
         var prev = localStorage.getItem('loops-form-timestamp');
         if (prev && Number(prev) + 60000 > now) {
-          onError('Too many signups, please try again in a little while');
+          try { posthog.capture('quiz_email_error', { reason: 'client_rate_limit', email: email }); } catch(e) {}
+          onError('You already signed up — check your inbox!');
           return;
         }
         localStorage.setItem('loops-form-timestamp', now);
@@ -1523,11 +1524,14 @@
           }
         })
         .catch(function(err) {
-          var msg = err.message === 'Failed to fetch'
-            ? 'Too many signups, please try again in a little while'
-            : (err.message || 'Something went wrong. Please try again.');
           localStorage.setItem('loops-form-timestamp', '');
-          onError(msg);
+          if (err.message === 'Failed to fetch') {
+            try { posthog.capture('quiz_email_error', { reason: 'network_failure', email: email }); } catch(e) {}
+            onError('Unable to connect — if you\'re using an ad blocker, try disabling it and submitting again.');
+          } else {
+            try { posthog.capture('quiz_email_error', { reason: 'api_error', email: email, detail: err.message }); } catch(e) {}
+            onError(err.message || 'Something went wrong. Please try again.');
+          }
         });
       }
 
@@ -1563,6 +1567,7 @@
         var retryBtn = document.getElementById('ctab-retry');
         if (retryBtn) {
           retryBtn.addEventListener('click', function() {
+            try { posthog.capture('quiz_email_retry'); } catch(e) {}
             document.getElementById('ctab-error').style.display = 'none';
             document.getElementById('ctab-email').style.display = '';
             document.getElementById('ctab-submit').style.display = '';
