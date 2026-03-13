@@ -2063,20 +2063,22 @@
       var submitButton = container.querySelector(".newsletter-form-button");
       var loadingButton = container.querySelector(".newsletter-loading-button");
 
-      const rateLimit = () => {
+      const showError = (msg) => {
         errorContainer.style.display = "flex";
-        errorMessage.innerText = "Too many signups, please try again in a little while";
+        errorMessage.innerText = msg;
         submitButton.style.display = "none";
         formInput.style.display = "none";
         backButton.style.display = "block";
       }
 
+      var email = formInput.value;
       var time = new Date();
       var timestamp = time.valueOf();
       var previousTimestamp = localStorage.getItem("loops-form-timestamp");
 
       if (previousTimestamp && Number(previousTimestamp) + 60000 > timestamp) {
-        rateLimit();
+        try { posthog.capture('waitlist_email_error', { reason: 'client_rate_limit', email: email }); } catch(e) {}
+        showError('You already signed up — check your inbox!');
         return;
       }
       localStorage.setItem("loops-form-timestamp", timestamp);
@@ -2084,7 +2086,7 @@
       submitButton.style.display = "none";
       loadingButton.style.display = "flex";
 
-      var formBody = "userGroup=&mailingLists=&email=" + encodeURIComponent(formInput.value) + "&joinedWaitlist=" + encodeURIComponent(new Date().toISOString());
+      var formBody = "userGroup=&mailingLists=&email=" + encodeURIComponent(email) + "&joinedWaitlist=" + encodeURIComponent(new Date().toISOString());
 
       fetch(event.target.action, {
         method: "POST",
@@ -2096,27 +2098,25 @@
         .then((res) => [res.ok, res.json(), res])
         .then(([ok, dataPromise, res]) => {
           if (ok) {
-            var email = formInput.value;
             try { posthog.identify(email, { email: email }); } catch(e) {}
             success.style.display = "flex";
             form.reset();
           } else {
             dataPromise.then(data => {
-              errorContainer.style.display = "flex";
-              errorMessage.innerText = data.message ? data.message : res.statusText;
-              backButton.style.display = "block";
+              try { posthog.capture('waitlist_email_error', { reason: 'api_error', email: email, detail: data.message || res.statusText }); } catch(e) {}
+              showError(data.message ? data.message : res.statusText);
             });
           }
         })
         .catch(error => {
+          localStorage.setItem("loops-form-timestamp", '');
           if (error.message === "Failed to fetch") {
-            rateLimit();
+            try { posthog.capture('waitlist_email_error', { reason: 'network_failure', email: email }); } catch(e) {}
+            showError('Unable to connect — if you\'re using an ad blocker, try disabling it and submitting again.');
             return;
           }
-          errorContainer.style.display = "flex";
-          if (error.message) errorMessage.innerText = error.message;
-          backButton.style.display = "block";
-          localStorage.setItem("loops-form-timestamp", '');
+          try { posthog.capture('waitlist_email_error', { reason: 'api_error', email: email, detail: error.message }); } catch(e) {}
+          showError(error.message || 'Something went wrong. Please try again.');
         })
         .finally(() => {
           formInput.style.display = "none";
@@ -2125,6 +2125,7 @@
     }
 
     function resetFormHandler(event) {
+      try { posthog.capture('waitlist_email_retry'); } catch(e) {}
       var container = event.target.parentNode;
       var formInput = container.querySelector(".newsletter-form-input");
       var success = container.querySelector(".newsletter-success");
