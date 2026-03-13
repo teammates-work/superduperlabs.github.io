@@ -2072,16 +2072,20 @@
       }
 
       var email = formInput.value;
-      var time = new Date();
-      var timestamp = time.valueOf();
-      var previousTimestamp = localStorage.getItem("loops-form-timestamp");
+      var now = Date.now();
+      var rate = JSON.parse(localStorage.getItem('loops-form-rate') || '{}');
 
-      if (previousTimestamp && Number(previousTimestamp) + 60000 > timestamp) {
+      if (rate.count >= 3 && rate.start && rate.start + 60000 > now) {
         try { posthog.capture('waitlist_email_error', { reason: 'client_rate_limit', email: email }); } catch(e) {}
         showError('You already signed up — check your inbox!');
         return;
       }
-      localStorage.setItem("loops-form-timestamp", timestamp);
+      if (!rate.start || rate.start + 60000 <= now) {
+        rate = { count: 1, start: now };
+      } else {
+        rate.count = (rate.count || 0) + 1;
+      }
+      localStorage.setItem('loops-form-rate', JSON.stringify(rate));
 
       submitButton.style.display = "none";
       loadingButton.style.display = "flex";
@@ -2109,7 +2113,9 @@
           }
         })
         .catch(error => {
-          localStorage.setItem("loops-form-timestamp", '');
+          var r = JSON.parse(localStorage.getItem('loops-form-rate') || '{}');
+          r.count = Math.max(0, (r.count || 0) - 1);
+          localStorage.setItem('loops-form-rate', JSON.stringify(r));
           if (error.message === "Failed to fetch") {
             try { posthog.capture('waitlist_email_error', { reason: 'network_failure', email: email }); } catch(e) {}
             showError('Unable to connect — if you\'re using an ad blocker, try disabling it and submitting again.');

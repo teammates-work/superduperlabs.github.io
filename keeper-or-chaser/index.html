@@ -1491,13 +1491,18 @@
          ============================================ */
       function submitEmail(email, onSuccess, onError) {
         var now = Date.now();
-        var prev = localStorage.getItem('loops-form-timestamp');
-        if (prev && Number(prev) + 60000 > now) {
+        var rate = JSON.parse(localStorage.getItem('loops-form-rate') || '{}');
+        if (rate.count >= 3 && rate.start && rate.start + 60000 > now) {
           try { posthog.capture('quiz_email_error', { reason: 'client_rate_limit', email: email }); } catch(e) {}
           onError('You already signed up — check your inbox!');
           return;
         }
-        localStorage.setItem('loops-form-timestamp', now);
+        if (!rate.start || rate.start + 60000 <= now) {
+          rate = { count: 1, start: now };
+        } else {
+          rate.count = (rate.count || 0) + 1;
+        }
+        localStorage.setItem('loops-form-rate', JSON.stringify(rate));
 
         var formBody = 'userGroup=&mailingLists=&email=' + encodeURIComponent(email) +
           '&quizResult=' + encodeURIComponent(quizResult) +
@@ -1524,7 +1529,9 @@
           }
         })
         .catch(function(err) {
-          localStorage.setItem('loops-form-timestamp', '');
+          var r = JSON.parse(localStorage.getItem('loops-form-rate') || '{}');
+          r.count = Math.max(0, (r.count || 0) - 1);
+          localStorage.setItem('loops-form-rate', JSON.stringify(r));
           if (err.message === 'Failed to fetch') {
             try { posthog.capture('quiz_email_error', { reason: 'network_failure', email: email }); } catch(e) {}
             onError('Unable to connect — if you\'re using an ad blocker, try disabling it and submitting again.');
